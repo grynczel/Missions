@@ -76,17 +76,14 @@ La profondeur est le nombre de parents qu’un noeud comporte. La racine est don
 
 C'est le parcours "inorder traversal" d'un arbre binaire qui permet de parcourir l'arbre dans le bon sens. Voir figure \ref{inorder}
 
-
-%Quelqu'un comprend mon bug?? 
-
-%\begin{lstlisting}[language=Java]
-%public String toString(){
-%if ( T.isExternal(v) )
-%	return v.getElement().toString();
-%else
-%	return "("+ v.left() + v.getElement() + v.right() +”)";
-%}
-%\end{lstlisting}
+\begin{lstlisting}[language=Java]
+public String toString(){
+if ( T.isExternal(v) )
+	return v.getElement().toString();
+else
+	return "("+ v.left() + v.getElement() + v.right() +")";
+}
+\end{lstlisting}
 
 \paragraph{Question 9}
 
