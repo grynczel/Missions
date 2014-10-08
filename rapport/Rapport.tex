@@ -45,7 +45,7 @@
 }
 \title{Algorithmique et structures de données : Mission 2 (produit)}
 \date{07 octobre 2014}
-\author{Ivan Ahad - Jérôme Bertaux - Rodolphe Cambier \\ 
+\author{Groupe 1.2: Ivan Ahad - Jérôme Bertaux - Rodolphe Cambier \\ 
 	Baptiste Degryse - Wojciech Grynczel - Charles Jaquet}
 
 \begin{document}
@@ -60,6 +60,15 @@ La profondeur est le nombre de parents qu’un noeud comporte. La racine est don
 \paragraph{Question 4}
 
 \paragraph{Question 5}
+
+Oui, ce cas peut poser problème pour parcourir l'arbre binaire.
+
+Dans le cas où l'on voudrait, par exemple, parcourir tous les noeuds de l'arbre situés à un même niveau, ne pas avoir la possibilité de remonter peut poser problème et ralentir fortement le processus.
+
+Pour réaliser la méthode parent, on peut faire comme suit: Garder le pointeur sur le noeud dont on veut le parent.
+Vérifier si ce noeud n'est pas le root, auquel cas on retourne null.
+Parcourir l'arbre noeud par noeud, en vérifiant pour chacun si un de ses fils n'est pas le noeud dont on cherche le parent. 
+On finit donc par trouver le parent du noeud de départ.Puisqu'il faut, au pire, parcourir tout l'arbre pour trouver le père, on a une complexité en O(n).
 
 \paragraph{Question 6}
 
