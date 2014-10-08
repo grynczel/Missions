@@ -61,9 +61,7 @@ La profondeur est le nombre de parents qu’un noeud comporte. La racine est don
 
 \paragraph{Question 5}
 
-Oui, ce cas peut poser problème pour parcourir l'arbre binaire.
-
-Dans le cas où l'on voudrait, par exemple, parcourir tous les noeuds de l'arbre situés à un même niveau, ne pas avoir la possibilité de remonter peut poser problème et ralentir fortement le processus.
+Dans la majorité des cas de parcours, cela ne pose pas de problème, car on parcours l'arbre depuis la racine jusqu'aux feuilles. Cela peut cependant être handicapant dans certaines situations. Dans le cas où l'on voudrait, par exemple, parcourir tous les noeuds de l'arbre situés à un même niveau, ne pas avoir la possibilité de remonter peut poser problème et ralentir fortement le processus.
 
 Pour réaliser la méthode parent, on peut faire comme suit: Garder le pointeur sur le noeud dont on veut le parent.
 Vérifier si ce noeud n'est pas le root, auquel cas on retourne null.
