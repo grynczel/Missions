@@ -1,0 +1,16 @@
+/Add.class
+/BoolTok.class
+/Div.class
+/Eq.class
+/Expression.class
+/Interpreter.class
+/InterpreterException.class
+/LStack$Node.class
+/LStack.class
+/Main.class
+/Mul.class
+/Ne.class
+/Number.class
+/ReadWrite.class
+/Sub.class
+/Variable.class

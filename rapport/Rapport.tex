@@ -5,6 +5,7 @@
 \usepackage{fancyhdr}
 \usepackage{lscape}
 \usepackage{color}
+\usepackage{qtree}
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
@@ -72,7 +73,36 @@ On finit donc par trouver le parent du noeud de départ.Puisqu'il faut, au pire,
 
 \paragraph{Question 6}
 
-\paragraph{Question 7}
+\paragraph{Question 7\\	Une expression arithmétique peut contenir les quatre opérateurs fondamentaux
+	$ +,-,*,/ $ et des scalaires, comme par exemple : $ 3 * 10 - 2/4 $. Une expression
+	analytique, telle que $ x^{2}+x$ $ sin $ $ x-3 $ peut contenir également des variables $ x,y,... $ ,
+	d’autres opérateurs comme la fonction puissance entière $ ˆ $ ou d’autres fonctions
+	mathématiques comme $ sin $ ou $ cos $.\\}
+
+	\textbf{
+	Une expression arithmétique peut être représentée par un arbre.
+	Quelles sont les caractéristiques de cet arbre ?\\}
+Arbre binaire est un arbre avec une racine, et où chacun des nœuds possède : 
+\begin{itemize}
+	\item soit aucun successeur, 
+	\item soit un successeur, à gauche ou à droite, 
+	\item soit deux successeurs. 
+\end{itemize}
+
+\textbf{Pourquoi cette représentation est-elle utile ?}\\
+//TODO
+ Techniques for parsing the common infix notation (where the operator is typically between two operands) and converting it into a binary tree are well known. Expressions are converted into binary trees, where unary operators (i.e., the unary minus or the sine function) are converted into degenerate nodes in the binary trees, with a single son. See Fig. 1 for the arithmetic expression of sin .
+\textbf{Citez deux exemples de manipulation d’une expression arithmétique et exprimez comment ces manipulations sont mise en oeuvre à l’aide de cette représentation + Exemple !!!!!!!.}
+
+\[ ((1+2)*(3-4)) \]
+\Tree[.* [.+ [.1 ][.2 ]][.- [.3 ][.4 ]]]
+
+\[ (3+(4*5)) \]
+\Tree[.+ [.3 ][.* [.4 ][.5 ]]]
+
+\textbf{Quelles sont les caractéristiques supplémentaires pour un arbre représentant une expression analytique ?.}\\
+Une expression analytique peut contenir des opérations unaires, par exemple : \\
+\Tree[.+ [.log [.y ]][./ [.x ][.1.2 ]]]
 
 \paragraph{Question 8}
 \begin{figure}
