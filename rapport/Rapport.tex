@@ -17,6 +17,7 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\usepackage[final]{pdfpages} 
  
  \lstdefinestyle{mystyle}{
  	backgroundcolor=\color{backcolour},   
@@ -83,7 +84,12 @@ Vérifier si ce noeud n'est pas le root, auquel cas on retourne null.
 Parcourir l'arbre noeud par noeud, en vérifiant pour chacun si un de ses fils n'est pas le noeud dont on cherche le parent. 
 On finit donc par trouver le parent du noeud de départ.Puisqu'il faut, au pire, parcourir tout l'arbre pour trouver le père, on a une complexité en O(n).
 
-\paragraph{Question 6}
+\paragraph{Question 6 (Charles Jacquet)}
+
+
+Définition de la classe LinkedRBinaryTree qui implémente l'interface RBinaryTree:
+
+\includepdf[pages=1-4]{LinkedBinaryTree.pdf}
 
 \paragraph{Question 7\\	Une expression arithmétique peut contenir les quatre opérateurs fondamentaux
 	$ +,-,*,/ $ et des scalaires, comme par exemple : $ 3 * 10 - 2/4 $. Une expression
