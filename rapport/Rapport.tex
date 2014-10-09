@@ -62,6 +62,18 @@ La profondeur est le nombre de parents qu’un noeud comporte. La racine est don
 
 \paragraph{Question 4}
 
+Une implémentation d’un arbre par une structure chaînée signifie que pour réaliser l’arbre on utilise une structure chaînée. C’est-à-dire que chaque noeud de l’arbre contient une référence vers son noeud parent, vers son noeud enfant de gauche et vers son noeud enfant de droite en plus de contenir l’élément. L’arbre contient la référence du noeud racine de l’arbre et la taille ce celui-ci. 
+
+Cette notion de structure chaînée est plus générale qu’une liste chaînée car chaque noeud de l’arbre contient plus d’une référence. Dans un arbre à partir d’un noeud il est toujours possible de remonter vers le noeud parent ou alors descendre vers un des noeuds enfants alors que dans une liste chaînée on ne peut que se déplacer vers le noeud suivant. Donc la recherche d’un noeud s’effectue plus rapidement dans un arbre en structure chaînée.
+
+Les points communs entre liste et structure chaînée :
+
+- L’objet général (Arbre et liste) contiennent tous les deux la taille et une référence vers le noeud racine.
+
+- Dans les deux implémentations les noeuds contiennent au minimum une référence vers un autre noeud.
+
+La classe qui implémente un arbre par une structure chaînée est LinkedBinaryTree (DSAJ-6 page 297). Il est possible d’utiliser une implémentation utilisant une liste chaînée seulement si on utilise une liste double chaînée.
+
 \paragraph{Question 5}
 
 Dans la majorité des cas de parcours, cela ne pose pas de problème, car on parcours l'arbre depuis la racine jusqu'aux feuilles. Cela peut cependant être handicapant dans certaines situations. Dans le cas où l'on voudrait, par exemple, parcourir tous les noeuds de l'arbre situés à un même niveau, ne pas avoir la possibilité de remonter peut poser problème et ralentir fortement le processus.
