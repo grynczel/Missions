@@ -57,9 +57,67 @@
 \paragraph{Question 1}
 La profondeur est le nombre de parents qu’un noeud comporte. La racine est donc de profondeur 0, et ses enfants sont de profondeur 1. La hauteur est le nombre maximum de générations en dessous du noeud. Une feuille a une hauteur de 0, et les autre noeuds ont la hauteur de leur enfant le plus haut+1. Le niveau n est l’ensemble des nœuds de profondeur n. Ces notions ne dépendent pas du style d’arbre, elles s'appliquent aux arbres en général car il suffit d’avoir la notion de racine, feuille, enfant et parent pour pouvoir appliquer ces définitions. Ces notions ne dépendent pas de la structure de données utilisée car la représentation ne dépend pas de l’implémentation.
 
+
 \paragraph{Question 2}
 
+\paragraph*{Un arbre dont chaque noeud possède au plus deux noeuds est-il nécessairement binaire?}
+
+Un arbre binaire se définit comme étant un arbre possédant au plus deux fils par noeud. Ceci étant dit, un arbre dont chaque noeud possède au plus deux fils est donc nécessairement un arbre binaire, tan qu'aucun noeud n'ait plus de deux fils.  \\
+
+\paragraph{Qu’entend-on par arbre ordonné?}
+
+On dit qu'un arbre est ordonné si les enfants de chaque noeud sont ordonnés.Il existe trois types d'ordres dans les arbres : \\
+
+-Ordre préfixe : Un arbre ordonné suivant l'ordre préfixe est un arbre dont la racine précède l'enfant de gauche, et l'enfant de gauche précède l'enfant de droite.  \\
+
+-Ordre infixe : Un arbre ordonné suivant l'ordre infixe est un arbre dont l'enfant gauche précède la racine, et la racine précède l'enfant de droite.  \\
+
+-Ordre postfixe : Un arbre ordonné suivant l'ordre postfixe est un arbre dont l'enfant de gauche précède l'enfant de droite, et l'enfant de droite précède la racine.   \\
+\paragraph{L'ordre dépend-il des valeurs mémorisées dans l'arbre?}
+
+
+Si l'on parle de l'ordre des éléments contenus dans un arbre alors l'ordre dépend en effet des valeurs mémorisées dans celui-ci. Cependant, si l'on parle de la manière dont on parcourt un arbre, cela ne dépendra pas des valeurs mémorisées.  \\
+
+Exemple : Si l'arbre suit un ordre infixe, l'élément de la racine sera plus petit que l'élément du fils gauche, celui-ci étant plus petit que le fils droit, mais on pourrait très bien parcourir l'arbre en postorder traversal, c'est à dire parcourir l'arbre en commençant par l'enfant gauche, puis l'enfant droite, puis par la racine. 
+
+\paragraph{Un arbre binaire impropre est-il désordonné?}
+
+Un arbre binaire propre est un arbre dont tous les noeuds internes ont soit aucun ou soit deux enfants chacun. Ceci étant dit, un arbre impropre est un arbre qui possède au moins un noeud n'ayant pas exactement deux fils.\\
+
+Cependant, un arbre est binaire si et seulement s'il est ordonné et si chaque noeud possède au plus deux fils. Dès lors, un arbre binaire impropre sera d'office ordonné de par le fait qu'il est binaire, peu importe qu'il soit propre ou impropre. 
+\\
+
+\paragraph{Y a-t-il une structure de données particulièrement bien adaptée à ce cas?}
+
+Si la profondeur maximale de l'arbre est connue et fixée, les structures chainées sont adaptées pour représenter un arbre. Les nodes de la structure chainée peuvent aisément représenter la racine et les enfants d'un arbre, en contenant leur élément, une référence vers leurs enfants, et une référence vers leur parent. \\
+
+Cela ne dépend pas du fait que l'arbre soit binaire ou non car on peut adapter les nodes de la structure chainée si chaque noeud de l'arbre possède plus de deux enfants. C'est pourquoi les structures chainées sont bien adaptées, car elles sont modulables en fonction du degré de chaque noeud de l'arbre. Cela ne dépend pas non plus des opérations effectuées sur l'arbre car les structures chainées peuvent être adaptées selon les opérations effectuées.
+
 \paragraph{Question 3}
+
+\paragraph{Qu'est-ce qu'un arbre équilibré?}
+
+
+Un arbre est équilibré si la différence des hauteurs de chaque sous-arbre gauche et droite de chaque noeud est au plus un.
+
+\paragraph{Un arbre binaire équilibré est-il nécessairement propre?}
+
+Un arbre binaire équilibré n'est pas nécessairement propre. Prenons un arbre dont la racine possède deux enfants, l'enfant de gauche possède un enfant et l'enfant de droite possède deux enfants. Dû au fait que l'enfant de gauche n'ait qu'un enfant, cet arbre est impropre, et l'arbre reste équilibré. \\
+
+\paragraph{Comment définir un arbre binaire essentiellement complet?}
+
+Un arbre essentiellement complet est un arbre dont tous les noeuds internes ont exactement deux enfants. On utilise le terme "essentiellement" car tous les noeuds ont exactement deux enfants, sauf les noeuds ayant une hauteur de zéro, soit les noeuds les plus profonds. Ces noeuds, appelés "feuilles" n'ont pas d'enfant. \\
+
+\paragraph{Un arbre complet est-il toujours équilibré?}
+
+
+Un arbre complet implique que tous les enfants d'un même parent ont la même hauteur. Dès lors, la différence des hauteurs d'enfants ayant le même parent sera toujours égale à 0, donc un arbre complet est toujours équilibré. \\
+
+\paragraph{Un arbre équilibré est-il toujours complet?}
+
+
+Un arbre équilibré peut ne pas être complet. Reprenons l'arbre décrit précédemment. L'enfant gauche possède un enfant, et l'enfant droite possède deux enfants. Cet arbre est équilibré mais n'est pas complet car l'enfant de gauche n'a qu'un seul enfant. 
+
 
 \paragraph{Question 4}
 
