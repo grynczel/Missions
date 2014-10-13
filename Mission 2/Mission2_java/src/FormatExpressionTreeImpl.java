@@ -1,7 +1,11 @@
 
 public class FormatExpressionTreeImpl implements FormalExpressionTree{
-
-	public FormatExpressionTreeImpl() {
+	
+	/**
+	 * @author Grynczel Wojciech
+	 */
+	
+	public FormatExpressionTreeImpl(String s) {
 		// TODO Auto-generated constructor stub
 	}
 

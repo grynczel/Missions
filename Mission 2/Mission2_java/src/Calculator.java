@@ -1,5 +1,9 @@
 import java.util.Map;
 
+/**
+ * @author Grynczel Wojciech
+ */
+
 class Cos implements Expression {
 	Expression second;
 	Expression first;
@@ -9,7 +13,7 @@ class Cos implements Expression {
 		this.first = first;
 	}
 
-	public String interpret(){
-		return null;	
+	public String interpret() {
+		return null;
 	}
 }

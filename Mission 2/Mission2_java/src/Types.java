@@ -1,3 +1,7 @@
+/**
+ * @author Grynczel Wojciech
+ */
+
 class Variable implements Expression {
 	private String name;
 
@@ -12,7 +16,7 @@ class Variable implements Expression {
 	 *            : the Map of the defined variables
 	 * @return the value of the variable stored in the Map
 	 */
-	public String interpret(){
+	public String interpret() {
 		return null;
 	}
 
@@ -36,7 +40,7 @@ class Op implements Expression {
 	 *            : the Map of the defined variables
 	 * @return the number
 	 */
-	public String interpret(){
+	public String interpret() {
 		return number;
 	}
 
