@@ -2,22 +2,15 @@
  * @author Grynczel Wojciech
  */
 
-class Variable implements Expression {
+class Value implements Expression {
 	private String name;
 
-	public Variable(String name) {
+	public Value(String name) {
 		this.name = name;
 	}
 
-	/**
-	 * Interpret a Variable token
-	 * 
-	 * @param variables
-	 *            : the Map of the defined variables
-	 * @return the value of the variable stored in the Map
-	 */
 	public String interpret() {
-		return null;
+		return "";
 	}
 
 	@Override
@@ -26,22 +19,15 @@ class Variable implements Expression {
 	}
 }
 
-class Op implements Expression {
-	private String number;
+class Operand implements Expression {
+	private double number;
 
-	public Op(String number) {
+	public Operand(double number) {
 		this.number = number;
 	}
 
-	/**
-	 * Interpret a Number token
-	 * 
-	 * @param variables
-	 *            : the Map of the defined variables
-	 * @return the number
-	 */
 	public String interpret() {
-		return number;
+		return "";
 	}
 
 	@Override

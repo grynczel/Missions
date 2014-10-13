@@ -13,7 +13,7 @@ class Cos implements Expression {
 		this.first = first;
 	}
 
-	public String interpret() {
-		return null;
+	public double interpret() {
+		return 0;
 	}
 }
