@@ -174,13 +174,21 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 		return inorder();
 	}
 
-	public String toString() {
+	public String toString2() {
 		Iterator<E> coucou = iterator();
 		StringBuffer buf = new StringBuffer();
 		while (coucou.hasNext()) {
-			buf.append(coucou.next() + "\n");
+			buf.append(coucou.next());
 		}
 		return buf.toString();
+	}
+	public String toString(){
+		if ( this.leftTree()==null )
+			return element().toString();
+		else if(element().equals("sin") || element().equals("cos"))
+			return element() +"(" + leftTree() + ")";
+		else
+			return "("+ leftTree() + element() + rightTree() +")";
 	}
 	
 	public double derivee(){

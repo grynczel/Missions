@@ -26,14 +26,13 @@ public class Calculator {
 				new LinkedBinaryTree<String>("*",t.rightTree(),t.rightTree()));
 		
 		else if(t.element().equals("^"))
-					t2= new LinkedBinaryTree<String>("*",
+					t2= 
 					new LinkedBinaryTree<String>("*",
+							t.rightTree(),
 							new LinkedBinaryTree<String>("^",
 							t.leftTree(),
 							new LinkedBinaryTree<String>("-",t.rightTree(),
-								new LinkedBinaryTree<String>("1",null,null))),
-								t.rightTree()),
-					derive(t.rightTree()));
+								new LinkedBinaryTree<String>("1",null,null))));
 		
 		else if(t.element().equals("sin"))
 				t2= new LinkedBinaryTree<String>("*",
@@ -46,6 +45,15 @@ public class Calculator {
 			new LinkedBinaryTree<String>("*",
 				new LinkedBinaryTree<String>("sin",t.leftTree(),null),
 				derive(t.leftTree())));
+		
+		else if(t.element().equals("x"))
+			t2= new LinkedBinaryTree<String>("1",null,null);
+		
+		else if(t.element().matches("-?\\d+"))//nombre
+			t2= new LinkedBinaryTree<String>("0",null,null);
+		
+		else
+			System.out.println("element inconnu : "+ t.element());
 		
 		
 		return t2;
