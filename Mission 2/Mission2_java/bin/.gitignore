@@ -3,12 +3,10 @@
 /FormalExpressionTree.class
 /FormatExpressionTreeImpl.class
 /InterpreterException.class
-/Op.class
-/Variable.class
-/ReadWrite.class
-/LinkedBinaryTree.class
 /LinkedBinaryTree$ElementIterator.class
-/RBinaryTree.class
-/Position.class
+/LinkedBinaryTree.class
 /Operand.class
+/Position.class
+/RBinaryTree.class
+/ReadWrite.class
 /Value.class
