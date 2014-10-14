@@ -15,24 +15,36 @@ public class Main2 {
 	public static void main(String[] args) {
 		String expression = "(x/12)";
 		LinkedBinaryTree lbt = parse(expression);
-		System.out.println(lbt.toString());
+		System.out.println(lbt.toString() + " : (x/12)");
 
 		expression = "(545/12)*3";
 		lbt = parse(expression);
-		System.out.println(lbt.toString());
+		System.out.println(lbt.toString() + " : (545/12)*3");
 
 		expression = "-4";
 		lbt = parse(expression);
-		System.out.println(lbt.toString());
+		System.out.println(lbt.toString() + " : -4");
 
 		expression = "((10/x)+(2*x))";
 		lbt = parse(expression);
-		System.out.println(lbt.toString());
+		System.out.println(lbt.toString() + " : ((10/x)+(2*x))");
 
 		// TODO ((x^(1-null))/6) => ((x^(-1))/6)
 		expression = "((x^(-1))/6)";
 		lbt = parse(expression);
-		System.out.println(lbt.toString());
+		System.out.println(lbt.toString() + " : ((x^(-1))/6)");
+
+		expression = "(10^(x+20))";
+		lbt = parse(expression);
+		System.out.println(lbt.toString() + " : (10^(x+20))");
+
+		expression = "42";
+		lbt = parse(expression);
+		System.out.println(lbt.toString() + " : 42");
+
+		expression = "-4*2";
+		lbt = parse(expression);
+		System.out.println(lbt.toString() + " : -4*2");
 	}
 
 	public static LinkedBinaryTree parse(String s) {
@@ -70,6 +82,7 @@ public class Main2 {
 					for (int j = i; j < size; j++) {
 						if (Character.isDigit(s.charAt(j))) {
 							operand += s.charAt(j);
+							i = j;
 						} else {
 							operands.push(new LinkedBinaryTree(operand, null,
 									null));
@@ -83,6 +96,15 @@ public class Main2 {
 					}
 				} else {
 					operands.push(new LinkedBinaryTree(token, null, null));
+				}
+
+				if (operators.size() == 1 && size == 2) {
+					LinkedBinaryTree right = null;
+					LinkedBinaryTree left = (LinkedBinaryTree) operands.pop();
+
+					LinkedBinaryTree lbt = new LinkedBinaryTree(
+							operators.pop(), left, right);
+					operands.push(lbt);
 				}
 
 				if (operands.size() == op) {
