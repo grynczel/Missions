@@ -158,7 +158,7 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 
 	// traversée non ordonnée de la liste:
 	public Iterable<Position<E>> inorder() {
-		List<Position<E>> snapshot = new ArrayList<>(); // pk rien ds le <> ?
+		List<Position<E>> snapshot = new ArrayList<Position<E>>(); // pk rien ds le <> ?
 		if (!isEmpty()) {
 			inorderSubtree(this, snapshot);
 		}

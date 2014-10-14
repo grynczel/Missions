@@ -19,7 +19,9 @@ public class ReadWrite {
 	 */
 	public static ArrayList<String> mRead(String fileIn) {
 		ArrayList<String> lu = new ArrayList<String>();
-		try (BufferedReader reader = new BufferedReader(new FileReader(fileIn))) {
+		BufferedReader reader =null;
+		try{
+			reader = new BufferedReader(new FileReader(fileIn));
 			String line;
 			while ((line = reader.readLine()) != null) {
 				lu.add(line);
@@ -27,6 +29,14 @@ public class ReadWrite {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		finally{
+			if(reader!=null)
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		}	
 		return lu;
 	}
 
