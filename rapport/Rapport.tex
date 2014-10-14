@@ -11,6 +11,7 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{float}
 \usepackage{changepage}
 \usepackage[margin=1in]{geometry}
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -180,13 +181,18 @@ Par exemple : \\
 \Tree[.+ [.sin [.z ]][./ [.x ][.y ]]]
 
 \paragraph{Question 8}
-\begin{figure}
-\includegraphics[scale=0.6]{inorder_traversal.png}
+
+
+
+
+C'est le parcours "inorder traversal" d'un arbre binaire qui permet de parcourir l'arbre dans le bon sens. Voir figure \ref{inorder}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{inorder_traversal.png}
 \caption{inorder traversal path (from Data Structure And Algorithms in Java p 424)}
 \label{inorder}
 \end{figure}
-
-C'est le parcours "inorder traversal" d'un arbre binaire qui permet de parcourir l'arbre dans le bon sens. Voir figure \ref{inorder}
 
 \begin{lstlisting}[language=Java]
 public String toString(){
