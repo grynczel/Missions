@@ -2,6 +2,8 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class Main2 {
+	public static int FUNCTION_COS = 1;
+	public static int FUNCTION_SIN = 2;
 
 	public static char[] operators = { '+', '/', '*', '-', '(', ')', '^' };
 
@@ -13,9 +15,9 @@ public class Main2 {
 	 * System.out.println(arbre.toString()); } }
 	 */
 	public static void main(String[] args) {
-		String expression = "(x/12)";
+		String expression = "cos(x*2)";
 		LinkedBinaryTree lbt = parse(expression);
-		System.out.println(lbt.toString() + " : (x/12)");
+		System.out.println(lbt.toString() + " : cos(x)^12");
 
 		expression = "(545/12)*3";
 		lbt = parse(expression);
@@ -45,6 +47,10 @@ public class Main2 {
 		expression = "-4*2";
 		lbt = parse(expression);
 		System.out.println(lbt.toString() + " : -4*2");
+
+		expression = "((x^2)*+(x*sin(x)))-3";
+		lbt = parse(expression);
+		System.out.println(lbt.toString() + "((x^2)*+(x*y))-3");
 	}
 
 	public static LinkedBinaryTree parse(String s) {
@@ -54,15 +60,30 @@ public class Main2 {
 		int op = 2;
 		for (int i = 0; i < size; i++) {
 			char token = s.charAt(i);
-			if (isOperator(token)) {
-				if (token == ')' && operands.size() > 1) {
-					LinkedBinaryTree right = null;
-					LinkedBinaryTree left = null;
-					if (operands.size() == operators.size()) {
-						left = (LinkedBinaryTree) operands.pop();
+			int fnct = isFonction(token, i, s);
+			if (isOperator(token) || fnct != -1) {
+				LinkedBinaryTree right = null;
+				LinkedBinaryTree left = null;
+				if (fnct == FUNCTION_COS) {
+					operators.push("cos");
+					i = i + 2;
+				} else if (fnct == FUNCTION_SIN) {
+					operators.push("sin");
+					i = i + 2;
+				} else if (token == ')') {
+					if (fnct != -1) {
+						if (fnct == FUNCTION_COS) {
+
+						} else if (fnct == FUNCTION_COS) {
+
+						}
 					} else {
-						right = (LinkedBinaryTree) operands.pop();
-						left = (LinkedBinaryTree) operands.pop();
+						if (operands.size() == operators.size()) {
+							left = (LinkedBinaryTree) operands.pop();
+						} else {
+							right = (LinkedBinaryTree) operands.pop();
+							left = (LinkedBinaryTree) operands.pop();
+						}
 					}
 
 					LinkedBinaryTree lbt = new LinkedBinaryTree(
@@ -119,6 +140,20 @@ public class Main2 {
 		}
 		return (LinkedBinaryTree) operands.pop();
 
+	}
+
+	private static int isFonction(char token, int position, String s) {
+		if (position + 2 <= s.length()) {
+			if (token == 'c' && s.charAt(position + 1) == 'o'
+					&& s.charAt(position + 2) == 's') {
+				return FUNCTION_COS;
+			}
+			if (token == 's' && s.charAt(position + 1) == 'i'
+					&& s.charAt(position + 2) == 'n') {
+				return FUNCTION_SIN;
+			}
+		}
+		return -1;
 	}
 
 	public static boolean isOperator(char c) {
