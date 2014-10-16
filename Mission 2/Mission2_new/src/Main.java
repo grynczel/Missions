@@ -18,10 +18,13 @@ public class Main {
 				if (validExpression(expression)) {
 					FormalExpressionTree fet = new FormalExpressionTreeImpl(
 							expression);
+					System.out.println("************************");
 					System.out.println(fet.toString());
 					System.out.println(fet.derive().toString());
+
 				}
 			} catch (InvalidExpressionException e) {
+				System.out.println("************************");
 				System.out.println(e.getMessage());
 				continue;
 				// TODO MESSAGE dans la console / fichier?
