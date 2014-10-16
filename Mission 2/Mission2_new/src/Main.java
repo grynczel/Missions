@@ -19,6 +19,7 @@ public class Main {
 					FormalExpressionTree fet = new FormalExpressionTreeImpl(
 							expression);
 					System.out.println(fet.toString());
+					System.out.println(fet.derive().toString());
 				}
 			} catch (InvalidExpressionException e) {
 				System.out.println(e.getMessage());

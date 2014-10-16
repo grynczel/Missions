@@ -10,6 +10,11 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 
 	public static char[] operators = { '+', '/', '*', '-', '(', ')', '^' };
 	private LinkedBinaryTree lbt;
+	
+
+	public FormalExpressionTreeImpl(LinkedBinaryTree<String> lbt) {
+		this.lbt = lbt;
+	}
 
 	public FormalExpressionTreeImpl(String expression) {
 		lbt = parse(expression);
@@ -21,8 +26,8 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 
 	@Override
 	public FormalExpressionTree derive() {
-		// TODO Auto-generated method stub
-		return null;
+		FormalExpressionTreeImpl tDerive = new FormalExpressionTreeImpl(Calculator.derive(lbt));
+		return tDerive;
 	}
 
 	@Override
@@ -53,11 +58,11 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 
 				if (fnct == FUNCTION_COS) {
 					operators.push("cos");
-					// Déplacement du curseur
+					// Dï¿½placement du curseur
 					i = i + 2;
 				} else if (fnct == FUNCTION_SIN) {
 					operators.push("sin");
-					// Déplacement du curseur
+					// Dï¿½placement du curseur
 					i = i + 2;
 				} else if (token == ')') {
 					// Double parentheses -> Do nothing
@@ -83,7 +88,7 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 				}
 			} else {
 
-				// Test si le nombre est négatif
+				// Test si le nombre est nï¿½gatif
 				boolean isNegative = false;
 				if (i > 0 && expression.charAt(i - 1) == '-') {
 					isNegative = isNegative(token, i, expression);
