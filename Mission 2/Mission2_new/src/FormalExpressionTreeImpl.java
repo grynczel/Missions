@@ -144,34 +144,6 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 		return false;
 	}
 
-	private boolean validExpression(String s) throws InvalidExpressionException {
-		// Source : http://stackoverflow.com/a/2595277
-		int size = s.length();
-		Stack stack = new Stack();
-
-		for (int i = 0; i < size; i++) {
-			char chr = s.charAt(i);
-
-			if (chr == '(') {
-				stack.push('(');
-			} else {
-				if (chr == ')') {
-					if (stack.size() == 0) {
-						throw new InvalidExpressionException("Expression : "
-								+ s + " n'est pas correcte");
-					} else {
-						stack.pop(); // from stack
-					}
-				}
-			}
-		}
-		if (stack.size() != 0)
-			throw new InvalidExpressionException("Expression : " + s
-					+ " n'est pas correcte");
-		return true;
-
-	}
-
 	private int isFonction(char token, int position, String s) {
 		if (position + 2 <= s.length()) {
 			if (token == 'c' && s.charAt(position + 1) == 'o'
