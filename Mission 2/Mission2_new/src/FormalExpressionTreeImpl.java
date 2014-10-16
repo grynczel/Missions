@@ -58,11 +58,11 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 
 				if (fnct == FUNCTION_COS) {
 					operators.push("cos");
-					// D�placement du curseur
+					// Deplacement du curseur
 					i = i + 2;
 				} else if (fnct == FUNCTION_SIN) {
 					operators.push("sin");
-					// D�placement du curseur
+					// Deplacement du curseur
 					i = i + 2;
 				} else if (token == ')') {
 					// Double parentheses -> Do nothing
@@ -88,7 +88,7 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 				}
 			} else {
 
-				// Test si le nombre est n�gatif
+				// Test si le nombre est negatif
 				boolean isNegative = false;
 				if (i > 0 && expression.charAt(i - 1) == '-') {
 					isNegative = isNegative(token, i, expression);
