@@ -79,7 +79,7 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 					}
 
 					LinkedBinaryTree lbt = new LinkedBinaryTree(
-							operators.pop(), left, right);
+							operators.pop() +"", left, right);
 					operands.push(lbt);
 				} else if (token == '(') {
 					continue;
@@ -109,7 +109,7 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 							operand += expression.charAt(j);
 							i = j;
 						} else {
-							operands.push(new LinkedBinaryTree(operand, null,
+							operands.push(new LinkedBinaryTree(operand + "", null,
 									null));
 							i = j - 1;
 							break;
@@ -118,11 +118,11 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 
 					if (i == size - 1) {
 						// Variable 1, 15 etc.
-						operands.push(new LinkedBinaryTree(operand, null, null));
+						operands.push(new LinkedBinaryTree(operand +"", null, null));
 					}
 				} else {
 					// Variable x,y,z etc.
-					operands.push(new LinkedBinaryTree(token, null, null));
+					operands.push(new LinkedBinaryTree(token +"", null, null));
 				}
 
 				if (operands.size() == 2 && i > 0
@@ -131,7 +131,7 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 					LinkedBinaryTree right = (LinkedBinaryTree) operands.pop();
 					LinkedBinaryTree left = (LinkedBinaryTree) operands.pop();
 					LinkedBinaryTree lbt = new LinkedBinaryTree(
-							operators.pop(), left, right);
+							operators.pop()+"", left, right);
 					operands.push(lbt);
 				}
 

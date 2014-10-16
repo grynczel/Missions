@@ -23,7 +23,7 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 		left = leftChild;
 		right = rightChild;
 		if (elem == null)
-			size = 0;// pas d'�l�ment dans la liste ..
+			size = 0;// pas d'element dans la liste ..
 		else
 			size = 1; // si il y a un element la taille est de 1
 		if (left != null)
@@ -33,7 +33,7 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 	}
 
 	/*
-	 * 29 * @post: impl�mentation de l'interface position 30
+	 *  @post: implementation de l'interface position 30
 	 */
 	@Override
 	public E element() {
@@ -41,7 +41,7 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 	}
 
 	/*
-	 * @post: impl�mentation de l'interface RBinaryTree, renvoie true si l'arbre
+	 * @post: implementation de l'interface RBinaryTree, renvoie true si l'arbre
 	 * est vide
 	 */
 	@Override
@@ -50,8 +50,8 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 	}
 
 	/*
-	 * 43 * @post: impl�mentation de l'interface RBinaryTree, renvoie la taille
-	 * de l'arbre 44
+	 * @post: implementation de l'interface RBinaryTree, renvoie la taille
+	 * de l'arbre 
 	 */
 	@Override
 	public int size() {
@@ -59,11 +59,11 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 	}
 
 	/*
-	 * @post: impl�mentation de l'interface RBinaryTree, renvoie la position de
-	 * root. 51 * Mais vu que nous impl�mentons le fait qu'un arbre est soit
-	 * vide, soit 52 * il contient un noeud racine avec un fils gauche et un
-	 * fils droite. 53 * D�s lors, chaque noeud est root, nous utiliserons donc
-	 * cette fonction pour obtenir 54 * la position d'un �l�ment. 55
+	 * @post: implementation de l'interface RBinaryTree, renvoie la position de
+	 * root.  Mais vu que nous implementons le fait qu'un arbre est soit
+	 * vide, soit il contient un noeud racine avec un fils gauche et un
+	 * fils droite.  Des lors, chaque noeud est root, nous utiliserons donc
+	 * cette fonction pour obtenir la position d'un element. 
 	 */
 	@Override
 	public Position<E> root() {
@@ -71,8 +71,8 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 	}
 
 	/*
-	 * 61 * @post : impl�mentation de l'interface RBinaryTree, renvoie true si
-	 * l'arbre ne poss�de pas d'enfant 62
+	 *  @post : implementation de l'interface RBinaryTree, renvoie true si
+	 * l'arbre ne possede pas d'enfant 
 	 */
 	@Override
 	public boolean isLeaf() {
@@ -80,8 +80,8 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 	}
 
 	/*
-	 * 68 * @post : impl�mentation de l'interface RBinaryTree, renvoie le fils
-	 * gauche 69
+	 * @post : implementation de l'interface RBinaryTree, renvoie le fils
+	 * gauche 
 	 */
 	@Override
 	public LinkedBinaryTree<E> leftTree() {
@@ -89,8 +89,8 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 	}
 
 	/*
-	 * 75 * @post : impl�mentation de l'interface RBinaryTree, renvoie le fils
-	 * droit Page 2LinkedBinaryTree.java 76
+	 *  @post : implementation de l'interface RBinaryTree, renvoie le fils
+	 * droit 
 	 */
 	@Override
 	public LinkedBinaryTree<E> rightTree() {
@@ -98,16 +98,16 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 	}
 
 	/*
-	 * 82 * @post : impl�mentation de l'interface RBinaryTree, permet de
-	 * modifier l'�lement 83
+	 * @post : implementation de l'interface RBinaryTree, permet de
+	 * modifier l'element 83
 	 */@Override
 	public void setElement(E o) {
 		element = o;
 	}
 
 	/*
-	 * 89 * @post : impl�mentation de l'interface RBinaryTree, permet de
-	 * remplacer/ ajouter un fils gauche 90
+	 * @post : implementation de l'interface RBinaryTree, permet de
+	 * remplacer/ ajouter un fils gauche 
 	 */
 	@Override
 	public void setLeft(RBinaryTree<E> tree) {
@@ -115,8 +115,8 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 	}
 
 	/*
-	 * 96 * @post : impl�mentation de l'interface RBinaryTree, permet de
-	 * remplacer/ ajouter un fils droit 97
+	 * @post : implementation de l'interface RBinaryTree, permet de
+	 * remplacer/ ajouter un fils droit 
 	 */
 	@Override
 	public void setRight(RBinaryTree<E> tree) {
@@ -124,7 +124,7 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 
 	}
 
-	// It�rateur d'�l�ments grace a un it�rateur de position:
+	// Iterateur d'elements grace a un iterateur de position:
 	public class ElementIterator implements Iterator<E> {
 		Iterator<Position<E>> posIterator = positions().iterator();
 
@@ -145,7 +145,7 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 		return new ElementIterator();
 	}
 
-	// fonction de "tri" "non ordonn�" r�cursive de la liste:
+	// fonction de "tri" "non ordonne" recursive de la liste:
 	private void inorderSubtree(LinkedBinaryTree<E> p,
 			List<Position<E>> snapshot) {
 		if (p.leftTree() != null)
@@ -156,17 +156,17 @@ public class LinkedBinaryTree<E> implements RBinaryTree<E>, Position<E>{
 
 	}
 
-	// travers�e non ordonn�e de la liste:
+	// traversee non ordonnee de la liste:
 	public Iterable<Position<E>> inorder() {
 		List<Position<E>> snapshot = new ArrayList<Position<E>>(); // pk rien ds le <> ?
 		if (!isEmpty()) {
 			inorderSubtree(this, snapshot);
 		}
-		return snapshot; // pourtant ce n'est pas un iterateur qu'on renvoie ???
+		return snapshot; 
 	}
 
 	/*
-	 * @post : impl�mentation de RBinaryTree, permt de renvoyer un it�rateur de
+	 * @post : implementation de RBinaryTree, permt de renvoyer un iterateur de
 	 * positions
 	 */
 	@Override

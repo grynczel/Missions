@@ -7,6 +7,7 @@ public class Calculator {
 	
 	public static LinkedBinaryTree<String> derive(LinkedBinaryTree<String> t){
 		LinkedBinaryTree<String> t2=null;
+		
 		if(t.element().equals("+"))
 			t2= new LinkedBinaryTree<String>("+",derive(t.leftTree()),derive(t.rightTree()));
 			
