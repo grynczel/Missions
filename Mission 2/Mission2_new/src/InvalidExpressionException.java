@@ -1,6 +1,10 @@
 /**
  * Create customs errors related to the interpreter
  */
+
+/**
+ * @author Grynczel Wojciech
+ */
 public class InvalidExpressionException extends Exception {
 	/**
 	 * 

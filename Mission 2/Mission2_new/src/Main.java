@@ -1,36 +1,59 @@
-
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class Main {
 	/*
+	 * public static void main(String[] args) { //lire le fichier
+	 * ArrayList<String> file = ReadWrite.mRead(args[0]); for(String formule :
+	 * file){ LinkedBinaryTree<String> arbre = new
+	 * LinkedBinaryTree<String>(formule, null, null);
+	 * System.out.println(arbre.toString()); } }
+	 */
 	public static void main(String[] args) {
-		//lire le fichier
-		ArrayList<String> file = ReadWrite.mRead(args[0]);
-		for(String formule : file){
-			LinkedBinaryTree<String> arbre = new LinkedBinaryTree<String>(formule, null, null);
-			System.out.println(arbre.toString());
+
+		ArrayList<String> expressions = ReadWrite.mRead("expression.txt");
+
+		for (String expression : expressions) {
+			try {
+				if (validExpression(expression)) {
+					FormalExpressionTree fet = new FormalExpressionTreeImpl(
+							expression);
+					System.out.println(fet.toString());
+				}
+			} catch (InvalidExpressionException e) {
+				System.out.println(e.getMessage());
+				continue;
+				// TODO MESSAGE dans la console / fichier?
+			}
 		}
 	}
-	*/
-	public static void main(String[] args){
-		LinkedBinaryTree<String> t2= new LinkedBinaryTree<String>("*",
-				new LinkedBinaryTree<String>("-1",null,null),
-				new LinkedBinaryTree<String>("*",
-					new LinkedBinaryTree<String>("sin",new LinkedBinaryTree<String>("x",null,null),null),
-					new LinkedBinaryTree<String>("1",null,null)));
-		System.out.println(t2);
-		System.out.println(Calculator.derive(t2));
-		
-		LinkedBinaryTree<String> t3= new LinkedBinaryTree<String>("/",
-				new LinkedBinaryTree<String>("2",null,null),
-				new LinkedBinaryTree<String>("x",null,null));
-		System.out.println(t3);
-		System.out.println(Calculator.derive(t3));
-		
-		LinkedBinaryTree<String> t4= new LinkedBinaryTree<String>("^",
-				new LinkedBinaryTree<String>("x",null,null),
-				new LinkedBinaryTree<String>("5",null,null));
-		System.out.println(t4);
-		System.out.println(Calculator.derive(t4));
-		
+
+	private static boolean validExpression(String s)
+			throws InvalidExpressionException {
+		// Source : http://stackoverflow.com/a/2595277
+		int size = s.length();
+		Stack stack = new Stack();
+
+		for (int i = 0; i < size; i++) {
+			char chr = s.charAt(i);
+
+			if (chr == '(') {
+				stack.push('(');
+			} else {
+				if (chr == ')') {
+					if (stack.size() == 0) {
+						throw new InvalidExpressionException("Expression : "
+								+ s + " n'est pas correcte");
+					} else {
+						stack.pop(); // from stack
+					}
+				}
+			}
+		}
+		if (stack.size() != 0)
+			throw new InvalidExpressionException("Expression : " + s
+					+ " n'est pas correcte");
+		// TODO Auto-generated method stub
+		return true;
 	}
 }

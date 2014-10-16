@@ -1,5 +1,8 @@
 import java.util.Stack;
 
+/**
+ * @author Grynczel Wojciech
+ */
 public class FormalExpressionTreeImpl implements FormalExpressionTree {
 
 	public static int FUNCTION_COS = 1;
@@ -22,20 +25,26 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 		return null;
 	}
 
-	public static LinkedBinaryTree parse(String s) {
+	@Override
+	public String toString() {
+		return lbt.toString();
+	}
+
+	private LinkedBinaryTree parse(String expression) {
 		Stack<Object> operators = new Stack<Object>();
 		Stack<Object> operands = new Stack<Object>();
-		int size = s.length();
+		int size = expression.length();
 		for (int i = 0; i < size; i++) {
-			char token = s.charAt(i);
-			int fnct = isFonction(token, i, s);
+			char token = expression.charAt(i);
+			int fnct = isFonction(token, i, expression);
 
-			try {
-				validExpression(s);
-			} catch (InvalidExpressionException e) {
-				// Message d'erreur?
-				continue;
-			}
+			// // TODO
+			// try {
+			// validExpression(expression);
+			// } catch (InvalidExpressionException e) {
+			// // Message d'erreur?
+			// continue;
+			// }
 
 			if (isOperator(token) || fnct != -1) {
 
@@ -69,8 +78,6 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 					operands.push(lbt);
 				} else if (token == '(') {
 					continue;
-				} else if (false) {
-
 				} else {
 					operators.push(token);
 				}
@@ -78,8 +85,8 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 
 				// Test si le nombre est négatif
 				boolean isNegative = false;
-				if (i > 0 && s.charAt(i - 1) == '-') {
-					isNegative = isNegative(token, i, s);
+				if (i > 0 && expression.charAt(i - 1) == '-') {
+					isNegative = isNegative(token, i, expression);
 					// Remove '-' from operators stack
 					operators.pop();
 				}
@@ -91,10 +98,10 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 					operand = "";
 				}
 
-				if (Character.isDigit(s.charAt(i))) {
+				if (Character.isDigit(expression.charAt(i))) {
 					for (int j = i; j < size; j++) {
-						if (Character.isDigit(s.charAt(j))) {
-							operand += s.charAt(j);
+						if (Character.isDigit(expression.charAt(j))) {
+							operand += expression.charAt(j);
 							i = j;
 						} else {
 							operands.push(new LinkedBinaryTree(operand, null,
@@ -105,26 +112,44 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 					}
 
 					if (i == size - 1) {
+						// Variable 1, 15 etc.
 						operands.push(new LinkedBinaryTree(operand, null, null));
 					}
 				} else {
+					// Variable x,y,z etc.
 					operands.push(new LinkedBinaryTree(token, null, null));
 				}
+
+				if (operands.size() == 2 && i > 0
+						&& expression.charAt(i - 1) != '(' && i + 1 <= size
+						&& expression.charAt(i + 1) != ')') {
+					LinkedBinaryTree right = (LinkedBinaryTree) operands.pop();
+					LinkedBinaryTree left = (LinkedBinaryTree) operands.pop();
+					LinkedBinaryTree lbt = new LinkedBinaryTree(
+							operators.pop(), left, right);
+					operands.push(lbt);
+				}
+
 			}
 		}
 		return (LinkedBinaryTree) operands.pop();
-
 	}
 
-	private static boolean validExpression(String s)
-			throws InvalidExpressionException {
+	private boolean isNegative(char token, int i, String s) {
+		if (i == 0) {
+			return true;
+		}
+		if (i > 0)
+			if (isOperator(s.charAt(i - 1)) && s.charAt(i - 1) != ')')
+				return true;
+
+		return false;
+	}
+
+	private boolean validExpression(String s) throws InvalidExpressionException {
+		// Source : http://stackoverflow.com/a/2595277
 		int size = s.length();
 		Stack stack = new Stack();
-		// for (int i = 0; i < size; i++) {
-		// char token = s.charAt(i);
-		// if (i + 1 <= size && isOperator(token) && s.charAt(i + 1) == ')')
-		// return false;
-		// }
 
 		for (int i = 0; i < size; i++) {
 			char chr = s.charAt(i);
@@ -145,23 +170,12 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 		if (stack.size() != 0)
 			throw new InvalidExpressionException("Expression : " + s
 					+ " n'est pas correcte");
-
 		// TODO Auto-generated method stub
 		return true;
+
 	}
 
-	private static boolean isNegative(char token, int i, String s) {
-		if (i == 0) {
-			return true;
-		}
-		if (i > 0)
-			if (isOperator(s.charAt(i - 1)) && s.charAt(i - 1) != ')')
-				return true;
-
-		return false;
-	}
-
-	private static int isFonction(char token, int position, String s) {
+	private int isFonction(char token, int position, String s) {
 		if (position + 2 <= s.length()) {
 			if (token == 'c' && s.charAt(position + 1) == 'o'
 					&& s.charAt(position + 2) == 's') {
@@ -175,7 +189,7 @@ public class FormalExpressionTreeImpl implements FormalExpressionTree {
 		return -1;
 	}
 
-	public static boolean isOperator(char c) {
+	private boolean isOperator(char c) {
 		for (int i = 0; i < operators.length; i++) {
 			if (operators[i] == c) {
 				return true;
