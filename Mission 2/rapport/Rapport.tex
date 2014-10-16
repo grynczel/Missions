@@ -17,7 +17,8 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- 
+\usepackage[parfill]{parskip}
+
  \lstdefinestyle{mystyle}{
  	backgroundcolor=\color{backcolour},   
  	commentstyle=\color{codegreen},
@@ -44,8 +45,8 @@
 	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
 	escapechar=\&
 }
-\title{Algorithmique et structures de données : Mission 2 (produit)}
-\date{07 octobre 2014}
+\title{Algorithmique et structures de données : Mission 2}
+\date{18 octobre 2014}
 \author{Groupe 1.2: Ivan Ahad - Jérôme Bertaux - Rodolphe Cambier \\ 
 	Baptiste Degryse - Wojciech Grynczel - Charles Jaquet}
 
@@ -53,76 +54,57 @@
 
 \begin{document}
 \maketitle
-\paragraph{Question 1}
-La profondeur est le nombre de parents qu’un noeud comporte. La racine est donc de profondeur 0, et ses enfants sont de profondeur 1. La hauteur est le nombre maximum de générations en dessous du noeud. Une feuille a une hauteur de 0, et les autre noeuds ont la hauteur de leur enfant le plus haut+1. Le niveau n est l’ensemble des nœuds de profondeur n. Ces notions ne dépendent pas du style d’arbre, elles s'appliquent aux arbres en général car il suffit d’avoir la notion de racine, feuille, enfant et parent pour pouvoir appliquer ces définitions. Ces notions ne dépendent pas de la structure de données utilisée car la représentation ne dépend pas de l’implémentation.
 
-\paragraph{Question 2}
 
-\paragraph{Question 3}
 
-\paragraph{Question 4}
+Rapport écrit par Ivan Ahad et Rodolphe Cambier
 
-\paragraph{Question 5}
+\subsection*{Introduction}
 
-Dans la majorité des cas de parcours, cela ne pose pas de problème, car on parcours l'arbre depuis la racine jusqu'aux feuilles. Cela peut cependant être handicapant dans certaines situations. Dans le cas où l'on voudrait, par exemple, parcourir tous les noeuds de l'arbre situés à un même niveau, ne pas avoir la possibilité de remonter peut poser problème et ralentir fortement le processus.
+L'objectif de cette mission est de créer un programme qui prend en entrée une expression analytique et qui retourne la dérivée de celle-ci, grâce à l'utilisation d'arbres binaires. 
 
-Pour réaliser la méthode parent, on peut faire comme suit: Garder le pointeur sur le noeud dont on veut le parent.
-Vérifier si ce noeud n'est pas le root, auquel cas on retourne null.
-Parcourir l'arbre noeud par noeud, en vérifiant pour chacun si un de ses fils n'est pas le noeud dont on cherche le parent. 
-On finit donc par trouver le parent du noeud de départ.Puisqu'il faut, au pire, parcourir tout l'arbre pour trouver le père, on a une complexité en O(n).
+\subsection*{Fonctionnement}
 
-\paragraph{Question 6}
-
-\paragraph{Question 7\\	Une expression arithmétique peut contenir les quatre opérateurs fondamentaux
-	$ +,-,*,/ $ et des scalaires, comme par exemple : $ 3 * 10 - 2/4 $. Une expression
-	analytique, telle que $ x^{2}+x$ $ sin $ $ x-3 $ peut contenir également des variables $ x,y,... $ ,
-	d’autres opérateurs comme la fonction puissance entière $ ˆ $ ou d’autres fonctions
-	mathématiques comme $ sin $ ou $ cos $.\\}
-
-	\textbf{
-	Une expression arithmétique peut être représentée par un arbre.
-	Quelles sont les caractéristiques de cet arbre ?\\}
-Arbre binaire est un arbre avec une racine, et où chacun des nœuds possède : 
-\begin{itemize}
-	\item soit aucun successeur, 
-	\item soit un successeur, à gauche ou à droite, 
-	\item soit deux successeurs. 
-\end{itemize}
-
-\textbf{Pourquoi cette représentation est-elle utile ?}\\
-//TODO
- Techniques for parsing the common infix notation (where the operator is typically between two operands) and converting it into a binary tree are well known. Expressions are converted into binary trees, where unary operators (i.e., the unary minus or the sine function) are converted into degenerate nodes in the binary trees, with a single son. See Fig. 1 for the arithmetic expression of sin .
-\textbf{Citez deux exemples de manipulation d’une expression arithmétique et exprimez comment ces manipulations sont mise en oeuvre à l’aide de cette représentation + Exemple !!!!!!!.}
-
-\[ ((1+2)*(3-4)) \]
-\Tree[.* [.+ [.1 ][.2 ]][.- [.3 ][.4 ]]]
-
-\[ (3+(4*5)) \]
-\Tree[.+ [.3 ][.* [.4 ][.5 ]]]
-
-\textbf{Quelles sont les caractéristiques supplémentaires pour un arbre représentant une expression analytique ?.}\\
-Une expression analytique peut contenir des opérations unaires, par exemple : \\
-\Tree[.+ [.log [.y ]][./ [.x ][.1.2 ]]]
-
-\paragraph{Question 8}
-\begin{figure}
-\includegraphics[scale=0.6]{inorder_traversal.png}
-\caption{inorder traversal path (from Data Structure And Algorithms in Java p 424)}
-\label{inorder}
-\end{figure}
-
-C'est le parcours "inorder traversal" d'un arbre binaire qui permet de parcourir l'arbre dans le bon sens. Voir figure \ref{inorder}
-
+Le programme lit le fichier avec les expressions à résoudre et convertit les lignes du fichier en un ArrayList: 
 \begin{lstlisting}[language=Java]
-public String toString(){
-if ( T.isExternal(v) )
-	return v.getElement().toString();
-else
-	return "("+ v.left() + v.getElement() + v.right() +")";
-}
+ArrayList<String> expressions = ReadWrite.mRead("expression.txt");
 \end{lstlisting}
 
-\paragraph{Question 9}
+Il traite ensuite chaque élément de l'ArrayList indépendamment:
+\begin{lstlisting}[language=Java]
+for (String expression : expressions)
+\end{lstlisting}
+
+Pour chaque expression (élément de l'ArrayList), il va transformer la ligne de texte en un FormalExpressionTree, un arbre binaire qui va contenir les expression afin qu'elles soient traitables par la suite. Cela sera réalisé lors de la création de l'arbre, quand le constructeur de\textit{ FormalExpressionTreeImpl} appelle la fonction \textit{parse}.
+\begin{lstlisting}[language=Java]
+FormalExpressionTree fet = new FormalExpressionTreeImpl(expression);
+\end{lstlisting}
+						
+Une fois transormées en arbre, les expressions mathématiques vont êtres dérivées en appelant la fonction \textit{derive}, de la classe \textit{Calculator} sur l'abre représentant l'expression mathématique à dériver. Cette fonction va traiter l'élément du root, et va s'appeler récursivement sur chacun des enfants du root, de sorte que tout l'arbre soit traité. A chaque étape, il remplit un nouvel arbre, avec la dérivée de l'expression de départ qu'il retourne finalement.
+
+\begin{lstlisting}[language=Java]
+
+	public static LinkedBinaryTree<String> derive(LinkedBinaryTree<String> t){
+		LinkedBinaryTree<String> t2=null;		
+		if(t.element().equals("+"))
+			t2= new LinkedBinaryTree<String>("+",derive(t.leftTree()),derive(t.rightTree()));			
+		else if(t.element().equals("-"))
+			t2= new LinkedBinaryTree<String>("-",derive(t.leftTree()),derive(t.rightTree()));
+		
+		[...]
+		
+		else
+			System.out.println("element inconnu : "+ t.element());		
+		return t2;	
+	}
+\end{lstlisting}
+
+
+Finalement, l'arbre de départ ainsi que le nouvel arbre représentant sa dérivée seront imprimés.	
+
+\subsection*{Tests réalisés}
+
+\subsection*{UML}
 
 
 \end{document}
