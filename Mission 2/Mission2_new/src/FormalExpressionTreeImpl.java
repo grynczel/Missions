@@ -1,69 +1,25 @@
-import java.util.Arrays;
 import java.util.Stack;
 
-public class Main2 {
+public class FormalExpressionTreeImpl implements FormalExpressionTree {
+
 	public static int FUNCTION_COS = 1;
 	public static int FUNCTION_SIN = 2;
 
 	public static char[] operators = { '+', '/', '*', '-', '(', ')', '^' };
+	private LinkedBinaryTree lbt;
 
-	/*
-	 * public static void main(String[] args) { //lire le fichier
-	 * ArrayList<String> file = ReadWrite.mRead(args[0]); for(String formule :
-	 * file){ LinkedBinaryTree<String> arbre = new
-	 * LinkedBinaryTree<String>(formule, null, null);
-	 * System.out.println(arbre.toString()); } }
-	 */
-	public static void main(String[] args) {
-		String expression = "-4";
-		LinkedBinaryTree lbt = parse(expression);
-		System.out.println(lbt.toString() + " : -4");
-
-		expression = "((x^(-1))/6)";
+	public FormalExpressionTreeImpl(String expression) {
 		lbt = parse(expression);
-		System.out.println(lbt.toString() + " : ((x^(-1))/6)");
+	}
 
-		expression = "(x/12)";
-		lbt = parse(expression);
-		System.out.println(lbt.toString() + " : (x/12)");
+	public FormalExpressionTreeImpl() {
+		lbt = new LinkedBinaryTree(null, null, null);
+	}
 
-		expression = "cos(x)";
-		lbt = parse(expression);
-		System.out.println(lbt.toString() + " : cos(x)");
-
-		expression = "((10/x)+(2*x))";
-		lbt = parse(expression);
-		System.out.println(lbt.toString() + " : ((10/x)+(2*x))");
-
-		// TODO ((x^(1-null))/6) => ((x^(-1))/6)
-		expression = "(x*(1-sin(x)))";
-		lbt = parse(expression);
-		System.out.println(lbt.toString() + " : (x*(1-sin(x)))");
-
-		expression = "(x^4+sin((x+(2/x))))";
-		lbt = parse(expression);
-		System.out.println(lbt.toString() + " : (x^4+sin((x+(2/x))))");
-
-		expression = "((x^(-1))/6)";
-		lbt = parse(expression);
-		System.out.println(lbt.toString() + " : ((x^(-1))/6)");
-
-		expression = "((x*(sin(((x/10)+x))^3))-cos(x))";
-		lbt = parse(expression);
-		System.out.println(lbt.toString()
-				+ " : ((x*(sin(((x/10)+x))^3))-cos(x))");
-
-		// expression = "(x+)3+x))";
-		// lbt = parse(expression);
-		// System.out.println(lbt.toString() + "(x+)3+x))");
-
-		expression = "(y*cos(x))";
-		lbt = parse(expression);
-		System.out.println(lbt.toString() + "(y*cos(x))");
-
-		expression = "(10^(x+20))";
-		lbt = parse(expression);
-		System.out.println(lbt.toString() + "(10^(x+20))");
+	@Override
+	public FormalExpressionTree derive() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public static LinkedBinaryTree parse(String s) {
@@ -183,9 +139,7 @@ public class Main2 {
 					} else {
 						stack.pop(); // from stack
 					}
-
 				}
-
 			}
 		}
 		if (stack.size() != 0)
