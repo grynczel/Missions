@@ -102,9 +102,25 @@ Une fois transormées en arbre, les expressions mathématiques vont êtres déri
 
 Finalement, l'arbre de départ ainsi que le nouvel arbre représentant sa dérivée seront imprimés.	
 
-\subsection*{Tests réalisés}
+\subsection*{Choix d'implémentations, optimisations}
+
+LA fonction \textit{parse} de la classe \textit{FormalExpressionTreeImpl} se base fortement sur l'hypothèse simplificatrice des expression parenthésées. On se base en effet sur la fermeture d'une parenthèse pour conclure que les deux opérations précédentes (variable \textit{operands})doivent être liées dans un arbre avec comme racine l'opérateur correspondant (variable \textit{operators})et ainsi de suite récursivement: 
+
+\begin{lstlisting}[language=Java]
+if (token == ')') {
+right = (LinkedBinaryTree) operands.pop();
+left = (LinkedBinaryTree) operands.pop();
+	[...]
+LinkedBinaryTree lbt = new LinkedBinaryTree(operators.pop()+ "", left, right);
+	[...]
+operands.push(lbt);
+}
+\end{lstlisting}
+
+Le rajout des fonctions exp et log se ferait de manière similaire aux fonctions cos et sin, avec un cas particulier dans la fonction  \textit{parse} et le calcul adapté dans la classe \textit{Calculator}. Notre implémentation permet donc le rajout de toute fonction voulue, simplement en l'insérant dans l'arbre et en la traitant de manière adaptée dans la classe \textit{Calculator}.
 
 \subsection*{UML}
 
+\includegraphics[scale=0.5]{uml}
 
 \end{document}
