@@ -80,8 +80,9 @@ Pour chaque expression (élément de l'ArrayList), il va transformer la ligne de
 FormalExpressionTree fet = new FormalExpressionTreeImpl(expression);
 \end{lstlisting}
 						
-Une fois transormées en arbre, les expressions mathématiques vont êtres dérivées en appelant la fonction \textit{derive}, de la classe \textit{Calculator} sur l'abre représentant l'expression mathématique à dériver. Cette fonction va traiter l'élément du root, et va s'appeler récursivement sur chacun des enfants du root, de sorte que tout l'arbre soit traité. A chaque étape, il remplit un nouvel arbre, avec la dérivée de l'expression de départ qu'il retourne finalement.
+Une fois transormées en arbre, les expressions mathématiques vont êtres dérivées en appelant la fonction \textit{derive}, de la classe \textit{Calculator} sur l'abre représentant l'expression mathématique à dériver. Cette fonction va traiter l'élément du root, et va s'appeler récursivement sur chacun des enfants du root, de sorte que tout l'arbre soit traité. A chaque étape, il remplit un nouvel arbre, avec la dérivée de l'expression de départ. Il retourne finalement ce nouvel arbre contenant la dérivée de l'expression d'origine.
 
+Par exemple les fonctions + et - de la fonction \textit{derive} de la classe \textit{Calculator}:
 \begin{lstlisting}[language=Java]
 
 	public static LinkedBinaryTree<String> derive(LinkedBinaryTree<String> t){
@@ -104,7 +105,7 @@ Finalement, l'arbre de départ ainsi que le nouvel arbre représentant sa dériv
 
 \subsection*{Choix d'implémentations, optimisations}
 
-LA fonction \textit{parse} de la classe \textit{FormalExpressionTreeImpl} se base fortement sur l'hypothèse simplificatrice des expression parenthésées. On se base en effet sur la fermeture d'une parenthèse pour conclure que les deux opérations précédentes (variable \textit{operands})doivent être liées dans un arbre avec comme racine l'opérateur correspondant (variable \textit{operators})et ainsi de suite récursivement: 
+La fonction \textit{parse} de la classe \textit{FormalExpressionTreeImpl} se base fortement sur l'hypothèse simplificatrice des expression parenthésées. On se base en effet sur la fermeture d'une parenthèse pour conclure que les deux opérations précédentes (variable \textit{operands}) doivent être liées dans un arbre avec comme racine l'opérateur correspondant (variable \textit{operators})et ainsi de suite récursivement: 
 
 \begin{lstlisting}[language=Java]
 if (token == ')') {
@@ -116,6 +117,9 @@ LinkedBinaryTree lbt = new LinkedBinaryTree(operators.pop()+ "", left, right);
 operands.push(lbt);
 }
 \end{lstlisting}
+
+Le retrait de cette hypothèse nous forcerait à effectuer les priorités des opérations lors de la création de notre arbre.
+
 
 Le rajout des fonctions exp et log se ferait de manière similaire aux fonctions cos et sin, avec un cas particulier dans la fonction  \textit{parse} et le calcul adapté dans la classe \textit{Calculator}. Notre implémentation permet donc le rajout de toute fonction voulue, simplement en l'insérant dans l'arbre et en la traitant de manière adaptée dans la classe \textit{Calculator}.
 
