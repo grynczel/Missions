@@ -71,7 +71,16 @@
 
 \paragraph{Q7}
 
-\paragraph{Q8}
+\paragraph{Q8 (Charles Jacquet)}
+La question est de savoir comment faire pour implémenter la fonction remove(k) lorsqu'on utilise la technique du linear probing. Premièrement, le linéar probing signifie que lorsqu'on veut placer un élément, on en prend le hashcode, on le compresse. Ensuite, s'il y a une collision lors du placement dans la map, cette technique veut qu'on mette à l'élément à la position libre suivante. Voici les étapes à executer pour supprimer un élément:
+\begin{itemize}
+\item Chercher la position de l'élément grâce à la hashtable.
+\item On le supprime
+\item On crée une liste dans laquelle on met tous les éléments suivant jusqu'à ce qu'il y ait un élément vide.
+\item On refait put(k) pour chaque élément pour être certain qu'ils soient au bon endroit.
+\end{itemize}
+
+Par contre, ici, la complexité varie, c'est-à-dire que dans le meilleur des cas, il y a un trou juste après l'élément, alors la complexité est en O(1). Par contre, dans le pire des cas, c'est-à-dire si l'élement à supprimer est le premier et que toute la map est remplie alors c'est en O(n).
 
 \paragraph{Q9}
 
