@@ -61,9 +61,24 @@
 
 \paragraph{Q2}
 
-\paragraph{Q3}
+\paragraph{Q3 : Baptiste Degryse}
+Il faut utiliser l'algorithme de recherche par découpage en moitié qui est de complexité O(log(n)). Il faut l'appliquer sur chaque ligne du tableau, multipliant cette complexité par n. L'algorithme est le suivant:
+\begin{lstlisting}[language=Java]
+int [] lastOne=new int[n];
+for(z=0;z<n;z++){
+	int a=0,b=n,lastOne;
+	while(b-a>1){
+		if(tab[z][(a+b)/2]==0)
+			b=(a+b)/2;
+		else if(tab[z][(a+b)/2]==1)
+			a=(a+b)/2;
+	}
+	lastOne[z]=a;
+}
 
-\paragraph{Q4}
+\end{lstlisting}
+
+\paragraph{Q4 : Baptiste Degryse}
 
 \paragraph{Q5}
 
