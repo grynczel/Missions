@@ -87,7 +87,7 @@ Voici quelques exemples d'application d'un Map :
 \end{enumerate}
 
 \paragraph{Q3 (Baptiste Degryse)}
-Il faut utiliser l'algorithme de recherche par découpage en moitié qui est de complexité O(log(n)). Il faut l'appliquer sur chaque ligne du tableau, multipliant cette complexité par n. L'algorithme est le suivant:
+Il faut utiliser l'algorithme de binary search qui est de complexité O(log(n)). Il faut l'appliquer sur chaque ligne du tableau, multipliant cette complexité par n. L'algorithme est le suivant:
 \begin{lstlisting}[language=Java]
 int [] lastOne=new int[n];
 for(z=0;z<n;z++){
@@ -104,6 +104,30 @@ for(z=0;z<n;z++){
 \end{lstlisting}
 
 \paragraph{Q4 (Baptiste Degryse)}
+Une specification de la méthode union:
+\begin{lstlisting}[language=Java]
+/**
+* @input : d1 et d2, deux dictionnaires ordonnés
+* @output : un dictionnaire ordonné contenant l'union des éléments des deux dictionnaires passés en entrée.
+*/
+\end{lstlisting}
+Pour l'algorithme, dans le cas d'une implémentation des dictionnaires en tables ordonnée:
+\begin{lstlisting}[language=Java]
+Entree tab[]= new Entree [d1.size()+d2.size()]
+int i,j;
+while(i+j<tab.size()){
+	if( i>d1.size() || (j<d2.size() && d1[i].key()>d2[j].key())){
+		tab[i+j]=d2[j];
+		j++;
+	}
+	else{
+		tab[i+j]=d1[i];
+		i++;
+	}
+}
+return tab;
+\end{lstlisting}
+Dans le cas de l'utilisation d'une table de hachage, chaque appel dx[y] deviendrait dx[h(y)].
 
 \paragraph{Q5}
 
