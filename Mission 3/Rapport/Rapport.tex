@@ -131,7 +131,11 @@ Dans le cas de l'utilisation d'une table de hachage, chaque appel dx[y] deviendr
 
 \paragraph{Q5}
 
-\paragraph{Q6}
+\paragraph{Q6 (Rodolphe Cambier)}
+La collision c'est quand plusieurs objets sont assignés à la même clé dans la table de hachage. La complexité de la fonction de recherche d'une élément d'un table de hachage est généralement en O(1), mais si des collisions surviennent, la complexité peut monter jusque O(n). En effet, si, dans le cas extrême, tous les éléments se retrouvent sur la même clé, il faudra, au pire, tous les parcourir afin de trouver celui qu'on recherche. 
+
+Pour gérer les collisions, on peut chaîner les différents éléments d'une même clé et tous les mettre dans cette même clé.
+On peut également rechercher une clé vide proche et utiliser cette clé à la place de celle de départ. Ces techniques permettent d'éviter les collisions, mais elles ralentissent la recherche.
 
 \paragraph{Q7 (Ivan)}
 
