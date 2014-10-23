@@ -57,9 +57,34 @@
 
 
 
-\paragraph{Q1}
+\paragraph{Question 1 (Bertaux Jérôme)}
+Les trois méthodes principales du type abstrait Map sont :
+\begin{itemize}
+\item get(k) : Permet de récupérer la valeur associé à la clef k et si aucune valeur n'est associé à cette clef on récupère un null.
+\item put(k,v) : Si aucune entrée n'est associé à la clef k alors cette entrée est ajouté et on retourne null. Sinon on remplace l'ancienne valeur de k par la nouvelle et on retourne l'ancienne valeur.
+\item remove(k) : Retire l'entrée associé à la clef k et retourne sa valeur et si aucune entrée n'est associé à k alors on retourne null.
+\end{itemize}
+Dans ce contexte :
+\begin{itemize}
+\item clef : Une clef est un identifiant unique qui permet d'identifier une valeur dans la Map. 
+\item valeur : Une valeur est l'objet de donnée qu'on souhaite sotcker dans la Map.
+\item \textit{entry} : Une \textit{entry} est une  pair clef-valeur.
+\end{itemize}
+Il est possible d'insérer une entrée k-null dans une Map. Donc quand on demande la valeur de la clef k on récupère un null non pas car il n'existe pas dans la Map mais parce que cette valeur est autorisée. Certaines implémentations de Map interdisent l'utilisation de valeur null. Mais pour lever l'ambiguité dans les implémentations autorisant la valeur null, il existe une méthode containsKey(k) pour vérifier si k est une clef valide.
+Voici quelques exemples d'application d'un Map :
+\begin{itemize}
+\item Dans un annuaire téléphonique : la clef est le numéro de téléphone et la valeur est le nom de la personne.
+\item Dans le registre national : la clef est le numéro d'identification du registre national et la valeur est le dossier personnel du citoyen.
+\item Dans une banque : la clef est le numéro de compte de la personne et la valeur est le dossier bancaire de la personne.
+\end{itemize}
 
-\paragraph{Q2}
+\paragraph{Question 2 (Bertaux Jérôme)}
+\begin{enumerate}
+\item Une hashtable : Les opérations basiques de la Map get, put et remove peuvent être implémenter en O(1).
+\item Une table de recherche ordonnée : son espace nécessaire est de O(n). Le get s'exécute en O(log n), le put en O(n) et le remove en O(n).
+\item Une liste non ordonnée : Les méthodes fondamentales s'exécute en O(n) dans les pires cas car il faut parcourir toute la liste pour vérifier l'existance d'une entrée déjà existante.
+\item Une Skip List est une implémentation possible pour un dictionnaire non ordonné mais il n'est pas judicieux de l'utiliser. Car le système de rangement des entrées est basé sur de l'aléatoire. Donc la recherche se fait en O(log n), l'insertion en O(log n) et la suppresion en O(log n).
+\end{enumerate}
 
 \paragraph{Q3}
 
@@ -71,7 +96,16 @@
 
 \paragraph{Q7}
 
-\paragraph{Q8}
+\paragraph{Q8 (Charles Jacquet)}
+La question est de savoir comment faire pour implémenter la fonction remove(k) lorsqu'on utilise la technique du linear probing. Premièrement, le linéar probing signifie que lorsqu'on veut placer un élément, on en prend le hashcode, on le compresse. Ensuite, s'il y a une collision lors du placement dans la map, cette technique veut qu'on mette à l'élément à la position libre suivante. Voici les étapes à executer pour supprimer un élément:
+\begin{itemize}
+\item Chercher la position de l'élément grâce à la hashtable.
+\item On le supprime
+\item On crée une liste dans laquelle on met tous les éléments suivant jusqu'à ce qu'il y ait un élément vide.
+\item On refait put(k) pour chaque élément pour être certain qu'ils soient au bon endroit.
+\end{itemize}
+
+Par contre, ici, la complexité varie, c'est-à-dire que dans le meilleur des cas, il y a un trou juste après l'élément, alors la complexité est en O(1). Par contre, dans le pire des cas, c'est-à-dire si l'élement à supprimer est le premier et que toute la map est remplie alors c'est en O(n).
 
 \paragraph{Q9}
 
