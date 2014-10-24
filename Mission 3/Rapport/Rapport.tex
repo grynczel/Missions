@@ -129,7 +129,30 @@ return tab;
 \end{lstlisting}
 Dans le cas de l'utilisation d'une table de hachage, chaque appel dx[y] deviendrait dx[h(y)].
 
-\paragraph{Q5}
+\paragraph{Q5 (Grynczel Wojciech)} 
+\textbf{Comment obtenir la liste des entrées mémorisées dans un Map implémenté par une table de hachage ?}\\
+Pour obtenir la liste des entrées mémorisées, il suffit d'appeler la méthode : keySet()\\
+\textbf{Cette implémentation conviendrait-elle pour un Map ordonné ?}\\
+Non, cette implémentation ne conviendrait pas. Quand un élément est ajoute dans une table de hachage,  sa position dans la table va dépendre de résultat de la méthode de haschage. Pour implémenter une Map ordonnée, il vaut mieux utiliser une autre structure de données.
+Une table de hachage ne garde pas l'ordre.\\  
+\textbf{Quelles seraient les complexités temporelles des méthodes spéciﬁques au Map ordonné dans ce cas?}\\
+\begin{itemize}
+	\item firstEntry() : O(N)
+	\item lastEntry(): O(N)
+	\item ceilingEntry(k): O(N)
+	\item floorEntry(k): O(N)
+	\item lowerEntry(k): O(N)
+	\item higherEntry(k): O(N)
+	\item subMap(k1, k2): O(N)
+\end{itemize}
+
+\textbf{Si l’on dispose d’une liste triée de toutes les entrées d’un dictionnaire et que l’on suppose cette liste ﬁxe (aucun ajout ou retrait n’est permis), est-il intéressant de mémoriser ces entrées dans une table de hachage?}\\
+Ce n’est pas la meilleure solution. Même si la lecture de n’importe quel élément se fera en complexité de O(1), les données stocke dans la table de hachage ne seront plus triées.  
+Une table de hachage est utile seulement dans le cas où la notion d’ordre n’est pas importante.
+
+\textbf{ Quelle est la complexité spatiale d’une table de hachage?}\\
+Une table contient m adresses et n maillons portant les éléments contiennent chacun un objet et une adresse.
+$ n objets + (n + m) adresses $
 
 \paragraph{Q6 (Rodolphe Cambier)}
 La collision c'est quand plusieurs objets sont assignés à la même clé dans la table de hachage. La complexité de la fonction de recherche d'une élément d'un table de hachage est généralement en O(1), mais si des collisions surviennent, la complexité peut monter jusque O(n). En effet, si, dans le cas extrême, tous les éléments se retrouvent sur la même clé, il faudra, au pire, tous les parcourir afin de trouver celui qu'on recherche. 
@@ -156,7 +179,7 @@ La classe java.util.Hashtable est une AbstractHashMap.
 -Classe SortedTableMap : Cette classe étend la classe AbstractSortedMap et correspond à une table dynamique dans laquelle sont stockées les entrées dans un ordre croissant selon la valeur des clefs. Grâce à cette structure la recherche binaire est possible.  \\
 -Classe TreeMap : Cette classe permet de représenter les valeurs sous forme hiérarchique. \\ 
 
-\includegraphics[scale=0.3]{diagramme.png}
+\includegraphics[scale=0.13]{diagramme.png}
 \\
 ==> Diagramme représentant les classes et interfaces se rapportant à Map. \\
 (Source : DSAJ6, page 374)\\
