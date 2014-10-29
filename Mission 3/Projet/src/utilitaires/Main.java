@@ -15,7 +15,7 @@ public class Main {
 		do{	
 			System.out.print("Entrez le nom d'un journal : ");
 			titre = scan.nextLine();
-			System.out.println(journal.getMap().get(titre));
+			System.out.println(journal.get(titre));
 			System.out.print("Continuer (Y/N) ? ");
 			q = scan.nextLine().charAt(0);
 			

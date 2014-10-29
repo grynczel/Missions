@@ -11,6 +11,13 @@ public class Journal {
 	 */
 	private Map<String,Entree> map = new HashMap<String, Entree>();
 
+	/**
+	 * cree un journal en lisant un fichier.
+	 * La premiere ligne represente les titres des champs
+	 * @param indexCle : commence a zero, index de la cle primaire
+	 * @param filename : nom du fichier a lire (ou filepath)
+	 * @param delimiter : delimiter entre chaque valeurs
+	 */
 	public Journal(int indexCle, String filename, String delimiter){
 		BufferedReader fileReader = null;
 		char escapeChar='"';
@@ -72,13 +79,12 @@ public class Journal {
 			}
 		}
 	}
-
+	/**
+	 * retourne l'entree ayant comme cle cle
+	 * @param cle : cle de l'entree
+	 * @return l'entree de cle cle
+	 */
 	public Entree get(String cle){
 		return map.get(cle);
 	}
-
-	public Map<String, Entree> getMap() {
-		return map;
-	}
-
 }
