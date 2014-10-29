@@ -154,6 +154,10 @@ Une table de hachage est utile seulement dans le cas où la notion d’ordre n�
 Une table contient m adresses et n maillons portant les éléments contiennent chacun un objet et une adresse.
 $ n objets + (n + m) adresses $
 
+{\small Sources : 
+http://stackoverflow.com/questions/6529966/how-much-memory-space-does-a-hashtable-occupy\\
+http://www.fil.univ-lille1.fr/~oussous/portail/API2/2008-2009/Cours/Tables/tables.4on1.pdf}
+
 \paragraph{Q6 (Rodolphe Cambier)}
 La collision c'est quand plusieurs objets sont assignés à la même clé dans la table de hachage. La complexité de la fonction de recherche d'une élément d'un table de hachage est généralement en O(1), mais si des collisions surviennent, la complexité peut monter jusque O(n). En effet, si, dans le cas extrême, tous les éléments se retrouvent sur la même clé, il faudra, au pire, tous les parcourir afin de trouver celui qu'on recherche. 
 
