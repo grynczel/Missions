@@ -45,8 +45,8 @@
 	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
 	escapechar=\&
 }
-\title{Algorithmique et structures de données : Mission 2}
-\date{18 octobre 2014}
+\title{Algorithmique et structures de données : Mission 3}
+\date{24 octobre 2014}
 \author{Groupe 1.2: Ivan Ahad - Jérôme Bertaux - Rodolphe Cambier \\ 
 	Baptiste Degryse - Wojciech Grynczel - Charles Jaquet}
 
@@ -135,7 +135,7 @@ Pour obtenir la liste des entrées mémorisées, il suffit d'appeler la méthode
 \textbf{Cette implémentation conviendrait-elle pour un Map ordonné ?}\\
 Non, cette implémentation ne conviendrait pas. Quand un élément est ajoute dans une table de hachage,  sa position dans la table va dépendre de résultat de la méthode de haschage. Pour implémenter une Map ordonnée, il vaut mieux utiliser une autre structure de données.
 Une table de hachage ne garde pas l'ordre.\\  
-\textbf{Quelles seraient les complexités temporelles des méthodes spéciﬁques au Map ordonné dans ce cas?}\\
+\textbf{Quelles seraient les complexités temporelles des méthodes spécifiques au Map ordonné dans ce cas?}\\
 \begin{itemize}
 	\item firstEntry() : O(N)
 	\item lastEntry(): O(N)
@@ -146,7 +146,7 @@ Une table de hachage ne garde pas l'ordre.\\
 	\item subMap(k1, k2): O(N)
 \end{itemize}
 
-\textbf{Si l’on dispose d’une liste triée de toutes les entrées d’un dictionnaire et que l’on suppose cette liste ﬁxe (aucun ajout ou retrait n’est permis), est-il intéressant de mémoriser ces entrées dans une table de hachage?}\\
+\textbf{Si l'on dispose d'une liste triée de toutes les entrées d'un dictionnaire et que l'on suppose cette liste fixe (aucun ajout ou retrait n'est permis), est-il intéressant de mémoriser ces entrées dans une table de hachage?}\\
 Ce n’est pas la meilleure solution. Même si la lecture de n’importe quel élément se fera en complexité de O(1), les données stocke dans la table de hachage ne seront plus triées.  
 Une table de hachage est utile seulement dans le cas où la notion d’ordre n’est pas importante.
 
