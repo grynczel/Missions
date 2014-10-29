@@ -1,3 +1,4 @@
+package modele;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,7 +9,7 @@ public class Journal {
 	/**
 	 * @author Baptiste Degryse, Wojciech Grynczel, Jerome Bertaux
 	 */
-	Map<String,Entree> map = new HashMap<String, Entree>();
+	private Map<String,Entree> map = new HashMap<String, Entree>();
 
 	public Journal(int indexCle, String filename, String delimiter){
 		BufferedReader fileReader = null;
@@ -74,6 +75,10 @@ public class Journal {
 
 	public Entree get(String cle){
 		return map.get(cle);
+	}
+
+	public Map<String, Entree> getMap() {
+		return map;
 	}
 
 }
