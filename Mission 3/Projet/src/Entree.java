@@ -9,7 +9,6 @@ public class Entree {
 	private HashMap<String, String> contenu=new HashMap<String,String>();
 	private String []cle;
 	public static String empty="";
-	//private String []valeur;
 	
 	/**
 	 * Cree une entree
@@ -17,15 +16,13 @@ public class Entree {
 	 * @param valeur: Contient les valeurs associees aux cle. La taille de valeur doit etre plus petit ou egale a la taille de cle.
 	 */
 	public Entree(String[] cle, String[] valeur){
-		String newVal[]=new String [cle.length];
 		for(int i=0;i<valeur.length;i++){
-			contenu.put(cle[i],newVal[i]=valeur[i]);
+			contenu.put(cle[i],valeur[i]);
 		}
 		for(int i=valeur.length;i<cle.length;i++){
-			contenu.put(cle[i],newVal[i]=empty);
+			contenu.put(cle[i],empty);
 		}
 		this.cle=cle;
-		//this.valeur=newVal;
 	}
 	/**
 	 * Retourne la valeur associee au champ

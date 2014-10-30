@@ -37,30 +37,30 @@ public class Journal {
 			while ((line = fileReader.readLine()) != null) {
 				index++;
 				// Get all tokens available in line
+
 				if(!line.equals("")){
 					tokens = line.split(delimiter);
-					if(tokens.length>size){
+					try{
 						String []to=new String[size];
 						int decalage=0;
-						for(int i=0;i<cle.length && i+decalage<tokens.length;i++){
+						for(int i=0;i<cle.length && i+decalage+1<tokens.length;i++){
 							to[i]=tokens[i+decalage];
-							if(tokens[i+decalage].charAt(0)==escapeChar){
+							if(tokens[i+decalage].charAt(0)==escapeChar && 
+									tokens[i+decalage].charAt(tokens[i+decalage].length()-1)==escapeChar){}//guillemets mais pas de virgule dedans
+							else if(tokens[i+decalage].charAt(0)==escapeChar){
 								int j=1;
 								to[i]=tokens[i+decalage].substring(1);
 								while(tokens[i+decalage+j].charAt(tokens[i+decalage+j].length()-1)!=escapeChar){
 									to[i]=to[i]+","+tokens[i+decalage+j];
 									j++;
 								}
-								to[i]=to[i]+","+tokens[i+decalage+j].substring(0, tokens[i+decalage+j].length()-2);
+								to[i]=to[i]+","+tokens[i+decalage+j].substring(0, tokens[i+decalage+j].length()-1);
 								decalage+=j;
 							}
 						}
 						tokens=to;
-					}
-					//for(int i=0; i<tokens.length; i++)
-					//	System.out.print(tokens[i] + " ");
-					//System.out.println();
-					try{
+
+
 						map.put(tokens[indexCle], new Entree(cle,tokens));
 					}
 					catch(Exception e){
@@ -90,5 +90,5 @@ public class Journal {
 	public Map<String, Entree> getMap() {
 		return map;
 	}
-	
+
 }
