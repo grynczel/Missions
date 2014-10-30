@@ -1,4 +1,4 @@
-package modele;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -87,4 +87,8 @@ public class Journal {
 	public Entree get(String cle){
 		return map.get(cle);
 	}
+	public Map<String, Entree> getMap() {
+		return map;
+	}
+	
 }

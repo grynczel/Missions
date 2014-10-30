@@ -1,12 +1,13 @@
-package tests;
+
 
 import static org.junit.Assert.*;
-import modele.Entree;
-import modele.Journal;
 
 import org.junit.Test;
 
 public class JournalTest {
+	/**
+	 * @author Jerome Bertaux
+	 */
 
 	@Test
 	public void test() {
