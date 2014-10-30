@@ -8,7 +8,11 @@ public class Main {
 		String titre;
 		char q;
 		Journal journal=new Journal(1,"Journals.csv", ",");
-		
+
+		JournalTest jT=new JournalTest();
+		jT.test();
+		jT.testVirguleFoR();
+		jT.testVirguleTitre();
 		//System.out.println(journal.getMap());
 		
 		//System.out.println(journal.getMap().get("Journal of Global Business Management"));
