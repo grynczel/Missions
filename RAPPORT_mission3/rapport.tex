@@ -71,15 +71,15 @@ Fonctionnement du constructeur du journal:\\
 Pour chaque ligne, il va faire un split avec le délimiteur rentré en argument. Ensuite, il va tester le nombre d'élements. S'il y en a pas suffisamment,  il rajoute alors un tableau vide à la fin car cela signifie qu'il n'y a rien après les délimiteurs. S'il y en a de trop, il check les guillemets pour remettre ensemble les tableaux qui ne devaient pas être séparés. Enfin Il rajoute l'élément à une map, déjà implémentée en java. Pour le rajout d'un élément, il utilise également la classe Entrée qui permet de lier les clés et les valeurs ensemble.
 
 \section*{Evaluation des performances}
-\\
+
 \subsection*{Complexité temporelle de la classe Entrée}
-\\
+
 Le constructeur de la classe Entrée a une complexité en $\Theta(n)$ où n représente le nombre de clés contenues dans le tableau "cle[]". Le constructeur contient deux boucles "for" dont la première tournera exactement autant de fois qu'il y a de clés, et dont la deuxième tournera autant de fois que la différence entre le nombre de clés et de valeurs. Ainsi, nous prenons L valeur la plus grande (vu qu'il s'agit d'une addition de deux boucles) pour déterminer "n". 
 \\
 L'autre méthode dans la classe Entrée est la méthode "toString" dont la complexité sera de $\Theta(n)$ où n représente également le nombre de clés. 
 \\
 \subsection*{Complexité temporelle de la classe Journal et la classe JournalTest}
-\\
+
 Tout d'abord, nous avons une première boucle while qui permet de lire le fichier avec lequel nous créons un journal. Cette boucle s'arrête dès que la ligne à lire est "null". Ainsi, la complexité temporelle de cette boucle est en $\Theta(n)$ où n représente le nombre de lignes du fichier à lire. 
 \\
 A l'intérieur de cette boucle, nous avons une boucle for avec deux conditions qui tournera exactement m fois, où m représente le nombre de fois où les deux conditions seront respectées. Ainsi, cette boucle a une complexité en $\Theta(m)$. 
@@ -90,7 +90,7 @@ Au final, cela correspond à une complexité de $\Theta(n*m*p)$
 Dans la classe de test "JournalTest", nous faisons appel à la méthode de création de journal, ainsi la complexité est la même que ci-dessus. 
 \\
 \subsection*{Complexité temporelle de la Main}
-\\
+
 Au début de la Main nous faisons appel à la méthode permettant de créer un journal à partir d'un fichier. Comme décrite plus haute, la complexité de cet appel est donc en $\Theta(n*m*p)$. 
 \\
 La classe Main utilise ensuite un scanner pour pouvoir communiquer avec l'utilisateur. Notre programme est tel qu'on utilise une boucle while où l'utilisateur rentre une valeur "y" ou "Y" pour continuer à rentrer un nom de journl. La boucle s'arrête dès que l'utilisateur rentre une valeur autre que ces deux-ci. Ainsi, la complexité est en $\Theta(n)$ où n représente le nombre de fois où l'utilisateur a rentré "y" ou "Y", car toutes les autres opérations de la boucle se font en temps constant. 
@@ -99,10 +99,11 @@ Comme nous prenons en compte la complexité la plus grande du programme, la comp
 \\
 \section*{Les tests}
 
+Nous avons testé le fonctionnement du programme grâce aux fichier \textit{Journal.csv} et grâce à la classe \textit{JournalTest.java}. Dans la Main, nous créons un objet \textit{JournalTest}, et nous testons, grâce aux fonctions définies dans cet objet, différents cas, notamment en plaçant une virgule à certains endroits critiques.
 
 
 \subsection*{UML}
-
-\includegraphics[scale=0.4]{diagrammeUML.PDF}
+\centering
+\includegraphics[scale=0.4]{DiagrammeUML.pdf}
 
 \end{document}
