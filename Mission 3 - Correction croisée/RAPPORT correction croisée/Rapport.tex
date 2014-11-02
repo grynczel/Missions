@@ -1,0 +1,103 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lscape}
+\usepackage{color}
+\usepackage{qtree}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\usepackage{changepage}
+\usepackage[margin=1in]{geometry}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\usepackage[final]{pdfpages} 
+ 
+ \lstdefinestyle{mystyle}{
+ 	backgroundcolor=\color{backcolour},   
+ 	commentstyle=\color{codegreen},
+ 	keywordstyle=\color{magenta},
+ 	numberstyle=\tiny\color{codegray},
+ 	stringstyle=\color{codepurple},
+ 	basicstyle=\footnotesize,
+ 	breakatwhitespace=false,         
+ 	breaklines=true,                 
+ 	captionpos=b,                    
+ 	keepspaces=true,                 
+ 	numbers=left,                    
+ 	numbersep=5pt,                  
+ 	showspaces=false,                
+ 	showstringspaces=false,
+ 	showtabs=false,                  
+ 	tabsize=2
+ }
+ 
+\lstset{
+	style=mystyle,
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
+	escapechar=\&
+}
+\title{Algorithmique et structures de données : Mission 3 correction croisée}
+\date{07 octobre 2014}
+\author{Groupe 1.2: Ivan Ahad - Jérôme Bertaux - Rodolphe Cambier \\ 
+	Baptiste Degryse - Wojciech Grynczel - Charles Jaquet}
+
+\begin{document}
+\maketitle
+
+\section*{Pertinence des produit par rapport aux objectifs : A}
+Premièrement, Ils utilisent des fonctions permettant de stocker des informations et d'utiliser un dictionnaire. Pour ce faire, ils ont décidé d'implémenter une hashTable.
+De plus la hashTable utilise bien le principe de buckets pour gérer les collisions comme étudié dans le livre.
+
+\section*{Explication du code / qualité de la conception générale: A}
+Pour ce qui est du code, ils ont crée 4 classes:
+\begin{itemize}
+
+\item la principale, étant la classe main permettant l'interaction avec l'utilisateur ainsi que l'initialisation des différentes variables.
+\item La deuxième est celle qui permet la lecture d'un fichier via un scanner.
+\item La troisième est la classe journal qui permet de représenter un objet journal. 
+\item Enfin la dernière est celle qui nous interesse le plus et s'appelle HashTableJournals dans laquelle ils utilisent les Hashtable importée directemenent de java.util.
+Dans l'initialisation de cette classe, il crée une hashtable qu'ils appellent "journals". Ensuite dans le main, ils appellent la fonction fillHashTableJournals() qui va prendre toutes les lignes dans le fichier grâce à la classe "ReadFile". Pour chacune des lignes, ils vont en créer un journal et ensuite l'ajouter dans la Hashtable journals en utilisant le nom du journal comme clé.
+\end{itemize}
+
+\section*{Qualité des commentaires et des spécifications: A}
+Le programme est bien commenté et ils ont fait les spécifications pour chaque fonction ce qui rends leur programme lisible et facilement compréhensible. De plus, grâce aux spécifications, il serait facile de réutiliser et/ou modifier leur code pour d'autres fonctionnalités.
+
+\section*{Efficacité du code : A}
+Analyse des différentes compléxité de leur code:
+
+\subsection*{Complexité temporelle}
+
+Pour analyser la complexité temporelle de la recherche d'un élément, il faut analyser deux cas :
+\begin{itemize}
+\item{\textbf{Le meilleur des cas:}}\\
+C'est a dire qu'il n'y a pas eu de collisions, il n'y a donc qu'un seul élément par bucket et donc la complexité est en O(1).
+
+\item{\textbf{Le pire des cas:}}\\
+C'est-à-dire qu'il y a eu des collisions pour tous les éléments de la hashTable. Par exemple si la taille de celle-ci est de 1.
+Dans ce cas ça va dépendre de comment les éléments sont stockés. Si ils sont stocké dans un tableau alors la complexité est en O(n).
+\end{itemize}
+\subsection*{Complexité spaciale}
+
+De base la taille du tableau hashTable est de 20714*1,25 éléments. L'interêt est que vu que leur loadFactor est de 0,75, on sait que la taille du tableau hashTable ne vas pas automatiquement grandir lors du remplissage de celui-ci (y compris dans le cas où il n'y aurait pas de collisions).\\
+On peut se permettre de faire ça parce que nous connaissons à l'avance le nombre de journals qu'il faudra stocker. Il l'ont donc codé en dur pour être sur de minimiser cette complexité spaciale.\\
+
+Nous avons donc, que dans ce programme, la complexité spaciale est de 25893 éléments.
+
+\section*{Clareté et pertinence des conclusions tirées dans le rapport : B}
+Ils n'ont pas tiré de conclusion dans le rapport. Juste signalé que leur programme peut prendre en compte plusieurs types de fichiers. Mais pour ce faire, il faudrait coder en dur nous même parce que leur programme ne demande pas le nom du fichier que l'on veut utiliser lors du fonctionnement de celui-ci. Et qui plus est, nous n'avons pas réussi à faire fonctionner leur programme car nous avons eu comme erreur :
+\begin{verbatim}
+An error occurred while initializing the Scanner
+Error while reading the file
+\end{verbatim}
+
+\end{document}
