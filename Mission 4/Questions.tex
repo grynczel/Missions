@@ -56,6 +56,37 @@
 \maketitle
 
 \paragraph*{Question 1 (Charles Jacquet)}
+\begin{itemize}
+\item{\textbf{Les clés doivent-elles automatiquement être des nombres}}\\
+Non, elles peuvent être n'importe quoi tant que c'est comparable.
+Par exemple, ça pourrait être des String classé de manière alphabétique.
+\item{\textbf{Enumérer en ordre croissant toute les clés mémorisées}}\\
+il suffit d'utiliser une fonction récursive, qui va se réappeller à chaquer élément de telle sorte que :
+String s = recursiveFunction(tree);
+
+avec comme pseudo code
+\begin{verbatim}
+public String recursiveFunction(BinaryTree tree){
+		if (tree.left == null && tree.right == null){
+			return tree.getElem();
+		}
+		else if(tree.left == null){
+			return recursiveFunction(tree.right);
+		}
+		else if(tree.right == null){
+			return recursiveFunction(tree.left);
+		}
+		else{
+			return recursiveFunction(tree.left) + recursiveFunction(tree.rigth);
+		}
+}
+\end{verbatim}
+La complexité de cette méthode est en O(h) avec h la hauteur du root.
+
+\item{\textbf{Dans le cas où une clé est mémorisée deux fois}}\\
+Lors de la deuxième mémorisation, dans le livre il est marqué qu'elle remplace la première. Il n'y a donc pas de relation père-fils.
+
+\end{itemize}
 \paragraph*{Question 2}
 \paragraph*{Question 3}
 \paragraph*{Question 4}
