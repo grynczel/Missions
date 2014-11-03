@@ -58,7 +58,7 @@
 Premièrement, Ils utilisent des fonctions permettant de stocker des informations et d'utiliser un dictionnaire. Pour ce faire, ils ont décidé d'implémenter une hashTable.
 De plus la hashTable utilise bien le principe de buckets pour gérer les collisions comme étudié dans le livre.
 
-\section*{Explication du code / qualité de la conception générale: A}
+\section*{Explication du code / qualité de la conception générale: B+}
 Pour ce qui est du code, ils ont crée 4 classes:
 \begin{itemize}
 
@@ -69,8 +69,10 @@ Pour ce qui est du code, ils ont crée 4 classes:
 Dans l'initialisation de cette classe, il crée une hashtable qu'ils appellent "journals". Ensuite dans le main, ils appellent la fonction fillHashTableJournals() qui va prendre toutes les lignes dans le fichier grâce à la classe "ReadFile". Pour chacune des lignes, ils vont en créer un journal et ensuite l'ajouter dans la Hashtable journals en utilisant le nom du journal comme clé.
 \end{itemize}
 
+Par contre leur code n'est pas vraiment générique (classe Journal et HashTableJournals), et ils n'utilisent pas les boucles à bon escient (pour les tests par exemple). 
+
 \section*{Qualité des commentaires et des spécifications: A}
-Le programme est bien commenté et ils ont fait les spécifications pour chaque fonction ce qui rends leur programme lisible et facilement compréhensible. De plus, grâce aux spécifications, il serait facile de réutiliser et/ou modifier leur code pour d'autres fonctionnalités.
+Le programme est bien commenté et ils ont fait les spécifications pour chaque fonction ce qui rends leur programme lisible et facilement compréhensible. De plus, grâce aux spécifications, il serait facile de réutiliser et/ou modifier leur code pour d'autres fonctionnalités. Bien qu'il faille tout modifier dans le code afin de pouvoir le réutiliser.
 
 \section*{Efficacité du code : A}
 Analyse des différentes compléxité de leur code:
@@ -94,10 +96,6 @@ On peut se permettre de faire ça parce que nous connaissons à l'avance le nomb
 Nous avons donc, que dans ce programme, la complexité spaciale est de 25893 éléments.
 
 \section*{Clareté et pertinence des conclusions tirées dans le rapport : B}
-Ils n'ont pas tiré de conclusion dans le rapport. Juste signalé que leur programme peut prendre en compte plusieurs types de fichiers. Mais pour ce faire, il faudrait coder en dur nous même parce que leur programme ne demande pas le nom du fichier que l'on veut utiliser lors du fonctionnement de celui-ci. Et qui plus est, nous n'avons pas réussi à faire fonctionner leur programme car nous avons eu comme erreur :
-\begin{verbatim}
-An error occurred while initializing the Scanner
-Error while reading the file
-\end{verbatim}
+Ils n'ont pas vraiment tiré de conclusion dans le rapport. Juste signaler que leur programme peut prendre en compte plusieurs types de fichiers. Mais la modulation se fait juste lors de la lecture du fichier. Leur programme ne pourrait donc pas traiter un fichier similaire contenant autre chose que des journaux avec les mêmes champs. Ils ont indiqué qu'il suffisait de changer la classe journal en cas d'autre fichiers, ou d'en créer une autre selon le besoin. Tout comme la généricité de leur classe HashTableJournal, qui ne fonctionnera pas avec une autre classe sans modification. Sinon, le rapport et le code sont extrêmement clairs et lisibles.
 
 \end{document}
