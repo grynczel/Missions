@@ -88,7 +88,46 @@ Lors de la deuxième mémorisation, dans le livre il est marqué qu'elle remplac
 
 \end{itemize}
 \paragraph*{Question 2}
-\paragraph*{Question 3}
+\paragraph*{Question 3 (Bertaux Jérôme)}
+\begin{verbatim}
+/*
+* PRE : t est un arbre trié de manière croissante depuis le sous arbre de gauche vers le sous arbre de droite.
+* POST : l'entrée possédant la plus petite clé ou null si l'arbre est vide.
+* 
+* La complexité est de l'ordre de O(h)
+*/
+public Entry firstEntry(Tree t){
+	if(t.isEmpty()){
+		return null;
+	}else{
+		Tree tmp = t;
+		while(t2.hasLeft()){
+			t2 = t2.getLeft();		
+		}
+		return t2.getValue();	
+	}
+}
+
+/*
+* PRE : t est un arbre trié de manière croissante depuis le sous arbre de gauche vers le sous arbre de droite.
+			k une clé
+* POST : l'entrée possédant une clé plus grande que k ou null si elle n'existe pas.
+* 
+* La complexité est de l'ordre de O(h)
+*/
+public Entry higherEntry(Tree t, int k){
+	if(!t.isEmpty()){
+		if(t.getValue().getKey() > k){
+			return t.getValue();		
+		}else if(t.hasRight()){
+			higherEntry(t.getRight(), k);		
+		}	
+	}else{
+		return null;	
+	}
+}
+\end{verbatim}
+
 \paragraph*{Question 4}
 \paragraph*{Question 5}
 \paragraph*{Question 6}
