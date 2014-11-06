@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.22)  6 NOV 2014 11:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.22)  6 NOV 2014 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -937,14 +937,24 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 68.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 97.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 97.
- [1
+Overfull \hbox (124.39111pt too wide) in paragraph at lines 129--129
+[]\T1/cmtt/m/n/10 * PRE : t est un arbre trié de manière croissante depuis le s
+ous arbre de gauche vers le sous arbre de droite.[] 
+ []
 
-{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./
-Questions.aux) ) 
+[1
+
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (124.39111pt too wide) in paragraph at lines 129--129
+[]\T1/cmtt/m/n/10 * PRE : t est un arbre trié de manière croissante depuis le s
+ous arbre de gauche vers le sous arbre de droite.[] 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 136.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 136.
+[2] (./Questions.aux) ) 
 Here is how much of TeX's memory you used:
  13454 strings out of 493315
  240672 string characters out of 6137904
@@ -952,20 +962,21 @@ Here is how much of TeX's memory you used:
  16608 multiletter control sequences out of 15000+600000
  9760 words of font info for 28 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,6n,68p,449b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm
--super-t1.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
-fb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb
-></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><
-/usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></u
-sr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr
-/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on Questions.pdf (2 pages, 154106 bytes).
+ 63i,6n,68p,449b,262s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-s
+uper/cm-super-t1.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1
+000.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm100
+0.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1200.
+pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pf
+b></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+
+Output written on Questions.pdf (2 pages, 159378 bytes).
 PDF statistics:
  59 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream
