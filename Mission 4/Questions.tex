@@ -159,7 +159,18 @@ http://pegasus.cc.ucf.edu/~fgonzale/eel4851/avltrees.PDF\\}
 
 \paragraph*{Question 6}
 \paragraph*{Question 7}
-\paragraph*{Question 8}
+\paragraph*{Question 8 (Baptiste Degryse)}
+La propriété la moins évidente à vérifier est l'équilibre de l'arbre. Puisqu'il y a 1000 éléments, la profondeur de l'arbre doit être de maximum $log_2(1000) = 9.9 \simeq 10 $. Donc, pour la racine, il doit y avoir entre 512 et 488 clés dans chaque sous-arbre si toutes les clés sont utilisées. Sinon, il faut avoir un minimum de $2^{n-1}$ où n est la hauteur visible lors de la recherche.
+
+2, 252, 401, 398, 330, 344, 397, 363 : Impossible, l'arbre n'est pas équilibré ( donc pas AVL ) car il y a maximum 1 enfant à gauche de la racine. (le chiffre 1)
+
+924, 220, 911, 244, 898, 258, 362, 363 : $2^{7-1} = 64$. Il n'y a donc pas de problème pour celui-ci, mais il y a une grande densité de présence de clé pour les clés élevées.
+
+925, 202, 911, 240, 912, 245, 363 : idem
+
+2, 399, 387, 219, 266, 382, 381, 278, 363 : Impossible, l'arbre n'est pas équilibré ( donc pas AVL ) car il y a maximum 1 enfant à gauche de la racine. (le chiffre 1)
+
+935, 278, 347, 621, 299, 392, 358, 363 : il faut 64 éléments dans l'autre sous arbre, ce qui implique que toutes les clés sauf une doivent être présentes au dessus de 934 pour que l'arbre soit valide.
 
 
 \end{document}
