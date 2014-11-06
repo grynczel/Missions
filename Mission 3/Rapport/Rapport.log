@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.24)  24 OCT 2014 15:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.24)  6 NOV 2014 11:49
 entering extended mode
 **Rapport.tex
 ("L:\Documents\Documents\GitHub\mission01\Mission 3\Rapport\Rapport.tex"
@@ -942,36 +942,9 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 )
-
-! Package inputenc Error: Unicode char \u8:ﬁ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.138 ...éciﬁques au Map ordonné dans ce cas?}
-                                                  \\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 133--139
 
  []
-
-
-! Package inputenc Error: Unicode char \u8:ﬁ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.149 ... ces entrées dans une table de hachage?}
-                                                  \\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
 
 [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -992,11 +965,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 174--185
 
  []
 
-[3] <diagramme.png, id=26, 2930.95pt x 1840.8775pt>
+[3] <diagramme.png, id=26, 1084.05pt x 722.7pt>
 File: diagramme.png Graphic file (type png)
  <use diagramme.png>
 Package pdftex.def Info: diagramme.png used on input line 186.
-(pdftex.def)             Requested size: 381.03688pt x 239.32248pt.
+(pdftex.def)             Requested size: 140.93144pt x 93.95428pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 186--190
 
@@ -1006,10 +979,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--190
 [5] ("L:\Documents\Documents\GitHub\mission01\Mission 3\Rapport\Rapport.aux") )
  
 Here is how much of TeX's memory you used:
- 14961 strings out of 493921
- 279776 string characters out of 3144867
+ 14960 strings out of 493921
+ 279770 string characters out of 3144867
  413693 words of memory out of 3000000
- 17956 multiletter control sequences out of 15000+200000
+ 17955 multiletter control sequences out of 15000+200000
  12428 words of font info for 31 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  62i,6n,74p,484b,2153s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1027,7 +1000,7 @@ amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmsy8.pfb>
-Output written on Rapport.pdf (5 pages, 5635314 bytes).
+Output written on Rapport.pdf (5 pages, 310347 bytes).
 PDF statistics:
  368 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

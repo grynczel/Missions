@@ -18,7 +18,7 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \usepackage[parfill]{parskip}
-
+ \usepackage{ragged2e}
  \lstdefinestyle{mystyle}{
  	backgroundcolor=\color{backcolour},   
  	commentstyle=\color{codegreen},
@@ -129,7 +129,34 @@ public Entry higherEntry(Tree t, int k){
 \end{verbatim}
 
 \paragraph*{Question 4}
-\paragraph*{Question 5}
+\newpage
+\paragraph*{Question 5 (Wojciech GRYNCZEL)\\}
+\textbf{L’ordre d’insertion des clés dans un AVL a t-il une influence sur la forme finale de l’arbre ?}
+L’ordre d’insertion n’influence pas toujours la forme finale de l’arbre. Par exemple si on insère  les clés  (1) (2) (3) dans n’importe quel ordre, la forme finale sera toujours même: \\
+\begin{center}
+\includegraphics{tree1}
+\end{center}
+
+Mais si on insère plus de clés, la forme finale change.\\
+\begin{center}
+(2) (5) (6) (13) (15) (48) (1)\\
+\includegraphics{tree2}\\
+(1) (48) (15) (13) (6) (5) (2)\\
+\includegraphics{tree3}
+\end{center}
+\newpage
+\textbf{Dessinez un arbre AVL de hauteur 5 ayant un nombre minimal de nœuds :}\\
+\begin{center}
+\includegraphics[scale=0.8]{tree4}
+\end{center}
+\textbf{Que peut-on dire de la relation entre hauteur h et nombre de noeuds n dans un arbre AVL ?}\\
+La hauteur est toujours logarithmique en fonction de la taille de l’arbre.
+
+{\footnotesize Soucres : \\
+http://pauillac.inria.fr/~maranget/X/421/poly/arbre-bin.html\\
+http://www.qmatica.com/DataStructures/Trees/AVL/AVLTree.html\\
+http://pegasus.cc.ucf.edu/~fgonzale/eel4851/avltrees.PDF\\}
+
 \paragraph*{Question 6}
 \paragraph*{Question 7}
 \paragraph*{Question 8}
