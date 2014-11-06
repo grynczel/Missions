@@ -11,6 +11,7 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{float}
 \usepackage{changepage}
 \usepackage[margin=1in]{geometry}
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -157,7 +158,33 @@ http://pauillac.inria.fr/~maranget/X/421/poly/arbre-bin.html\\
 http://www.qmatica.com/DataStructures/Trees/AVL/AVLTree.html\\
 http://pegasus.cc.ucf.edu/~fgonzale/eel4851/avltrees.PDF\\}
 
-\paragraph*{Question 6}
+\paragraph*{Question 6 (Rodolphe Cambier)}
+
+
+L'algorithme utilisé est le suivant:
+
+On prend l'élément le plus petit de l'arbre U, et on insère celui-ci à la hauteur 2*(hauteur(U))-1 dans l'arbre T.
+
+Faisant cela, on garde U comme sous-arbre à l'emplacement où l'on vient de rajouter l'élément. Mais on supprime l'élément de ce sous-arbre.
+
+Il suffit ensuite de régler l'overflow éventuel et les deux arbres sont fusionnés.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{algo.png}
+\caption{On insère (64) à la hauteur 3 (2*2-1) dans l'arbre T, en lui laissant U comme sous-arbre. On supprime ensuite l'élément du sous-arbre U. Il n'y a ici pas d'overflow.}
+\end{figure}
+
+La complexité est la suivante (avec n = nbr de clés dans T et m = nbr de clés dans U):
+
+On récupère le plus petit élément de U , O(log(m)) par définition de la fonction get().
+
+On l'insère dans T, en gérant les overflows, O(log(n)) par définition de la fonction insert().
+
+On supprime de T l'élément qui y est maintenant en double, O(log(n)) par définition de la fonction remove().
+
+Donc on a O(log(n)) + 2*O(log(m)) = O(log(n)) + O(log(n) = O(log(n) + log(m)). 
+
 \paragraph*{Question 7 (Bertaux Jérôme)}
 \begin{enumerate}
 \item Cas 1 :  Après l'ajout d'un élément, l'arbre est toujours équilibré : il n'est pas nécessaire d'effectuer une opération de rééquilibrage. (Voir figure 1a et 1b de l'annexe de l'énoncé)
