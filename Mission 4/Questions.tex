@@ -88,7 +88,11 @@ La complexité de cette méthode est en O(h) avec h la hauteur du root.
 Lors de la deuxième mémorisation, dans le livre il est marqué qu'elle remplace la première. Il n'y a donc pas de relation père-fils.
 
 \end{itemize}
-\paragraph*{Question 2}
+\paragraph*{Question 2(Ivan)}
+
+L'arbre binaire de recherche a comme avantage de pouvoir réaliser un mapping dont les clés ont une certaine relation. Son avantage par rapport aux skip lists est aussi qu'il prend moins de place et utilise beaucoup mieux le principe de "localité" (où les éléments reliés ne sont pas spécialement proches l'un l'autre).
+\\
+La forme d'un arbre binaire dépend en effet de l'ordre d'insertion étant donné qu'on va placer soit dans le sous-arbre droit soit dans le sous-arbre gauche la clé suivante à insérer selon si elle est plus petite ou plus grande. La complexité temporelle serait en $\Theta(n)$ où n représente le nomber de clés identiques à insérer. La propriété particulière est que les arbres binaires sont équilibrés. 
 \paragraph*{Question 3 (Bertaux Jérôme)}
 \begin{verbatim}
 /*
@@ -128,8 +132,23 @@ public Entry higherEntry(Tree t, int k){
 	}
 }
 \end{verbatim}
+\newpage
 
-\paragraph*{Question 4}
+
+\includegraphics[scale=0.5]{arbre.png}
+\paragraph*{Question 4(Ivan)}
+\\
+
+Voir arbre ci-dessus pour les clés insérées. On sous-entend ici que comme la valeur 15 s'y trouve déjà, on ne la rajoute pas une deuxième fois. Autrement, la valeur 15 serait l'enfant gauche du noeud contenant déjà cette valeur. 
+\\
+
+S'il s'agissait d'un arbre (2,4), l'arbre n'aurait que des enfants avec entre 2 et 4 noeuds (voir illustration ci dessous.)
+\\
+\includegraphics[scale=0.6]{arbre1.png}
+\\
+Si l'arbre était un B-arbre d'ordre 4 il aurait été pareil que l'arbre ci-dessous car les deux types contiennent des 4-Noeuds. Le Splay-tree aurait eu une apparence différente, la racine aurait été l'élément 10 avec comme enfant droit 12, et 12 aurait comme enfant droit le sous-arbre droit du premier graph.
+\\
+
 \newpage
 \paragraph*{Question 5 (Wojciech GRYNCZEL)\\}
 \textbf{L’ordre d’insertion des clés dans un AVL a t-il une influence sur la forme finale de l’arbre ?}
