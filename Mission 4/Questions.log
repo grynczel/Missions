@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.22)  7 NOV 2014 18:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.22)  7 NOV 2014 18:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -775,10 +775,18 @@ File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
+(/usr/local/texlive/2013/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count126
+\float@exts=\toks32
+\float@box=\box60
+\@float@everytoks=\toks33
+\@floatcapt=\box61
+)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/changepage/changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count126
-\cp@tempcnt=\count127
+\c@cp@cntr=\count127
+\cp@tempcnt=\count128
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -794,9 +802,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count128
-\Gm@cntv=\count129
-\c@Gm@tempcnt=\count130
+\Gm@cnth=\count129
+\Gm@cntv=\count130
+\c@Gm@tempcnt=\count131
 \Gm@bindingoffset=\dimen158
 \Gm@wd@mp=\dimen159
 \Gm@odd@mp=\dimen160
@@ -805,40 +813,61 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutheight=\dimen163
 \Gm@layouthoffset=\dimen164
 \Gm@layoutvoffset=\dimen165
-\Gm@dimlist=\toks32
+\Gm@dimlist=\toks34
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
+(/usr/local/texlive/2013/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+\CenteringLeftskip=\skip129
+\RaggedLeftLeftskip=\skip130
+\RaggedRightLeftskip=\skip131
+\CenteringRightskip=\skip132
+\RaggedLeftRightskip=\skip133
+\RaggedRightRightskip=\skip134
+\CenteringParfillskip=\skip135
+\RaggedLeftParfillskip=\skip136
+\RaggedRightParfillskip=\skip137
+\JustifyingParfillskip=\skip138
+\CenteringParindent=\skip139
+\RaggedLeftParindent=\skip140
+\RaggedRightParindent=\skip141
+\JustifyingParindent=\skip142
+)
 (./Questions.aux)
 \openout1 = `Questions.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count131
+\scratchcounter=\count132
 \scratchdimen=\dimen166
-\scratchbox=\box60
-\nofMPsegments=\count132
-\nofMParguments=\count133
-\everyMPshowfont=\toks33
-\MPscratchCnt=\count134
+\scratchbox=\box62
+\nofMPsegments=\count133
+\nofMParguments=\count134
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count135
 \MPscratchDim=\dimen167
-\MPnumerator=\count135
-\makeMPintoPDFobject=\count136
-\everyMPtoPDFconversion=\toks34
+\MPnumerator=\count136
+\makeMPintoPDFobject=\count137
+\everyMPtoPDFconversion=\toks36
 ) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -884,7 +913,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\c@lstlisting=\count137
+\c@lstlisting=\count138
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -920,24 +949,27 @@ ABD: EveryShipout initializing macros
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 56.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 56.
+(Font)              <12> on input line 57.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 56.
+(Font)              <8> on input line 57.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 56.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 60.
+(Font)              <6> on input line 57.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 61.
+
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 60.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 68.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 69.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (124.39111pt too wide) in paragraph at lines 129--129
+Overfull \hbox (124.39111pt too wide) in paragraph at lines 130--130
 []\T1/cmtt/m/n/10 * PRE : t est un arbre trié de manière croissante depuis le s
 ous arbre de gauche vers le sous arbre de droite.[] 
  []
@@ -945,41 +977,105 @@ ous arbre de gauche vers le sous arbre de droite.[]
 [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (124.39111pt too wide) in paragraph at lines 129--129
+Overfull \hbox (124.39111pt too wide) in paragraph at lines 130--130
 []\T1/cmtt/m/n/10 * PRE : t est un arbre trié de manière croissante depuis le s
 ous arbre de gauche vers le sous arbre de droite.[] 
  []
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 136.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 136.
-[2] (./Questions.aux) ) 
-Here is how much of TeX's memory you used:
- 13454 strings out of 493315
- 240672 string characters out of 6137904
- 300971 words of memory out of 5000000
- 16608 multiletter control sequences out of 15000+600000
- 9760 words of font info for 28 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 63i,6n,68p,449b,262s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-s
-uper/cm-super-t1.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1
-000.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm100
-0.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1200.
-pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pf
-b></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 135--137
 
-Output written on Questions.pdf (2 pages, 159378 bytes).
+ []
+
+<tree1.png, id=18, 123.46124pt x 93.34875pt>
+File: tree1.png Graphic file (type png)
+ <use tree1.png>
+Package pdftex.def Info: tree1.png used on input line 138.
+(pdftex.def)             Requested size: 123.46092pt x 93.34851pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
+
+ []
+
+<tree2.png, id=20, 374.90062pt x 193.47281pt>
+File: tree2.png Graphic file (type png)
+ <use tree2.png>
+Package pdftex.def Info: tree2.png used on input line 144.
+(pdftex.def)             Requested size: 374.8997pt x 193.47234pt.
+
+<tree3.png, id=21, 244.66406pt x 143.03438pt>
+File: tree3.png Graphic file (type png)
+ <use tree3.png>
+Package pdftex.def Info: tree3.png used on input line 146.
+(pdftex.def)             Requested size: 244.66345pt x 143.03401pt.
+ [3 <./tree1.png> <./tree2.png> <./tree3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+
+ []
+
+<tree4.png, id=28, 629.35126pt x 290.58563pt>
+File: tree4.png Graphic file (type png)
+ <use tree4.png>
+Package pdftex.def Info: tree4.png used on input line 151.
+(pdftex.def)             Requested size: 503.48169pt x 232.46881pt.
+
+Overfull \hbox (50.5138pt too wide) in paragraph at lines 151--152
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--160
+
+ []
+
+<algo.png, id=29, 829.0975pt x 477.785pt>
+File: algo.png Graphic file (type png)
+ <use algo.png>
+Package pdftex.def Info: algo.png used on input line 174.
+(pdftex.def)             Requested size: 414.54774pt x 238.8919pt.
+ [4 <./tree4.png>]
+<double_rotation.png, id=35, 635.37375pt x 270.00874pt>
+File: double_rotation.png Graphic file (type png)
+
+<use double_rotation.png>
+Package pdftex.def Info: double_rotation.png used on input line 194.
+(pdftex.def)             Requested size: 317.6861pt x 135.00403pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--199
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 201.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 201.
+[5 <./algo.png> <./double_rotation.png>] [6] (./Questions.aux) ) 
+Here is how much of TeX's memory you used:
+ 13623 strings out of 493315
+ 243490 string characters out of 6137904
+ 303213 words of memory out of 5000000
+ 16759 multiletter control sequences out of 15000+600000
+ 10524 words of font info for 29 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 63i,7n,68p,449b,276s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/tex
+live/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texli
+ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
+e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2013/texmf
+-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2013/texmf-d
+ist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2013/texmf-dis
+t/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2013/texmf-dist/
+fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2013/texmf-dist/fo
+nts/type1/public/cm-super/sftt1000.pfb>
+Output written on Questions.pdf (6 pages, 336522 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
