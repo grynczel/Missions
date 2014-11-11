@@ -120,9 +120,9 @@ public class Dictionnaire {
 	 * @param orderBy : titre du champs par ex: "Title" ou "Rank"
 	 * @return retourne la listre triee
 	 */
-	public List<Entree> getSortedList(String orderBy) {
+	public List<Entree> getSortedList(String orderBy, boolean ascending) {
 		List<Entree> list = new ArrayList<Entree>(map.values());
-		return getSortedList(list, orderBy);
+		return getSortedList(list, orderBy, ascending);
 	}
 	
 	/**
@@ -131,8 +131,8 @@ public class Dictionnaire {
 	 * @param orderBy : titre du champs par ex: "Title" ou "Rank"
 	 * @return retourne la listre triee
 	 */
-	private List<Entree> getSortedList(List<Entree> list, String orderBy) {
-		Collections.sort(list, new EntreeComparable(orderBy));
+	private List<Entree> getSortedList(List<Entree> list, String orderBy, boolean ascending) {
+		Collections.sort(list, new EntreeComparable(orderBy, ascending));
 		return list;
 	}
 	
@@ -144,26 +144,30 @@ public class Dictionnaire {
 	 * @param fieldValue : valeur du champs a filtrer par ex: "A*"
 	 * @return retourne la listre triee
 	 */
-	public List<Entree> getSortedList(String orderBy, String field, String fieldValue) {
+	public List<Entree> getSortedList(String orderBy, boolean ascending, String field, String fieldValue) {
 		List<Entree> filteredList = new ArrayList<Entree>();
 		for (Entree entree : new ArrayList<Entree>(map.values())) {
 			if(entree.containsKey(field))
 				if (entree.get(field).compareTo(fieldValue) == 0)
 					filteredList.add(entree);
 		}
-		return getSortedList(filteredList, orderBy);
+		return getSortedList(filteredList, orderBy, ascending);
 	}
 
 	public class EntreeComparable implements Comparator<Entree> {
 		private String orderBy;
-
-		public EntreeComparable(String orderBy) {
-			this.orderBy = orderBy;
+		private boolean ascending;
+		public EntreeComparable(String orderBy,boolean ascending) {
+			this.orderBy 	= orderBy;
+			this.ascending 	= ascending;
 		}
 
 		@Override
 		public int compare(Entree arg0, Entree arg1) {
-			return arg0.get(orderBy).compareTo(arg1.get(orderBy));
+			if(ascending)
+				return arg0.get(orderBy).compareTo(arg1.get(orderBy));
+			else
+				return arg1.get(orderBy).compareTo(arg0.get(orderBy));
 		}
 	}
 }
