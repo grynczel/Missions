@@ -112,22 +112,41 @@ public class Journal {
 		return map;
 	}
 
+	/**
+	 * Retourne la liste triee en fonction de champ "orderBy"
+	 * @param orderBy : titre du champs par ex: "Title" ou "Rank"
+	 * @return retourne la listre triee
+	 */
 	public List<Entree> getSortedList(String orderBy) {
 		List<Entree> list = new ArrayList<Entree>(map.values());
 		return getSortedList(list, orderBy);
 	}
 	
+	/**
+	 * Retourne la liste "list" triee en fonction de champ "orderBy"
+	 * @param list: Contient une liste d'entrees			
+	 * @param orderBy : titre du champs par ex: "Title" ou "Rank"
+	 * @return retourne la listre triee
+	 */
 	private List<Entree> getSortedList(List<Entree> list, String orderBy) {
 		Collections.sort(list, new EntreeComparable(orderBy));
 		return list;
 	}
 	
+	/**
+	 * Retourne la liste filtree en fonction de "field" et "fieldValue" et triee en fonction de champ "orderBy"
+	 * Par ex: getSortedList("Title", "Rank", "A*") -> Retourne une liste triee par le "Title" de toutes les entree qui ont le "Rank" : "A*"
+	 * @param orderBy : titre du champs par ex: "Title" ou "Rank"
+	 * @param field : titre du champs a filtrer par ex: "Rank"
+	 * @param fieldValue : valeur du champs a filtrer par ex: "A*"
+	 * @return retourne la listre triee
+	 */
 	public List<Entree> getSortedList(String orderBy, String field, String fieldValue) {
 		List<Entree> filteredList = new ArrayList<Entree>();
 		for (Entree entree : new ArrayList<Entree>(map.values())) {
-			if (entree.get(field).compareTo(fieldValue) == 0) {
-				filteredList.add(entree);
-			}
+			if(entree.containsKey(field))
+				if (entree.get(field).compareTo(fieldValue) == 0)
+					filteredList.add(entree);
 		}
 		return getSortedList(filteredList, orderBy);
 	}

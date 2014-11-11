@@ -32,6 +32,16 @@ public class Entree {
 	public String get(String cle){
 		return contenu.get(cle);
 	}
+	
+	/**
+	 * Verifie si le champs "cle" existe et n'est pas null
+	 * @param cle : champ de la valeur qui doit etre verifie
+	 * @return retourne true si le champs existe
+	 */
+	public boolean containsKey(String cle){
+		return contenu.containsKey(cle) && contenu.get(cle) != null;
+	}
+	
 	//@override
 	public String toString(){
 		String s="";

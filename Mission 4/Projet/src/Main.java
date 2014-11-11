@@ -25,8 +25,8 @@ public class Main {
 		endTime = System.nanoTime();
 		long duration = (endTime - startTime);  //divide by 1000000 to get milliseconds.
 		System.out.println("Init time : " + duration/1000000 +"ms" );
-		
-		List<Entree> list = journal.getSortedList("Title", "Rank", "A*");
+		//201
+		List<Entree> list = journal.getSortedList("Title", "FoR2 Name", "Business and Management");
 		System.out.println(list);
 		
 //		//System.out.println(journal.getMap().get("Journal of Global Business Management"));
