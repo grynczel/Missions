@@ -13,10 +13,10 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		String titre;
 		char q;
-		Journal journal=new Journal(1,"Journals.csv", ",");
+		Dictionnaire journal=new Dictionnaire(1,"Journals.csv", ",");
 		
-		journal=new Journal(1,"Journals.csv", ",");
-		JournalTest jT=new JournalTest();
+		//journal=new Dictionnaire(1,"Journals.csv", ",");
+		DictionnaireTest jT=new DictionnaireTest(journal);
 		jT.test();
 		jT.testVirguleFoR();
 		jT.testVirguleTitre();

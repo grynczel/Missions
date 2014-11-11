@@ -10,12 +10,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Journal {
+public class Dictionnaire {
 	/**
 	 * @author Baptiste Degryse, Wojciech Grynczel, Jerome Bertaux
 	 */
 	private Map<String, Entree> map = new TreeMap<String, Entree>();
 
+	private String[] ordreTitre;
+	private boolean[] ordreAsc;
+	
 	/**
 	 * cree un journal en lisant un fichier. La premiere ligne represente les
 	 * titres des champs
@@ -27,7 +30,7 @@ public class Journal {
 	 * @param delimiter
 	 *            : delimiter entre chaque valeurs
 	 */
-	public Journal(int indexCle, String filename, String delimiter) {
+	public Dictionnaire(int indexCle, String filename, String delimiter) {
 		BufferedReader fileReader = null;
 		char escapeChar = '"';
 		String[] tokens;
@@ -78,7 +81,7 @@ public class Journal {
 						}
 						tokens = to;
 
-						map.put(tokens[indexCle], new Entree(cle, tokens));
+						map.put(tokens[indexCle], new Entree(cle, tokens,this));
 					} catch (Exception e) {
 						System.out.println("Erreur : " + index + " " + line);
 						e.printStackTrace();
