@@ -49,7 +49,7 @@ public class Dictionnaire {
 			while ((line = fileReader.readLine()) != null) {
 				index++;
 				// Get all tokens available in line
-
+				
 				if (!line.equals("")) {
 					tokens = line.split(delimiter);
 					try {
