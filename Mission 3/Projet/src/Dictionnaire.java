@@ -2,14 +2,17 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
+import java.util.NavigableSet;
+import java.util.TreeMap;
 
-public class Journal {
+public class Dictionnaire {
 	/**
 	 * @author Baptiste Degryse, Wojciech Grynczel, Jerome Bertaux
 	 */
-	private Map<String,Entree> map = new HashMap<String, Entree>();
+	private TreeMap<String,Entree> dico = new TreeMap<String, Entree>();
+	private String[] ordreTitre;
+	private boolean[] ordreAsc;
 
 	/**
 	 * cree un journal en lisant un fichier.
@@ -18,7 +21,7 @@ public class Journal {
 	 * @param filename : nom du fichier a lire (ou filepath)
 	 * @param delimiter : delimiter entre chaque valeurs
 	 */
-	public Journal(int indexCle, String filename, String delimiter){
+	public Dictionnaire(int indexCle, String filename, String delimiter){
 		BufferedReader fileReader = null;
 		char escapeChar='"';
 		String[] tokens;
@@ -43,7 +46,9 @@ public class Journal {
 					try{
 						String []to=new String[size];
 						int decalage=0;
-						for(int i=0;i<cle.length && i+decalage+1<tokens.length;i++){
+						//if(index==11326)
+						//	System.out.println("yo");
+						for(int i=0;i<cle.length && i+decalage<tokens.length;i++){
 							to[i]=tokens[i+decalage];
 							if(tokens[i+decalage].charAt(0)==escapeChar && 
 									tokens[i+decalage].charAt(tokens[i+decalage].length()-1)==escapeChar){}//guillemets mais pas de virgule dedans
@@ -60,16 +65,15 @@ public class Journal {
 						}
 						tokens=to;
 
-
-						map.put(tokens[indexCle], new Entree(cle,tokens));
+						dico.put(tokens[indexCle], new Entree(cle,tokens, this));
 					}
-					catch(Exception e){
+					catch(NullPointerException e){
 						System.out.println("Erreur : "+index+" "+line);
 						e.printStackTrace();
 					}
 				}
 			}
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -85,10 +89,44 @@ public class Journal {
 	 * @return l'entree de cle cle
 	 */
 	public Entree get(String cle){
-		return map.get(cle);
+		return dico.get(cle);
 	}
-	public Map<String, Entree> getMap() {
-		return map;
+	
+	/**
+	 * change l'ordre de tri dans les paramètres
+	 * @param titres: Contient l'ordre de priorite de tri
+	 * @param ordres: Contient un boolean par titre, true=ascendant
+	 */
+	public void changeTri(String titres[], boolean asc[]){
+		if(asc==null){
+			boolean asc2[]=new boolean[titres.length];
+			for(int i=0;i<asc2.length;i++)
+				asc2[i]=true;
+		}
+		else if(asc.length!=titres.length){
+			boolean asc2[]=new boolean[titres.length];
+			for(int i=0;i<asc2.length;i++)
+				asc2[i]=true;
+			for(int i=0;i<asc.length;i++)
+				asc2[i]=asc[i];
+		}
+		ordreTitre=titres;
+		ordreAsc=asc;
 	}
-
+	
+	public String[] getOrdreTitre(){
+		return ordreTitre;
+	}
+	public boolean[] getAsc(){
+		return ordreAsc;
+	}
+	public void test(){
+		//Entree e=dico.get(dico.firstKey());
+		NavigableSet<String> ks=dico.descendingKeySet();
+		Iterator<String> iter=ks.iterator();
+		while(iter.hasNext()){
+			System.out.println(dico.get(iter.next()));
+		}
+	}
+	
 }

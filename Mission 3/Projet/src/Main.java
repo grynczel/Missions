@@ -7,19 +7,19 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		String titre;
 		char q;
-		Journal journal=new Journal(1,"Journals.csv", ",");
+		Dictionnaire dico=new Dictionnaire(1,"Journals.csv", ",");
+		dico.changeTri(new String[]{"rank","title","FoR2"} ,null);
+		//dico.test();
 
-		JournalTest jT=new JournalTest();
+		DictionnaireTest jT=new DictionnaireTest();
 		jT.test();
 		jT.testVirguleFoR();
 		jT.testVirguleTitre();
-		//System.out.println(journal.getMap());
 		
-		//System.out.println(journal.getMap().get("Journal of Global Business Management"));
 		do{	
 			System.out.print("Entrez le nom d'un journal : ");
 			titre = scan.nextLine();
-			System.out.println(journal.get(titre));
+			System.out.println(dico.get(titre));
 			System.out.print("Continuer (y/n) ? ");
 			q = scan.nextLine().charAt(0);
 			

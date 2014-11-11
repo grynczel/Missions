@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.22)  7 NOV 2014 18:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.22)  10 NOV 2014 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -969,7 +969,12 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 69.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (124.39111pt too wide) in paragraph at lines 130--130
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 95.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 95.
+
+Overfull \hbox (124.39111pt too wide) in paragraph at lines 134--134
 []\T1/cmtt/m/n/10 * PRE : t est un arbre trié de manière croissante depuis le s
 ous arbre de gauche vers le sous arbre de droite.[] 
  []
@@ -977,87 +982,103 @@ ous arbre de gauche vers le sous arbre de droite.[]
 [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (124.39111pt too wide) in paragraph at lines 130--130
+Overfull \hbox (124.39111pt too wide) in paragraph at lines 134--134
 []\T1/cmtt/m/n/10 * PRE : t est un arbre trié de manière croissante depuis le s
 ous arbre de gauche vers le sous arbre de droite.[] 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 135--137
+[2] <arbre.png, id=20, 255.95625pt x 385.44pt>
+File: arbre.png Graphic file (type png)
+ <use arbre.png>
+Package pdftex.def Info: arbre.png used on input line 138.
+(pdftex.def)             Requested size: 127.9778pt x 192.71953pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
 
  []
 
-<tree1.png, id=18, 123.46124pt x 93.34875pt>
+<arbre1.png, id=21, 333.245pt x 222.8325pt>
+File: arbre1.png Graphic file (type png)
+ <use arbre1.png>
+Package pdftex.def Info: arbre1.png used on input line 146.
+(pdftex.def)             Requested size: 199.94853pt x 133.70053pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--150
+
+ []
+
+[3 <./arbre.png> <./arbre1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 153--155
+
+ []
+
+<tree1.png, id=25, 123.46124pt x 93.34875pt>
 File: tree1.png Graphic file (type png)
  <use tree1.png>
-Package pdftex.def Info: tree1.png used on input line 138.
+Package pdftex.def Info: tree1.png used on input line 156.
 (pdftex.def)             Requested size: 123.46092pt x 93.34851pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
-<tree2.png, id=20, 374.90062pt x 193.47281pt>
+<tree2.png, id=27, 374.90062pt x 193.47281pt>
 File: tree2.png Graphic file (type png)
  <use tree2.png>
-Package pdftex.def Info: tree2.png used on input line 144.
+Package pdftex.def Info: tree2.png used on input line 162.
 (pdftex.def)             Requested size: 374.8997pt x 193.47234pt.
 
-<tree3.png, id=21, 244.66406pt x 143.03438pt>
+<tree3.png, id=28, 244.66406pt x 143.03438pt>
 File: tree3.png Graphic file (type png)
  <use tree3.png>
-Package pdftex.def Info: tree3.png used on input line 146.
+Package pdftex.def Info: tree3.png used on input line 164.
 (pdftex.def)             Requested size: 244.66345pt x 143.03401pt.
- [3 <./tree1.png> <./tree2.png> <./tree3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
+ [4 <./tree1.png> <./tree2.png> <./tree3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
-<tree4.png, id=28, 629.35126pt x 290.58563pt>
+<tree4.png, id=35, 629.35126pt x 290.58563pt>
 File: tree4.png Graphic file (type png)
  <use tree4.png>
-Package pdftex.def Info: tree4.png used on input line 151.
+Package pdftex.def Info: tree4.png used on input line 169.
 (pdftex.def)             Requested size: 503.48169pt x 232.46881pt.
 
-Overfull \hbox (50.5138pt too wide) in paragraph at lines 151--152
+Overfull \hbox (50.5138pt too wide) in paragraph at lines 169--170
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--160
+Underfull \hbox (badness 10000) in paragraph at lines 174--178
 
  []
 
-<algo.png, id=29, 829.0975pt x 477.785pt>
+<algo.png, id=36, 829.0975pt x 477.785pt>
 File: algo.png Graphic file (type png)
  <use algo.png>
-Package pdftex.def Info: algo.png used on input line 174.
+Package pdftex.def Info: algo.png used on input line 192.
 (pdftex.def)             Requested size: 414.54774pt x 238.8919pt.
- [4 <./tree4.png>]
-<double_rotation.png, id=35, 635.37375pt x 270.00874pt>
+ [5 <./tree4.png>]
+<double_rotation.png, id=42, 635.37375pt x 270.00874pt>
 File: double_rotation.png Graphic file (type png)
 
 <use double_rotation.png>
-Package pdftex.def Info: double_rotation.png used on input line 194.
+Package pdftex.def Info: double_rotation.png used on input line 212.
 (pdftex.def)             Requested size: 317.6861pt x 135.00403pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--199
+Underfull \hbox (badness 10000) in paragraph at lines 215--217
 
  []
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 201.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 201.
-[5 <./algo.png> <./double_rotation.png>] [6] (./Questions.aux) ) 
+[6 <./algo.png> <./double_rotation.png>] [7] (./Questions.aux) ) 
 Here is how much of TeX's memory you used:
- 13623 strings out of 493315
- 243490 string characters out of 6137904
- 303213 words of memory out of 5000000
- 16759 multiletter control sequences out of 15000+600000
+ 13633 strings out of 493315
+ 243623 string characters out of 6137904
+ 304213 words of memory out of 5000000
+ 16767 multiletter control sequences out of 15000+600000
  10524 words of font info for 29 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,7n,68p,449b,276s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,7n,68p,450b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/tex
 live/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texli
 ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
@@ -1072,10 +1093,10 @@ ist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2013/texmf-dis
 t/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2013/texmf-dist/
 fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2013/texmf-dist/fo
 nts/type1/public/cm-super/sftt1000.pfb>
-Output written on Questions.pdf (6 pages, 336522 bytes).
+Output written on Questions.pdf (7 pages, 355691 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

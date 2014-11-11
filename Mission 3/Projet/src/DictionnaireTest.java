@@ -4,13 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class JournalTest {
+public class DictionnaireTest {
 	/**
 	 * @author Jerome Bertaux && Baptiste Degryse
 	 */
-	Journal journal;
-	public JournalTest(){
-		this.journal=new Journal(1,"Journals.csv", ",");
+	Dictionnaire journal;
+	public DictionnaireTest(){
+		this.journal=new Dictionnaire(1,"Journals.csv", ",");
 	}
 	@Test
 	public void test() {
