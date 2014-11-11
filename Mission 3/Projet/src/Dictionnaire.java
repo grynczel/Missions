@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.NavigableSet;
 import java.util.TreeMap;
 
@@ -10,9 +11,9 @@ public class Dictionnaire {
 	/**
 	 * @author Baptiste Degryse, Wojciech Grynczel, Jerome Bertaux
 	 */
-	private TreeMap<String,Entree> dico = new TreeMap<String, Entree>();
 	private String[] ordreTitre;
 	private boolean[] ordreAsc;
+	private TreeMap<String,Entree> map = new TreeMap<String, Entree>();
 
 	/**
 	 * cree un journal en lisant un fichier.
@@ -65,7 +66,8 @@ public class Dictionnaire {
 						}
 						tokens=to;
 
-						dico.put(tokens[indexCle], new Entree(cle,tokens, this));
+						map.put(tokens[indexCle], new Entree(cle,tokens, this));
+						
 					}
 					catch(NullPointerException e){
 						System.out.println("Erreur : "+index+" "+line);
@@ -82,6 +84,7 @@ public class Dictionnaire {
 				e.printStackTrace();
 			}
 		}
+		//Object[] a = map.values().toArray();
 	}
 	/**
 	 * retourne l'entree ayant comme cle cle
@@ -89,9 +92,9 @@ public class Dictionnaire {
 	 * @return l'entree de cle cle
 	 */
 	public Entree get(String cle){
-		return dico.get(cle);
+		return map.get(cle);
 	}
-	
+
 	/**
 	 * change l'ordre de tri dans les paramètres
 	 * @param titres: Contient l'ordre de priorite de tri
@@ -113,7 +116,7 @@ public class Dictionnaire {
 		ordreTitre=titres;
 		ordreAsc=asc;
 	}
-	
+
 	public String[] getOrdreTitre(){
 		return ordreTitre;
 	}
@@ -121,12 +124,16 @@ public class Dictionnaire {
 		return ordreAsc;
 	}
 	public void test(){
-		//Entree e=dico.get(dico.firstKey());
-		NavigableSet<String> ks=dico.descendingKeySet();
+		//Entree e=map.get(map.firstKey());
+		NavigableSet<String> ks=map.descendingKeySet();
 		Iterator<String> iter=ks.iterator();
 		while(iter.hasNext()){
-			System.out.println(dico.get(iter.next()));
+			System.out.println(map.get(iter.next()));
 		}
 	}
-	
+
+
+	public Map<String, Entree> getMap() {
+		return map;
+	}
 }
