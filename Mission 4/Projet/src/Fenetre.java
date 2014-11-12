@@ -16,7 +16,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 
-public class Fenetre extends JFrame{// implements ActionListener{
+public class Fenetre extends JFrame{
+	/**
+	 * @author Baptiste Degryse
+	 */
 
 	private static final long serialVersionUID = 1L;
 	private JTextField recherche[]=new JTextField[3];

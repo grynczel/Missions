@@ -7,6 +7,9 @@ import javax.swing.JPanel;
 
 
 public class EntreePanel extends JPanel{
+	/**
+	 * @author Baptiste Degryse
+	 */
 
 	private static final long serialVersionUID = 1L;
 	JLabel lab[];
