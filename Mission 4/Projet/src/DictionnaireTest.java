@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class DictionnaireTest {
 	/**
-	 * @author Jerome Bertaux && Baptiste Degryse
+	 * @author Jerome Bertaux && Baptiste Degryse && Grynczel Wojciech
 	 */
 	private Dictionnaire dictionnaire;
 
@@ -97,7 +97,7 @@ public class DictionnaireTest {
 	}
 	
 	@Test
-	public void testGetListSortedByTitleFor1Type202() {
+	public void testGetListSortedByTitleForFor1Type202() {
 		List<Entree> list = dictionnaire.getSortedList("Title",true, "FoR1", "2004");
 		boolean isSorted = true;
 		for (int i = 0; i < list.size() - 1; i++) {
@@ -110,7 +110,7 @@ public class DictionnaireTest {
 	}
 	
 	@Test
-	public void testGetListSortedByTitleFor1NameTypeLinguistics() {
+	public void testGetListSortedByTitleForFor1NameTypeLinguistics() {
 		List<Entree> list = dictionnaire.getSortedList("Title",true, "FoR1 Name", "Linguistics");
 		boolean isSorted = true;
 		for (int i = 0; i < list.size() - 1; i++) {
@@ -123,11 +123,30 @@ public class DictionnaireTest {
 	}
 	
 	@Test
-	public void testGetListSortedByTitleRankTypeA() {
+	public void testGetListSortedByTitleForInexistingCategory() {
+		List<Entree> list = dictionnaire.getSortedList("Title",true, "BLABLA", "abcd");
+		assertEquals(list.size(), 0);
+	}
+	
+	@Test
+	public void testGetListSortedByTitleRankTypeAAscending() {
 		List<Entree> list = dictionnaire.getSortedList("Title",true, "Rank", "A");
 		boolean isSorted = true;
 		for (int i = 0; i < list.size() - 1; i++) {
 			if (list.get(i).get("Title").compareTo(list.get(i + 1).get("Title")) > 0) {
+				isSorted = false;
+				break;
+			}
+		}
+		assertEquals(isSorted, true);
+	}
+	
+	@Test
+	public void testGetListSortedByTitleRankTypeADescending() {
+		List<Entree> list = dictionnaire.getSortedList("Title",false, "Rank", "A");
+		boolean isSorted = true;
+		for (int i = 0; i < list.size() - 1; i++) {
+			if (list.get(i).get("Title").compareTo(list.get(i + 1).get("Title")) < 0) {
 				isSorted = false;
 				break;
 			}
