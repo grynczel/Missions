@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,6 +23,7 @@ public class Fenetre extends JFrame{// implements ActionListener{
 	private JButton bouton=new JButton("OK");
 	private JPanel cont=new JPanel();
 	private JPanel rech=new JPanel();
+	private JCheckBox cb=new JCheckBox("ordre ascendant");
 
 	public Fenetre(){
 		super("Recherche dans la base de donnée");
@@ -49,13 +50,15 @@ public class Fenetre extends JFrame{// implements ActionListener{
 			System.exit(1);
 		getContentPane().setLayout(new BorderLayout());
 		
-		JLabel[] name=new JLabel[]{new JLabel("orderBy"),new JLabel("fieldName"),new JLabel("fieldValue")};
+		JLabel[] name=new JLabel[]{new JLabel("fieldName"),new JLabel("fieldValue"),new JLabel("orderBy")};
 		for(int i=0;i<recherche.length;i++){
 			recherche[i]=new JTextField(name[i].getText());
 			//recherche[i].setMinimumSize(new Dimension(100,20));
 			rech.add(name[i]);
 			rech.add(recherche[i]);
 		}
+		cb.setSelected(true);
+		rech.add(cb);
 		rech.add(bouton);
 		bouton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent a) {
@@ -63,7 +66,7 @@ public class Fenetre extends JFrame{// implements ActionListener{
 					String s[]=new String[3];
 					for(int i=0;i<s.length;i++)
 						s[i]=recherche[i].getText();
-					printResult(Main.getDictionnaire().getSortedList(s[0], s[1], s[2]));
+					printResult((ArrayList<Entree>)Main.getDictionnaire().getSortedList(s[2],cb.isSelected(), s[0], s[1]));
 				}
 			}
 		});
