@@ -2,10 +2,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -81,7 +79,7 @@ public class Dictionnaire {
 						}
 						tokens = to;
 
-						map.put(tokens[indexCle], new Entree(cle, tokens,this));
+						map.put(tokens[indexCle], new Entree(cle, tokens));
 					} catch (Exception e) {
 						System.out.println("Erreur : " + index + " " + line);
 						e.printStackTrace();
@@ -120,8 +118,8 @@ public class Dictionnaire {
 	 * @param orderBy : titre du champs par ex: "Title" ou "Rank"
 	 * @return retourne la listre triee
 	 */
-	public List<Entree> getSortedList(String orderBy) {
-		List<Entree> list = new ArrayList<Entree>(map.values());
+	public ArrayList<Entree> getSortedList(String orderBy) {
+		ArrayList<Entree> list = new ArrayList<Entree>(map.values());
 		return getSortedList(list, orderBy);
 	}
 	
@@ -131,7 +129,7 @@ public class Dictionnaire {
 	 * @param orderBy : titre du champs par ex: "Title" ou "Rank"
 	 * @return retourne la listre triee
 	 */
-	private List<Entree> getSortedList(List<Entree> list, String orderBy) {
+	private ArrayList<Entree> getSortedList(ArrayList<Entree> list, String orderBy) {
 		Collections.sort(list, new EntreeComparable(orderBy));
 		return list;
 	}
@@ -144,8 +142,8 @@ public class Dictionnaire {
 	 * @param fieldValue : valeur du champs a filtrer par ex: "A*"
 	 * @return retourne la listre triee
 	 */
-	public List<Entree> getSortedList(String orderBy, String field, String fieldValue) {
-		List<Entree> filteredList = new ArrayList<Entree>();
+	public ArrayList<Entree> getSortedList(String orderBy, String field, String fieldValue) {
+		ArrayList<Entree> filteredList = new ArrayList<Entree>();
 		for (Entree entree : new ArrayList<Entree>(map.values())) {
 			if(entree.containsKey(field))
 				if (entree.get(field).compareTo(fieldValue) == 0)

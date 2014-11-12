@@ -8,15 +8,13 @@ public class Entree{// implements Comparable<Entree>{
 	private String []valeur;
 	private String []cle;
 	public static String empty="none";
-	private Dictionnaire dico;
 	
 	/**
 	 * Cree une entree
 	 * @param cle: Contient les cles associees aux valeurs.
 	 * @param valeur: Contient les valeurs associees aux cle. La taille de valeur doit etre plus petit ou egale a la taille de cle.
 	 */
-	public Entree(String[] cle, String[] valeur,Dictionnaire dico){
-		this.dico=dico;
+	public Entree(String[] cle, String[] valeur){
 		this.valeur=new String[cle.length];
 		int i;
 		for(i=0;i<valeur.length && valeur[i]!=null;i++){
@@ -38,6 +36,9 @@ public class Entree{// implements Comparable<Entree>{
 				return valeur[i];
 		}
 		return null;
+	}
+	public String[] getCles(){
+		return cle;
 	}
 	//@override
 	public String toString(){

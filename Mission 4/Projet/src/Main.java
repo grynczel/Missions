@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
+	private static Dictionnaire dictionnaire;
 	public static void main(String[] args) {
 		long startTime, endTime;
 
@@ -13,10 +14,11 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		String titre;
 		char q;
-		Dictionnaire journal=new Dictionnaire(1,"Journals.csv", ",");
+		Fenetre fen=new Fenetre();
+		//Dictionnaire journal=new Dictionnaire(1,"Journals.csv", ",");
 		
 		//journal=new Dictionnaire(1,"Journals.csv", ",");
-		DictionnaireTest jT=new DictionnaireTest(journal);
+		DictionnaireTest jT=new DictionnaireTest(dictionnaire);
 		jT.test();
 		jT.testVirguleFoR();
 		jT.testVirguleTitre();
@@ -26,8 +28,9 @@ public class Main {
 		long duration = (endTime - startTime);  //divide by 1000000 to get milliseconds.
 		System.out.println("Init time : " + duration/1000000 +"ms" );
 		//201
-		List<Entree> list = journal.getSortedList("Title", "FoR2 Name", "Business and Management");
+		ArrayList<Entree> list = dictionnaire.getSortedList("Title", "FoR2 Name", "Business and Management");
 		System.out.println(list);
+		fen.printResult(list);
 		
 //		//System.out.println(journal.getMap().get("Journal of Global Business Management"));
 //		do{	
@@ -45,5 +48,11 @@ public class Main {
 //		}while(q == 'y' || q == 'Y');
 //		scan.close();
 
+	}
+	public static void setDictionnaire(Dictionnaire dico){
+		dictionnaire=dico;
+	}
+	public static Dictionnaire getDictionnaire(){
+		return dictionnaire;
 	}
 }
