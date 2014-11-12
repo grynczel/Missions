@@ -15,7 +15,7 @@ public class Entree {// implements Comparable<Entree>{
 	 *            : Contient les valeurs associees aux cle. La taille de valeur
 	 *            doit etre plus petit ou egale a la taille de cle.
 	 */
-	public Entree(String[] cle, String[] valeur, Dictionnaire dico) {
+	public Entree(String[] cle, String[] valeur) {
 		this.valeur = new String[cle.length];
 		int i;
 		for (i = 0; i < valeur.length && valeur[i] != null; i++) {

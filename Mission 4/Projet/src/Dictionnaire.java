@@ -71,7 +71,7 @@ public class Dictionnaire {
 					}
 					tokens = to;
 
-					map.put(tokens[indexCle], new Entree(cle, tokens, this));
+					map.put(tokens[indexCle], new Entree(cle, tokens));
 				} catch (Exception e) {
 					System.out.println("Erreur : " + index + " " + line);
 					e.printStackTrace();
