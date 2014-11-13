@@ -160,6 +160,10 @@ public class Dictionnaire {
 	public Entree get(String cle) {
 		return map.get(cle);
 	}
+	
+	public boolean containsKey(String cle){
+		return map.containsKey(cle);
+	}
 
 	public Map<String, Entree> getMap() {
 		return map;

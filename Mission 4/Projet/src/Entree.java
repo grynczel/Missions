@@ -68,5 +68,5 @@ public class Entree {// implements Comparable<Entree>{
 				return !valeur[i].equals(empty);
 		}
 		return false;
-	}
+	}	
 }

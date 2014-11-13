@@ -4,6 +4,10 @@ public class Main {
 
 	private static Dictionnaire dictionnaire;
 	public static void main(String[] args) {
+		
+		//Performance.Performe(); // uniquement pour faire les tests de performance :)	
+	
+		
 		Scanner scan = new Scanner(System.in);
 		String titre;
 		char q;
@@ -39,16 +43,6 @@ public class Main {
 			q = scan.nextLine().charAt(0);
 		}while(q == 'y' || q == 'Y');
 		scan.close();
-		
-		
-		
-		
-		
-		
-		//Performance.Performe(); // uniquement pour faire les tests de performance :)
-		
-		
-		
 
 	}
 	public static void setDictionnaire(Dictionnaire dico){
