@@ -79,6 +79,75 @@ public class Dictionnaire {
 			}
 		}
 	}
+	
+	/**
+	 * cree un journal en lisant un fichier mais uniquement dans le but de faire le test de performance
+	 * 
+	 * @param indexCle
+	 *            : commence a zero, index de la cle primaire
+	 * @param filename
+	 *            : nom du fichier a lire (ou filepath)
+	 * @param delimiter
+	 *            : delimiter entre chaque valeurs
+	 */
+	public Dictionnaire(int indexCle, String filename, String delimiter, int nb) {
+		Iterator<String> it = ReadWrite.mReadnb(filename,nb).iterator();
+		char escapeChar = '"';
+		String[] tokens;
+		int index = 1;
+		
+		String line = it.next();
+		if (line == null)
+			return;
+
+		String[] cle = line.split(delimiter);
+		int size = cle.length;
+
+		// Read the file line by line
+		while (it.hasNext()) {
+			line = it.next();
+			index++;
+			// Get all tokens available in line
+
+			if (!line.equals("")) {
+				tokens = line.split(delimiter);
+				try {
+					String[] to = new String[size];
+					int decalage = 0;
+					for (int i = 0; i < cle.length
+							&& i + decalage < tokens.length; i++) {
+						to[i] = tokens[i + decalage];
+						if (tokens[i + decalage].charAt(0) == escapeChar
+								&& tokens[i + decalage].charAt(tokens[i
+										+ decalage].length() - 1) == escapeChar) {
+						}// guillemets mais pas de virgule dedans
+						else if (tokens[i + decalage].charAt(0) == escapeChar) {
+							int j = 1;
+							to[i] = tokens[i + decalage].substring(1);
+							while (tokens[i + decalage + j].charAt(tokens[i
+									+ decalage + j].length() - 1) != escapeChar) {
+								to[i] = to[i] + "," + tokens[i + decalage + j];
+								j++;
+							}
+							to[i] = to[i]
+									+ ","
+									+ tokens[i + decalage + j]
+											.substring(0, tokens[i + decalage
+													+ j].length() - 1);
+							decalage += j;
+						}
+					}
+					tokens = to;
+
+					map.put(tokens[indexCle], new Entree(cle, tokens));
+				} catch (Exception e) {
+					System.out.println("Erreur : " + index + " " + line);
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
 
 	/**
 	 * retourne l'entree ayant comme cle cle
@@ -101,7 +170,7 @@ public class Dictionnaire {
 	 * @param orderBy
 	 *            : titre du champs par ex: "Title" ou "Rank"
 	 * @param ascending 
-	 * 			  : l'ordre : true = croissant false = décroissant
+	 * 			  : l'ordre : true = croissant false = dï¿½croissant
 	 * @return retourne la listre triee
 	 */
 
@@ -118,7 +187,7 @@ public class Dictionnaire {
 	 * @param orderBy
 	 *            : titre du champs par ex: "Title" ou "Rank"
 	 * @param ascending 
-	 * 			  : l'ordre : true = croissant false = décroissant
+	 * 			  : l'ordre : true = croissant false = dï¿½croissant
 	 * @return retourne la listre triee
 	 */
 
@@ -137,7 +206,7 @@ public class Dictionnaire {
 	 * @param orderBy
 	 *            : titre du champs par ex: "Title" ou "Rank"
 	 * @param ascending 
-	 * 			  : l'ordre : true = croissant false = décroissant
+	 * 			  : l'ordre : true = croissant false = dï¿½croissant
 	 * @param field
 	 *            : titre du champs a filtrer par ex: "Rank"
 	 * @param fieldValue

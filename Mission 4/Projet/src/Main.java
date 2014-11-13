@@ -6,6 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		String titre;
+		Performance.Performe();
 		char q;
 		Fenetre fen=new Fenetre();
 		//Dictionnaire journal=new Dictionnaire(1,"Journals.csv", ",");

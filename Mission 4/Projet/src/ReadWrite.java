@@ -38,6 +38,30 @@ public class ReadWrite {
 		}
 		return lu;
 	}
+	
+	public static ArrayList<String> mReadnb(String fileIn, int nb) {
+		ArrayList<String> lu = new ArrayList<String>();
+		BufferedReader reader = null;
+		int i =0;
+		try {
+			reader = new BufferedReader(new FileReader(fileIn));
+			String line;
+			while ((line = reader.readLine()) != null && i<nb) {
+				lu.add(line);
+				i++;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (reader != null)
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		}
+		return lu;
+	}
 
 	public static PrintWriter openOutput(String pathFileOut)
 			throws FileNotFoundException {

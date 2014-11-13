@@ -29,7 +29,7 @@ public class Fenetre extends JFrame{
 	private JCheckBox cb=new JCheckBox("ordre ascendant");
 
 	public Fenetre(){
-		super("Recherche dans la base de donnée");
+		super("Recherche dans la base de donnee");
 		setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
