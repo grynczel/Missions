@@ -20,7 +20,7 @@ public class DictionnaireTest {
 
 	@Test
 	public void testNumberOfJournals() {
-		// TODO pk on a 20707 elements et pas 20714?
+		// TODO pk on a 20707 elements et pas 20714? = Il y a des lignes vides dans le fichier initiale
 		assertEquals(dictionnaire.getMap().size(), 20707);
 	}
 

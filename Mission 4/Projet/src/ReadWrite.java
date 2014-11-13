@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author Thomas Grimée
+ * 
  * 
  */
 public class ReadWrite {
