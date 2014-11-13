@@ -6,7 +6,6 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		String titre;
-		Performance.Performe();
 		char q;
 		Fenetre fen=new Fenetre();
 		//Dictionnaire journal=new Dictionnaire(1,"Journals.csv", ",");
@@ -40,7 +39,16 @@ public class Main {
 			q = scan.nextLine().charAt(0);
 		}while(q == 'y' || q == 'Y');
 		scan.close();
-
+		
+		
+		
+		
+		
+		
+		//Performance.Performe(); // uniquement pour faire les tests de performance :)
+		
+		
+		
 
 	}
 	public static void setDictionnaire(Dictionnaire dico){
