@@ -23,10 +23,17 @@ public class Fenetre extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private JTextField recherche[]=new JTextField[3];
-	private JButton bouton=new JButton("OK");
+	private JButton boutonOK=new JButton("Search");
+	private JButton boutonAll=new JButton("Show All");
+	private JButton boutonN=new JButton("Next");
+	private JButton boutonP=new JButton("Previous");
 	private JPanel cont=new JPanel();
 	private JPanel rech=new JPanel();
+	JPanel bottom=new JPanel();
 	private JCheckBox cb=new JCheckBox("ordre ascendant");
+	private ArrayList<Entree> result;
+	private int index=0;
+	private int size=50;
 
 	public Fenetre(){
 		super("Recherche dans la base de donnée");
@@ -62,17 +69,45 @@ public class Fenetre extends JFrame{
 		}
 		cb.setSelected(true);
 		rech.add(cb);
-		rech.add(bouton);
-		bouton.addActionListener(new ActionListener(){
+		rech.add(boutonOK);
+		rech.add(boutonAll);
+		boutonOK.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent a) {
-				if(bouton.equals(a.getSource())){
+					index=0;
 					String s[]=new String[3];
 					for(int i=0;i<s.length;i++)
 						s[i]=recherche[i].getText();
 					printResult((ArrayList<Entree>)Main.getDictionnaire().getSortedList(s[2],cb.isSelected(), s[0], s[1]));
-				}
+				
 			}
 		});
+		boutonAll.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent a) {
+					index=0;
+					printResult(result=new ArrayList<Entree>(Main.getDictionnaire().getMap().values()));
+			}
+		});
+		
+		bottom.add(boutonP);
+		bottom.add(boutonN);
+		boutonP.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent a) {
+					if(index>0){
+						index--;
+						printResult(result);
+					}
+			}
+		});
+		boutonN.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent a) {
+					if(index*size+size<result.size())
+						index++;
+						printResult(result);
+					
+			}
+		});
+		
+		getContentPane().add(bottom,BorderLayout.SOUTH);
 		getContentPane().add(rech,BorderLayout.NORTH);
 		
 		
@@ -83,15 +118,17 @@ public class Fenetre extends JFrame{
 	
 	public void printResult(ArrayList<Entree> es){
 		
+		result=es;
 		JPanel fenPan=new JPanel();
 		fenPan.setLayout(new BorderLayout());
 		fenPan.add(rech,BorderLayout.NORTH);
+		fenPan.add(bottom,BorderLayout.SOUTH);
 		
 		cont=new JPanel();
-		cont.setLayout(new GridLayout(es.size()/2+1,2,10,10));
+		cont.setLayout(new GridLayout(size/2+1,2,10,10));
 		
-		for(Entree e: es)
-			cont.add(new EntreePanel(e));
+		for(int i=index*size;i<index*size+size && i<es.size();i++)
+			cont.add(new EntreePanel(es.get(i)));
 		JScrollPane sc=new JScrollPane(cont);
 		sc.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		sc.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);

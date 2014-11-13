@@ -42,14 +42,15 @@ public class Dictionnaire {
 			// Get all tokens available in line
 
 			if (!line.equals("")) {
-				tokens = line.split(delimiter);
+				tokens = line.split(delimiter,-1);
 				try {
 					String[] to = new String[size];
 					int decalage = 0;
 					for (int i = 0; i < cle.length
 							&& i + decalage < tokens.length; i++) {
 						to[i] = tokens[i + decalage];
-						if (tokens[i + decalage].charAt(0) == escapeChar
+						if(tokens[i + decalage].length()==0){}//chaine vide
+						else if (tokens[i + decalage].charAt(0) == escapeChar
 								&& tokens[i + decalage].charAt(tokens[i
 										+ decalage].length() - 1) == escapeChar) {
 						}// guillemets mais pas de virgule dedans
@@ -73,7 +74,7 @@ public class Dictionnaire {
 
 					map.put(tokens[indexCle], new Entree(cle, tokens));
 				} catch (Exception e) {
-					System.out.println("Erreur : " + index + " " + line);
+					System.out.println("Erreur : " + index + " :size "+tokens.length+":  " + line);
 					e.printStackTrace();
 				}
 			}
