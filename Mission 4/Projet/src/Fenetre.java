@@ -125,7 +125,7 @@ public class Fenetre extends JFrame{
 		fenPan.add(bottom,BorderLayout.SOUTH);
 		
 		cont=new JPanel();
-		cont.setLayout(new GridLayout(size/2+1,2,10,10));
+		cont.setLayout(new GridLayout(size/2,2,10,10));
 		
 		for(int i=index*size;i<index*size+size && i<es.size();i++)
 			cont.add(new EntreePanel(es.get(i)));
