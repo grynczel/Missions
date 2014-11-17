@@ -1,0 +1,54 @@
+1)
+Pour cette question on se rend compte qu’on ne sera pas en log(n) pour l’élément suivant:
+Prenons par exemple la table de hachage md5 et les éléments {1, 2, 3, 4, 5}
+1 -> c4ca
+2 -> c81e
+3 -> eccb
+4 -> a87f
+5 -> e4da
+
+on se rends donc clairement compte qu’on perds l’ordre et donc on ne peut pas utiliser l’arbre pour trouver l’élément suivant.
+
+2)
+Le problème du splay tree, c’est que l’arbre n’est pas équilibré !!!
+Le but d’un splay tree est d’optimiser le principe de localité, c’est-à-dire que dès qu’un élément est recherché ou ajouté, on le met au sommet de l’arbre (root). Lorsqu’il est supprimé, il utilise aussi le principe de localité en remontant les éléments locaux.
+Il faut utiliser la proposition 10.5 du livre livre v5:
+
+
+Proposition 10.5: Consider a sequence ofm operations on a splay tree, each one a search, insertion, or deletion, starting from a splay tree with zero keys. Also, let ni be the number of keys in the tree after operation i, and n be the total number of insertions. The total running time for performing the sequence ofoperations is 
+
+
+which is O(mlogn). 
+In other words, the amortized running time of performing a search, insertion, or deletion in a splay tree is O(log11), where n is the size of the splay tree at the time. Thus, a splay tree can achieve logarithmic-time amortized performance for imple menting an ordered map ADT. This amortized perfOlmance matches the worst-case performance of AVL trees, (2,4) trees, and red-black trees, but it does so using a simple binary tree that does not need any extra balance information stored at each of its nodes. In addition, splay trees have a number of other interesting properties that are not shared by these other balanced search trees. We explore one slich addi tional property in the following proposition (which is sometimes called the "Static Optimality" proposition for splay trees
+
+
+3) 
+une version d’une structure de donnée (a,b) est la meilleure méthode pour maintenir une map dans une mémoire externe. C’est appelé un B-tree,. B-tree d’ordre d est un arbres avec a = [d/2] et b = [d]. 
+structures de données secondaires ce sont les structures qui permettent de stocker les éléments dans d’un noeud.
+La complexité dépends de la structure utilisée 
+B-tree proposition 15.2 -> un B-tree avec N entrée a une complexité I/O en O(log_B(n)) pour la recherche ou les opérations de mise à jour. Et utilise un O(n/B) bloque, avec B la taille du bloque.
+
+—> on limite l’accès disque à uniquement les données dont on a besoin
+
+4) 
+Le principe d’un arbre cousu, est de le stocker sous forme de liste chainée. Ce qu’on mémorise, ce n’est pas l’arbre, mais bien la façon dont il doit être parcouru. Si on prends par exemple l’ordre infixe (cfr rappel infix). 
+Pour ce faire, on utilise une liste doublement chainée, on stock l’élément précédent, et également le suivant.
+Pour ce qui est de la recherche, on se rend compte que sa complexité revient à celle d’une liste chainée, soit O(n). Par contre, pour ce qui est de récupéré l’élément suivant ou précédent, là, la complexité est en O(1).
+
+
+
+
+
+
+
+
+
+
+
+(rappel infix)
+visiterInfixe(Arbre A) :
+    Si nonVide(gauche(A))
+       visiterInfixe(gauche(A))
+    visiter(A)
+    Si nonVide(droite(A))
+       visiterInfixe(droite(A))
