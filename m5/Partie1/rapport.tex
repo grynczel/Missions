@@ -68,8 +68,12 @@ Premièrement, on utilise les tries lorsque l'ont a besoin de faire une recherch
 \end{itemize}
 \paragraph*{Question 4}
 \paragraph*{Question 5}
-\paragraph*{Question 6}
-
-
+\paragraph*{Question 6 (Bertaux Jérôme)}
+Un algorithme de décompression d'un code de Huffman peut se décrire en deux étapes formant une fonction récursive. A chaque itération :
+\begin{itemize}
+\item Soit le noeud de l'arbre n'est pas une feuille donc on rappel la fonction avec le prochain bit et le fils de gauche si le bit actuel est 0 ou le fils de droite si le bit actuel est 1.
+\item Soit le noeud de l'arbre est une feuille, on note alors l'élément se trouvant dans celle-ci. Et on rappel la fonction avec le bit suivant et la racine de l'arbre.
+\end{itemize} 
+La complexité calculatoire dépend du nombre de bits (n) et est donc de O(n). Pour effectuer l'algorithme nous avons besoin de l'arbre de priorité, d'un texte codé sur forme d'une liste de bit.
 
 \end{document}
