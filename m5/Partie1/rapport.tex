@@ -57,7 +57,12 @@
 \maketitle
 
 \paragraph*{Question 1}
-\paragraph*{Question 2}
+\paragraph*{Question 2 (Baptiste Degryse)}
+L'algorithme de Knuth-Morris-Pratt, contrairement à l'algorithme de Boyer-Moore, a une sorte de mémoire qui va lui permettre d'identifier les caractères posant régulièrement problème, et de s'adapter afin de limiter le nombre de comparaisons. Il va éviter de refaire x fois la même erreur en comparant des lettres sans importance.\\
+
+La complexité temporelle de cet algorithme est O(m+n), m et n étant la longueur des chaines de caractères à comparer contre une complexité temporelle O(n*m) dans l'algorithme Brute Force. Cette différence est due à la mémoire de la failure fonction dans  KMP. Cette mémoire permet de ne comparer que les caractères les plus problématiques. Exemple de l'utilisation de cette fonction:\\
+\includegraphics[scale=1]{imgFailure.png}
+
 \paragraph*{Question 3 (Charles Jacquet)} 
 
 Premièrement, on utilise les tries lorsque l'ont a besoin de faire une recherche d'un string dans un texte. Le problème posé est bien le même que pour la question précédente, mais la façon de faire les choses est totalement différente, c'est-à-dire que pour le KMP, on travail sur le string pattern, tandis qu'ici, on travail directement sur le texte, ce qui nous permet d'ailleurs, de faire des recherches différentes en analysant une seule fois le texte.
