@@ -46,8 +46,8 @@
 	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
 	escapechar=\&
 }
-\title{Algorithmique et structures de données : Mission 3}
-\date{24 octobre 2014}
+\title{Algorithmique et structures de données : Mission 5}
+\date{21 novembre 2014}
 \author{Groupe 1.2: Ivan Ahad - Jérôme Bertaux - Rodolphe Cambier \\ 
 	Baptiste Degryse - Wojciech Grynczel - Charles Jaquet}
 
@@ -72,7 +72,17 @@ Premièrement, on utilise les tries lorsque l'ont a besoin de faire une recherch
 \item {Relation entre un Trie et Suffix Tree} : Un suffix tree, est un trie pour lequel tous les strings stocké dans la collection sont suffix d'un String X.
 \end{itemize}
 \paragraph*{Question 4}
-\paragraph*{Question 5}
+\paragraph*{Question 5 (Ivan)}
+Il y a trois étapes dans l’algorithme du Huffman Coding : 
+\begin{itemize}
+
+
+\item L’algorithme calcule d’abord la fréquence de chaque caractère se trouvant dans un string X, et initialise une Priority Queue permettant de stocker les valeurs nécessaires pour créer le coding. 
+\item Pour chaque caractère distinct se trouvant dans le string X, l’algorithme crée un arbre binaire T avec un seul noeud, contenant le caractère en question. Ensuite, l’algorithme insert T dans la priority Queue, à la clé qui est égale à la fréquence de ce caractère dans le string X. 
+\item Enfin, la boucle while de l’algorithme prend les deux arbres binaires possédant les plus petites fréquences et les fusionne, et ce jusqu’à qu’il ne reste plus qu’un arbre binaire dans la Priority Queue. Chaque itération de cette étape se fait en O(log d) comme complexité temporelle, où d représente le nombre de caractères distincts dans le string X, et ce à l’aide d’une Priority Queue représentée par un Heap. En sachant que cette opération prend deux arbres pour n’en retourner qu’un, et en sachant que cette opération est répétée autant de fois qu’il y a de caractères distincts dans le String X moins une fois, on en déduit que cet algorithme a une complexité temporelle de O(n+d*log d) où d représente le nombre de caractères distincts. 
+\end{itemize}
+
+\\
 \paragraph*{Question 6 (Bertaux Jérôme)}
 Un algorithme de décompression d'un code de Huffman peut se décrire en deux étapes formant une fonction récursive. A chaque itération :
 \begin{itemize}
