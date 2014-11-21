@@ -71,7 +71,27 @@ Premièrement, on utilise les tries lorsque l'ont a besoin de faire une recherch
 \item {Gain de place} : Il faut sauvegarder moins de noeud, de plus, il stock les string en dehors de l'arbre, ce qui signifie que dans l'arbre, la complexité spaciale d'un élément est en O(1).
 \item {Relation entre un Trie et Suffix Tree} : Un suffix tree, est un trie pour lequel tous les strings stocké dans la collection sont suffix d'un String X.
 \end{itemize}
-\paragraph*{Question 4}
+\newpage
+\paragraph*{Question 4 (Grynczel Wojciech)}
+\textbf{L’algorithme de construction d’un code de Huffman utilise une file de priorité. Est-il avantageux qu’il s’agisse d’une file de priorité adaptable ? Pourquoi ?}
+
+Pas vraiment, la fille de priorité adaptable fournit 3 méthodes en plus :
+\begin{itemize}
+	\item Entry remove(Entry e);
+	\item Object replaceKey(Entry e, Object k);
+	\item Object replaceValue(Entry e, Object x);
+\end{itemize}
+
+Aucune de ses méthodes ne sera pas utilisée dans l'algorithme de huffman, on supprime toujours les valeurs avec la méthode removeMin(); 
+
+L\textbf{’utilisation d’une file de priorité est-elle indispensable pour pouvoir construire un code de Huffman ? Pouvez-vous imaginer une autre solution en utilisant un algorithme de tri ? }
+
+C’est possible de construire un code de Huffman sans la fille de priorité. Par exemple avec une ArrayList qui sera triée après chaque opération d’insertion.
+
+\textbf{Sa complexité calculatoire serait-elle meilleure que l’algorithme original ? Pourquoi ?}\\
+La complexité calculatoire ne sera pas meilleure. Si on utilise une ArrayList on sera obligé de retrier la liste après chaque insert(K key, V velue) afin garder les éléments dans le bon ordre.  
+
+
 \paragraph*{Question 5 (Ivan)}
 Il y a trois étapes dans l’algorithme du Huffman Coding : 
 \begin{itemize}
