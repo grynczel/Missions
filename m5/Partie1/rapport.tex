@@ -57,6 +57,24 @@
 \maketitle
 
 \paragraph*{Question 1}
+L'avantage du tas, c'est la possibilité de récupérer l'élément le plus grand de la file de priorité en O(1), tandis que la liste le fera en O(n) où n est le nombre d'éléments de celle-ci.
+
+Cependant, l'insertion passe de O(1) (liste) à O(n) (tas).
+
+Il n'est pas possible de renvoyer la liste en ordre décroissant par un parcours infixe, étant donné que la racine sera plus grande que les enfants, et que le parcours infixe force à ce que celle-ci soit récupérée entre ses deux enfants.
+
+En parcours postfixe, ce n'est pas non plus possible, le parent se trouvant après ses enfants, ce sera forcément croissant.
+
+Le parcours préfixe permet de retourner un ordre décroissant, par exemple cet arbre:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{tree.png}
+\end{figure} 
+
+Le parcours préfixe de ce tas donne: [1000,500,450,400,10,5,1].
+
+ 
 \paragraph*{Question 2 (Baptiste Degryse)}
 L'algorithme de Knuth-Morris-Pratt, contrairement à l'algorithme de Boyer-Moore, a une sorte de mémoire qui va lui permettre d'identifier les caractères posant régulièrement problème, et de s'adapter afin de limiter le nombre de comparaisons. Il va éviter de refaire x fois la même erreur en comparant des lettres sans importance.\\
 
@@ -102,7 +120,7 @@ Il y a trois étapes dans l’algorithme du Huffman Coding :
 \item Enfin, la boucle while de l’algorithme prend les deux arbres binaires possédant les plus petites fréquences et les fusionne, et ce jusqu’à qu’il ne reste plus qu’un arbre binaire dans la Priority Queue. Chaque itération de cette étape se fait en O(log d) comme complexité temporelle, où d représente le nombre de caractères distincts dans le string X, et ce à l’aide d’une Priority Queue représentée par un Heap. En sachant que cette opération prend deux arbres pour n’en retourner qu’un, et en sachant que cette opération est répétée autant de fois qu’il y a de caractères distincts dans le String X moins une fois, on en déduit que cet algorithme a une complexité temporelle de O(n+d*log d) où d représente le nombre de caractères distincts. 
 \end{itemize}
 
-\\
+
 \paragraph*{Question 6 (Bertaux Jérôme)}
 Un algorithme de décompression d'un code de Huffman peut se décrire en deux étapes formant une fonction récursive. A chaque itération :
 \begin{itemize}
