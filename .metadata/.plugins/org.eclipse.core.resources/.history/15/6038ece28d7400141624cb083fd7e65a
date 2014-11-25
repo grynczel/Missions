@@ -1,0 +1,13 @@
+
+public class Decompress {
+
+	public static void main(String[] args) {
+		if(args.length == 2){
+			
+		}else{
+			System.out.println("Usage: java Decompress <Compress file> <Output file>");
+		}
+
+	}
+
+}
