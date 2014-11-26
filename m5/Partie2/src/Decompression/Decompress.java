@@ -40,10 +40,8 @@ public class Decompress {
 			}
 		}
 	}
-
-	public void decompressFile(){
-		readFile(); //lire tout le fichier d'un coup
-		
+	
+	public int creationMap(){
 		//Creation hashmap
 		String tmp="";
 		String oldTmp = "";
@@ -71,11 +69,43 @@ public class Decompress {
 				
 				key = "";
 				compt += 9;
+			}else{
+				compt += 2;
 			}
 				
 			oldTmp = tmp;
 		}
+		return compt;
+	}
+	
+	public String decompressContent(int positionDebutStream){
+		String result = "";
+		int compt = positionDebutStream;
+		String key = "";
+		Character valeur = null;
+		while(compt < contentCompress.length()){
+			
+			key += contentCompress.charAt(compt);
+			
+			valeur = mapConvertion.get(key);
+			while(valeur.equals(null)){
+				compt ++;
+				key += contentCompress.charAt(compt);
+				valeur = mapConvertion.get(key);
+			}
+			
+			result += valeur.toString();
+			
+		}
+		
+		
+		return result;
+	}
 
+	public void decompressFile(){
+		readFile(); //lire tout le fichier d'un coup
+		String finalT = decompressContent(creationMap());
+		System.out.println(finalT);
 	}
 
 	public static void main(String[] args) {

@@ -7,6 +7,6 @@ public class Main {
 		hm.put('A', new boolean[]{true,true,true});
 		hm.put('B', new boolean[]{false,false,false});
 		Compressor c=new Compressor("test.txt",hm,"binOut.txt");
-		c.writeFile(); // test rŽussi :D
+		c.writeFile(); // test rï¿½ussi :D
 	}
 }
