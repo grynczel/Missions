@@ -106,6 +106,7 @@ public class Decompress {
 		readFile(); //lire tout le fichier d'un coup
 		String finalT = decompressContent(creationMap());
 		System.out.println(finalT);
+		ReadWrite.mWrite(outputFile, finalT);
 	}
 
 	public static void main(String[] args) {
