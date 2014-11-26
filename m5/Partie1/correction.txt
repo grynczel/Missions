@@ -1,0 +1,24 @@
+1° 
+->problème est que pour représenter la priorité max, on utilise 1 comme 
+prioritaire à la place de 1000
+->l'élément est est O(log(n))
+-> ordre décroissant : ???
+
+2°
+si on recherche le mot BAOBAB dans
+BAOBABABBOABAOABBAOAOABOOBOAAOBAOAOBOAOBAOBOABOAOBOABOBA
+on commence à tester
+BAO mais là, il sait qu'au seins meme de sa chaine de cacactére, elle recommence
+doncil fait 2 recherche en parallèle pour ne pas devoir revenir en arrière
+BAOBAB
+   BABA --> pas bon 
+ainsi de suite :)
+
+3°
+le root est toujours vide !!!!! 
+sainteté et saint
+sain
+!   \
+t     teté
+
+

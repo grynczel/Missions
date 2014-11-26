@@ -12,12 +12,14 @@ import java.util.ArrayList;
  */
 public class ReadWrite {
 
+
 	/**
 	 * Creer un ArrayList<String> contenant toutes les lignes du fichier fileIn.
 	 * 
 	 * @return true si aucune erreur n'a eu lieu, false sinon
 	 */
 	public static ArrayList<String> mRead(String fileIn) {
+		
 		ArrayList<String> lu = new ArrayList<String>();
 		BufferedReader reader = null;
 		try {
