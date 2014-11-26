@@ -13,6 +13,7 @@ import java.util.PriorityQueue;
 public class Huffman {
 	private Node root;
 	private boolean isCreate=false;
+	ArrayList<String> string = null; // pour les deux fonctions récursives
 	
 	//Implémentation des noeuds
 	private static class Node implements Comparable<Node>{
@@ -79,7 +80,6 @@ public class Huffman {
 		for(i=0; i < frequences.size();i++){
 			entre.add(new Node(lettre.next(), frequences.get(i),null, null));
 		}
-		System.out.println(entre.toString());
 		while(entre.size()>1){
 			Node node1 = entre.poll();
 			Node node2 = entre.poll();
@@ -88,7 +88,39 @@ public class Huffman {
 		root = entre.poll();
 		isCreate = true;
 	}
-	ArrayList<String> string = null;
+
+	private HashMap<Character,boolean []> hm;
+	public HashMap<Character,boolean []> getHashMap(){
+		hm =new HashMap<Character,boolean[]>();
+		recursiveGetHashMap(this.root, ""); 
+		return hm;
+	}
+	
+	private void recursiveGetHashMap(Node n, String s){
+		if(n == null){}
+		else if(n.isLeaf()){
+			//cast du string en un tableau de booléan:
+			int i;
+			boolean[] bool = new boolean[s.length()];
+			for(i=0;i<s.length();i++){
+				if(s.charAt(i)=='0'){
+					bool[i]= false;
+				}
+				else{
+					bool[i]=true;
+				}
+			}
+			//System.out.println(s + "***" + bool.toString());
+			hm.put(n.getC(), bool);
+		}
+		else{
+			recursiveGetHashMap(n.left, s + "0");
+			recursiveGetHashMap(n.right, s + "1");
+		}
+	}
+	
+	
+
 	public void recursiveToString(Node n, String s){
 		if(n == null){}
 		else if(n.isLeaf()){
@@ -99,7 +131,6 @@ public class Huffman {
 			recursiveToString(n.right, s + "1");
 		}
 	}
-	
 	public String toString(){
 		if(!isCreate){
 			return "Huffman n'a pas été créé";
