@@ -52,7 +52,7 @@ public class Decompress {
 		int compt = 0;
 		char bit1;
 		char bit2;
-		while(oldTmp.equals("10") && oldTmp.equals(tmp)){
+		while(oldTmp.equals("10") && !oldTmp.equals(tmp)){
 			tmp = "";
 			bit1 = contentCompress.charAt(compt);
 			tmp += bit1;
