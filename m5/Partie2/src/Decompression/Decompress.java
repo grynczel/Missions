@@ -26,7 +26,7 @@ public class Decompress {
 			while (true) {
 				boolean bit1 = in.readBoolean();
 				contentCompress += (bit1 ? 1 : 0);
-				System.out.print (bit1 ? 1 : 0);
+				//System.out.print (bit1 ? 1 : 0);
 				
 				
 			}
@@ -39,23 +39,27 @@ public class Decompress {
 				e.printStackTrace();
 			}
 		}
+		System.out.println(contentCompress);
 	}
 	
 	public int creationMap(){
 		//Creation hashmap
 		String tmp="";
-		String oldTmp = "";
 		String key = "";
 		int character;
 		int compt = 0;
 		char bit1;
 		char bit2;
-		while(oldTmp.equals("10") && !oldTmp.equals(tmp)){
+		
+		while(!tmp.equals("10")){
+			
 			tmp = "";
 			bit1 = contentCompress.charAt(compt);
 			tmp += bit1;
 			bit2 = contentCompress.charAt(compt+1);
 			tmp += bit2;
+			
+			System.out.println(tmp);
 			
 			if(tmp.equals("00")){
 				key += "0";
@@ -63,18 +67,21 @@ public class Decompress {
 			}else if(tmp.equals("11")){
 				key += "1";
 				compt += 2;
-			}else if(tmp.equals("10") && !oldTmp.equals("10")){
-				character = Integer.parseInt(contentCompress.substring(compt, compt+8));
+			}else if(tmp.equals("01")){
+				compt += 2;
+				//System.out.println(contentCompress.substring(compt, compt+8));
+				character = Integer.parseInt(contentCompress.substring(compt, compt+7));
+				System.out.println(key+"::"+(char)character);
 				mapConvertion.put(key, (char) character);
 				
 				key = "";
-				compt += 9;
+				compt += 8;
 			}else{
 				compt += 2;
 			}
-				
-			oldTmp = tmp;
 		}
+
+		System.out.println("END HEAD : "+mapConvertion);
 		return compt;
 	}
 	
@@ -83,17 +90,21 @@ public class Decompress {
 		int compt = positionDebutStream;
 		String key = "";
 		Character valeur = null;
+		
+		System.out.println("");
+		
 		while(compt < contentCompress.length()){
 			
 			key += contentCompress.charAt(compt);
 			
 			valeur = mapConvertion.get(key);
-			while(valeur==null){// j'ai eu une erreur ici (NullPointerException)
+			while(null == valeur){
 				compt ++;
 				key += contentCompress.charAt(compt);
 				valeur = mapConvertion.get(key);
+				//System.out.println(valeur+"-"+key);
 			}
-			
+			System.out.println(valeur.toString()+"-"+key);
 			result += valeur.toString();
 			
 		}
@@ -105,14 +116,16 @@ public class Decompress {
 	public void decompressFile(){
 		readFile(); //lire tout le fichier d'un coup
 		String finalT = decompressContent(creationMap());
-		System.out.println(finalT);
+		//System.out.println(finalT);
 		ReadWrite.mWrite(outputFile, finalT);
 	}
 
 	public static void main(String[] args) {
 		if(args.length == 2){
+			System.out.println("Start decompress : "+args[0]);
 			Decompress d = new Decompress(args[0],args[1]);
 			d.decompressFile();
+			System.out.println("Finish decompress to : "+args[1]);
 		}else{
 			System.out.println("Usage: java Decompress <Compress file> <Output file>");
 		}

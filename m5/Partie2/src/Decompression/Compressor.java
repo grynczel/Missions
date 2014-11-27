@@ -42,7 +42,7 @@ public class Compressor {
 		out.write(b);
 	}
 	private void write(char c) throws IOException{
-		System.out.print(c);
+		System.out.println(c);
 		out.write(c);
 	}
 	public void writeFile(){
