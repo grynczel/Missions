@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 
-public class Compressor {
+public class Compress {
 	/**
 	 * @author Baptiste Degryse
 	 */
 	private OutputBitStream out;
 	HashMap<Character,boolean[]> map;
 	private String filename;
-	public Compressor(String filename, HashMap<Character,boolean[]> map, String filenameOut){
+	public Compress(String filename, HashMap<Character,boolean[]> map, String filenameOut){
 		try {
 			out = new OutputBitStream(filenameOut);
 		} catch (IOException e) {
@@ -42,7 +42,7 @@ public class Compressor {
 		out.write(b);
 	}
 	private void write(char c) throws IOException{
-		System.out.print(c);
+		System.out.println(c);
 		out.write(c);
 	}
 	public void writeFile(){
@@ -72,6 +72,23 @@ public class Compressor {
 				e1.printStackTrace();
 			}
 		}
+	}
+	
+	public static void main(String[] args) {
+		if(args.length == 2){
+			String fileToCompress 	= args[0];
+			String fileCompress		= args[1];
+			
+	        Huffman huff = new Huffman();
+			huff.createHuffman(fileToCompress);
+			huff.getHashMap();
+			
+			Compress c = new Compress(fileToCompress,huff.getHashMap(),fileCompress);
+			c.writeFile();			
+		}else{
+			System.out.println("Usage: java Compress <Compress file> <Output file>");
+		}
+
 	}
 }
 
