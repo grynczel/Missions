@@ -110,7 +110,6 @@ public class Huffman {
 					bool[i]=true;
 				}
 			}
-			//System.out.println(s + "***" + bool.toString());
 			hm.put(n.getC(), bool);
 		}
 		else{
