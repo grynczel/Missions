@@ -64,6 +64,7 @@ public class Huffman {
 				}
 			}
 		}
+		map.put((Character)'~', 1);
 		return map;
 	}
 	

@@ -10,7 +10,7 @@ public class Main {
 		
         Huffman huff = new Huffman();
 		huff.createHuffman("test.txt");
-		huff.getHashMap();
+		//HashMap<Character,boolean[]> hm=huff.getHashMap();
 		
 		Compressor c=new Compressor(fileToCompress,huff.getHashMap(),fileCompress);
 		c.writeFile(); // test r�ussi :D

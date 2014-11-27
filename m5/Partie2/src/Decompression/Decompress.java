@@ -88,7 +88,7 @@ public class Decompress {
 			key += contentCompress.charAt(compt);
 			
 			valeur = mapConvertion.get(key);
-			while(valeur.equals(null)){
+			while(valeur==null){// j'ai eu une erreur ici (NullPointerException)
 				compt ++;
 				key += contentCompress.charAt(compt);
 				valeur = mapConvertion.get(key);

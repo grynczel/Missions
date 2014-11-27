@@ -26,11 +26,11 @@ public class Compressor {
 			boolean[] bo=map.get(c);
 			for(int i=0;i<bo.length*2;i++)
 				write(bo[i/2]);
-			write(false);//delimiter
+			write(false);//delimiter 01
 			write(true);
 			write(c);
 		}
-		write(true);//dernier delim
+		write(true);//dernier delim 10
 		write(false);
 	}
 	private void writeTab(boolean[] bo) throws IOException{
@@ -61,6 +61,8 @@ public class Compressor {
 						System.out.println("erreur, char inconnu: "+line.charAt(i));
 				}
 			}
+			writeTab(map.get((Character)'~'));
+			out.close();
 		}
 		catch(IOException e){
 			e.printStackTrace();
