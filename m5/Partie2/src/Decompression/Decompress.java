@@ -26,12 +26,8 @@ public class Decompress {
 			while (true) {
 				boolean bit1 = in.readBoolean();
 				contentCompress += (bit1 ? 1 : 0);
-				//System.out.print (bit1 ? 1 : 0);
-				
-				
 			}
 		}catch (IOException e) { // Exception lancée notamment en fin de fichier
-			System.out.println("");
 		}finally{
 			try {
 				in.close();
@@ -39,7 +35,6 @@ public class Decompress {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(contentCompress);
 	}
 	
 	public int creationMap(){
@@ -52,14 +47,11 @@ public class Decompress {
 		char bit2;
 		
 		while(!tmp.equals("10")){
-			
 			tmp = "";
 			bit1 = contentCompress.charAt(compt);
 			tmp += bit1;
 			bit2 = contentCompress.charAt(compt+1);
 			tmp += bit2;
-			
-			System.out.println(tmp);
 			
 			if(tmp.equals("00")){
 				key += "0";
@@ -69,19 +61,15 @@ public class Decompress {
 				compt += 2;
 			}else if(tmp.equals("01")){
 				compt += 2;
-				//System.out.println(contentCompress.substring(compt, compt+8));
-				character = Integer.parseInt(contentCompress.substring(compt, compt+7));
-				System.out.println(key+"::"+(char)character);
+				character = Integer.parseInt(contentCompress.substring(compt, compt+16),2);
 				mapConvertion.put(key, (char) character);
 				
 				key = "";
-				compt += 8;
+				compt += 16;
 			}else{
 				compt += 2;
 			}
 		}
-
-		System.out.println("END HEAD : "+mapConvertion);
 		return compt;
 	}
 	
@@ -89,11 +77,9 @@ public class Decompress {
 		String result = "";
 		int compt = positionDebutStream;
 		String key = "";
-		Character valeur = null;
+		Character valeur = new Character('\0');
 		
-		System.out.println("");
-		
-		while(compt < contentCompress.length()){
+		while(!"~".equals(valeur.toString())){
 			
 			key += contentCompress.charAt(compt);
 			
@@ -102,10 +88,12 @@ public class Decompress {
 				compt ++;
 				key += contentCompress.charAt(compt);
 				valeur = mapConvertion.get(key);
-				//System.out.println(valeur+"-"+key);
 			}
-			System.out.println(valeur.toString()+"-"+key);
-			result += valeur.toString();
+			if(!valeur.toString().equals("~")){
+				result += valeur.toString();
+			}
+			key = "";
+			compt++;
 			
 		}
 		
@@ -116,8 +104,72 @@ public class Decompress {
 	public void decompressFile(){
 		readFile(); //lire tout le fichier d'un coup
 		String finalT = decompressContent(creationMap());
-		//System.out.println(finalT);
 		ReadWrite.mWrite(outputFile, finalT);
+	}
+	
+	public void test(){
+		try {
+			OutputBitStream out = new OutputBitStream("TESTDECOMP.txt");
+			
+			//key
+			out.write(true);
+			out.write(true);
+			out.write(false);
+			out.write(false);
+			out.write(false);
+			out.write(false);
+			out.write(true);
+			out.write(true);
+			
+			//delim 01
+			out.write(false);
+			out.write(true);
+			
+			//char
+			out.write('J');
+			
+			//key EOF
+			out.write(true);
+			out.write(true);
+			out.write(true);
+			out.write(true);
+			out.write(true);
+			out.write(true);
+			
+			//delim 01
+			out.write(false);
+			out.write(true);
+			
+			//char
+			out.write('~');
+			
+			//delim 10
+			out.write(true);
+			out.write(false);
+			
+			//content
+			out.write(true);
+			out.write(false);
+			out.write(false);
+			out.write(true);
+			out.write(true);
+			out.write(false);
+			out.write(false);
+			out.write(true);
+			
+			//EOF
+			out.write(true);
+			out.write(true);
+			out.write(true);
+			out.write(true);
+			out.write(true);
+			out.write(true);
+			
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {
