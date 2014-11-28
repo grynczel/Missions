@@ -71,6 +71,13 @@ La méthode close est par exemple appelée dans une situation telle que notre te
 
 \subsubsection*{Question 8 - Diagramme UML}
 
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{UML}
+\label{uml}
+\end{figure}
+UML voir Figure \ref{uml}.
+
 La classe commune entre le programme de compression et de décompression est OutputByteStream. 
 \\
 La classe Entry et Node implémentent l'interface comparable. 
@@ -84,6 +91,12 @@ Le programme ne devient efficace qu'à partir d'un certain nombre de caractères
 \subsubsection*{Question 10}
 Lors de la compression, les retours à la ligne ne sont pas pris en compte. Ainsi, lorsque le texte est décompressé, celui-ci se retrouve sur une seule ligne. A part cet inconvénient, la compression et la décompression sont sans perte. 
 
-Pour tester cela nous avons utilisé un texte comportant divers types de caractères. 
+Pour tester cela nous avons utilisé un texte comportant divers types de caractères.
 
+ 
+
+\begin{frame}
+\centering
+\includegraphics[scale=0.5]{graph}
+\end{frame}
 \end{document}
