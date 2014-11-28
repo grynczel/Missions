@@ -71,32 +71,28 @@ La méthode close est par exemple appelée dans une situation telle que notre te
 
 \subsubsection*{Question 8 - Diagramme UML}
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.4]{UML}
-\label{uml}
-\end{figure}
-UML voir Figure \ref{uml}.
-
 La classe commune entre le programme de compression et de décompression est OutputByteStream. 
 \\
 La classe Entry et Node implémentent l'interface comparable. 
+
+\includegraphics[scale=0.45]{UML.png}
 \subsubsection*{Question 9}
 Le taux de compression dépend à la fois de la taille du fichier et du nombre de caractères différents utilisés. Dans un cas extême, si de nombreux caractères différents sont utilisés dans un texte très court, le fichier compressé sera plus lourd que le fichier d'origine. C'est dû au fait qu'on ajoute le mapping des lettres à leur représentation en bits en début du fichier compressé.\\
 
 Par exemple, tenter de compresser un fichier contenant seulement les caractères "abdefghijklmnopqrstuvwxyz", le fichier original est de 26 bytes, et le fichier compressé est de 110 bytes. 
 \\
 Le programme ne devient efficace qu'à partir d'un certain nombre de caractères. 
+\\
 
+%\includegraphics[scale=0.39]{graph.png}
+\begin{figure}[b]
+   \includegraphics[scale=0.4]{graph.png}
+\end{figure}
+
+La complexité temporelle de notre décompression est en $\Theta(n^2)$ où n représente le nombre de caractères dans le fichier décompresser, ce qui correspond approximativement à la courbe rouge se trouvant sur la figure. Néanmoins, la complexité que nous avions calculée pour la compression O(n*m), où n et m représentent le nombre de lignes et le nombre de caractères de la plus longue ligne présente dans le fichier à compresser), ce qui ne correspond pas à la courbe bleue qui semble évoluer d'avance linéairement. 
 \subsubsection*{Question 10}
 Lors de la compression, les retours à la ligne ne sont pas pris en compte. Ainsi, lorsque le texte est décompressé, celui-ci se retrouve sur une seule ligne. A part cet inconvénient, la compression et la décompression sont sans perte. 
 
-Pour tester cela nous avons utilisé un texte comportant divers types de caractères.
+Pour tester cela nous avons utilisé un texte comportant divers types de caractères. 
 
- 
-
-\begin{frame}
-\centering
-\includegraphics[scale=0.5]{graph}
-\end{frame}
 \end{document}
