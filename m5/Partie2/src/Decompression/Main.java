@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public class Main {
 	public static void main(String[] args){
-		String fileToCompress = "test.txt";
+		String fileToCompress = "nomINIT.txt";
 		String fileCompress="binOut.txt";
 		String fileDecompress="resultTest.txt";
 		
@@ -12,14 +12,14 @@ public class Main {
 		huff.createHuffman(fileToCompress);
 		huff.getHashMap();
 		
-		Compressor c=new Compressor(fileToCompress,huff.getHashMap(),fileCompress);
+		Compress c=new Compress(fileToCompress,huff.getHashMap(),fileCompress);
 		c.writeFile(); // test r�ussi :D
 		
 		System.out.println("");
 		System.out.println("----------");
 		
 		Decompress d= new Decompress(fileCompress, fileDecompress);
-		d.test();
+		//d.test();
 		d.decompressFile();
 
 	}
