@@ -1,0 +1,16 @@
+Réponses aux questions complémentaire :)
+
+
+1) On aurait pu changer la façon d'écrire l'arbre, on peut aussi ajouter le nombre d'élement à lire dans le header pour éviter le EOF.
+dans le header on peut mettre le format du fichier avant par exemple, pour certain type de fichier, on commence avec un header similaire
+
+2) Ca fonctionnerait si on a une grande répetission mais ça ne fonctionnera pas à l'infini, ça voudrait dire qu'il pourrait y avoir un fichier vide ce qui est impossible!
+
+3) taux de compression de 1/8. Pour compresser encore plus, on peut stoquer un header possédant un certain nombre de répetission d'une lettre mais ça devient une autre technique
+
+4) comlexité : augmente pour plusieurs mots clés ? --> non on fait la même chose fois 2 la même chose en appelant la même fonction donc la complexité est la même
+
+5) Arraylist :) parce qu'on rempli toutes les cases et vu que tout est essentiellement rempli, donc complet
+
+
+:)
