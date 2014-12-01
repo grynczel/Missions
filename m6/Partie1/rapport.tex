@@ -55,7 +55,18 @@
 
 \begin{document}
 \maketitle
-\paragraph{Question 1}
+\paragraph{Question 1 (Baptiste Degryse)}
+Le graphe étant stocké dans une structure Edge List, il faut retrouver le Vertex dans une liste d'edges, en vérifiant à chaque fois si l'edge ne contient pas un pointer vers le vertex, si oui, il faut retirer l'edge. C'est une opération de complexité temporelle O(m) parce qu'il faut toujours tout vérifier pour ne pas rater d'edge.\\
+\begin{center}
+\includegraphics[width=0.8\textwidth]{edgeslist.png}\\
+Edge List\\
+source: Data Structures and Algorithms in Java Fourth Edition
+\end{center}
+RemoveEdge est de complexité O(1) puisqu'il s'agit d'une liste doublement chainée, tout comme insertVertex.\\
+
+La réponse dépend bien de la structure de données utilisées pour mémoriser les contenus. Si les edges étaient stockées par vertex, il serait possible d'avoir de bien meilleures performances lors de l'opération removeVertex.\\
+
+Le concept de location aware entry est indispensable pour avoir une complexité O(1) pour la méthode removeEdge.
 
 \paragraph{Question 2}
 
