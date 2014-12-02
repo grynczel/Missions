@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="/Users/Baptiste/Documents/Eclipse/AlgoGit/mission01/m5/Partie2/class"/>
+	<classpathentry kind="lib" path="/Users/jeromebertaux/Documents/Git/Missions/m5/Partie2/class"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path=""/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
