@@ -80,7 +80,30 @@ Le concept de location aware entry est indispensable pour avoir une complexité 
 
 \paragraph{Question 4}
 
-\paragraph{Question 5}
+\paragraph{Question 5 (Bertaux Jérôme) On considère un réseau téléphonique qui peut être vu comme un graphe G dont les sommets représentent des terminaux de commutation et les arcs représentent des lignes de communication entre ces terminaux. Chaque arc est étiqueté par la bande passante de la ligne qu’il représente. La bande passante d’un chemin dans le graphe est la bande passante de son arc de bande passante minimale (autrement dit, le maillon faible !...). On s'intéresse à l’algorithme \textit{MaxBandWidth(G, a, b)} qui, étant donné un réseau, représenté par un graphe G, et deux terminaux a et b, renvoie la bande passante maximale d’un chemin entre a et b. Donnez le pseudo- code de l’algorithme \textit{MaxBandWidth(G, a, b)}. Piste de solution : pensez à une variante d’un algorithme bien connu présenté dans le livre de référence.}
+
+Le principe est qu'il faut parcourir tout le graphe en trouvant l'arc (les lignes de communication entre les terminaux) dont la bande passante est la plus faible. L'algorithme de \textit{MaxBandWidth(G, a, b)} est inspiré de l'algorithme de Dijkstra.\\
+
+Pseudo-code de \textit{MaxBandWidth(G, a, b)}:\\
+     Input: un graphe simple G non dirigé dont chacune des arêtes se voit attribuer une capacité maximale (bande passante maximale), ainsi que deux nœuds a,b de G.
+	 
+     Output: une étiquette D[b], pour chaque nœud b de G, tel que D[b] est la bande passante maximale d’un chemin entre a et b dans G.
+      
+      Initialize D[a] = 0 et D[b] =  $\infty$ pour chaque noeud b $\neq$ a\\
+      Soit Q la file de priorité contenant tous les nœuds de G en prenant les étiquettes D comme étant les clés.
+\begin{verbatim}
+Algorithm MaxBandWidth(G, a, b):
+     while Q is not empty do
+          u = Q.removeMin()
+          for each edge (u,b) such that b is in Q do
+               if D[u] + w(u,b) < D[b] then
+                    D[b] = D[u] + w(u,v)
+                    Change the key of vertex b in Q to D[b].
+     return the label D[b] of each vertex v
+\end{verbatim}
+
+
+
 
 \paragraph{Question 6 (Charles Jacquet) Quelle est la complexité temporelle de votre algorithme MaxBandWidth(G, a, b) (décrit à la question 5) ? Précisez notamment les hypothèses éventuelles sur l’implémentation des structures de données utilisées, dans la mesure où ces hypothèses seraient importantes pour justifier la complexité annoncée.}
 

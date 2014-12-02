@@ -1,6 +1,3 @@
-
-
-
 For the second individual project, you will analyse in details a remote website by observing its responses over the Internet. Your objective is to write a short (4 pages) report that describes in details the key technical elements that you have found while interacting with this server.
 
 Connect to your web server by using a browser with developper extensions to be able to analyse in details the HTTP requests that are sent and the headers that are received. Try to identify the following information :
@@ -48,4 +45,3 @@ The Domain Name System (DNS) plays a key role in the operation of Internet serve
 - Do all DNS resolvers provide the same answer to your request ? (If your web server is supported by a CDN, the DNS resolvers will probably reply with the address of a close CDN server)
 
 In cooperation with the RIPE Atlas measurement platform (http://atlas.ripe.net), we can help you to answer the last question by running DNS queries from measurement nodes outside Belgium. Atlas provides an API that enables us to perform measurements from any RIPE Atlas node. This measurement will give you more information about the access to the website that you analyse from other countries. We will run the measurement script on Monday Nov 24th. You can request measurements from RIPE Atlas nodes by adding the DNS names for which you need information on the course wiki. The measurement results will be available in JSON format from the RIPE Atlas website.
-
