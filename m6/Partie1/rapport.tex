@@ -110,7 +110,26 @@ Algorithm MaxBandWidth(G, a, b):
 
 
 \paragraph{Question 6 (Charles Jacquet) Quelle est la complexité temporelle de votre algorithme MaxBandWidth(G, a, b) (décrit à la question 5) ? Précisez notamment les hypothèses éventuelles sur l’implémentation des structures de données utilisées, dans la mesure où ces hypothèses seraient importantes pour justifier la complexité annoncée.}
+L'algorithme présenté à la question 5 est en fait l'algorithme de Dijkstra. Nous avons donc une complexité qui dépend de la manière dont on implémente la "priority queue". Voici les complexités temporelles dans le pire des cas avec n le nombre de sommets : \\
+\begin{itemize}
+\item \textbf{Implémentation avec un tas : } $O(n^2 log(n))$
+\item \textbf{Implémentation avec une séquence non-triée} $O(n^2)$
+\end{itemize}
 
+Notre choix de la structure à implémenter va donc dépendre des cas.
+
+Hypothèses:
+\begin{itemize}
+\item On utilise une liste adjacente ou une map adjacente pour implémenter l'algorithme
+\item On considère que le temps pour additionner les poids des différents arcs est constant.
+\end{itemize}
+
+Brève explication du calcul de la complexité:
+
+Premièrement, le fait d'utiliser une liste/ map adjacente nous permet d'avoir accès aux éléments adjacents dans un temps proportionnel à son numéro.\\
+La boucle interne s'exécute en O(n).\\
+Vu que le nombre de sommets est de n, le nombre maximal d'insertion est de n.\\
+En prenant le cas d'une implémentation avec un tas, nous avons que chaque opération s'exécute en $O(log(n))$ ce qui nous donne une complexité de $O(n^2 log(n))$.
 
 
 \end{document}
