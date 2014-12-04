@@ -82,8 +82,21 @@ Justification: Avec une matrice adjacente on doit vérifier, pour chaque sommet 
 
 \paragraph{Question 3}
 
-\paragraph{Question 4}
+\paragraph{Question 4 (Cambier Rodolphe) On considère l’algorithme MYSHORTESTPATH pour trouver le plus court chemin
+entre un sommet start et un sommet destination dans un graphe pondéré
+connecté. Tous les poids sont supposés positifs et le graphe est supposé simple. (voir ICampus) 
+L’algorithme MYSHORTESTPATH fonctionne-t-il toujours, jamais ou parfois seulement
+? Argumentez.} Cet algorithme fonctionnera parfois seulement. En effet, considérons les deux graphes simples suivants :
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{graphs}
+\caption{MYSHORTESTPATH sur deux graphes différents}
+\end{figure} 
+
+On remarque dans cette figure que la fonction retourne le plus court chemin dans le premier cas, mais pas dans le deuxième cas, où il aurait été plus efficace de passer par 10+1 = 11 que par 1+15 = 16. 
+
+Pour être certain d'obtenir le plus court chemin à tous les coups, il faut utiliser l'algorithme de Dijkstra, en parcourant tous les noeuds par niveau et en retenant pour chacun d'entre eux le plus court chemin depuis le start jusqu'à ceux-ci. Lorsqu'on arrivera à destination on connaîtra alors le plus court chemin du start à la destination, ainsi que son poids.
 \paragraph{Question 5 (Bertaux Jérôme) On considère un réseau téléphonique qui peut être vu comme un graphe G dont les sommets représentent des terminaux de commutation et les arcs représentent des lignes de communication entre ces terminaux. Chaque arc est étiqueté par la bande passante de la ligne qu’il représente. La bande passante d’un chemin dans le graphe est la bande passante de son arc de bande passante minimale (autrement dit, le maillon faible !...). On s'intéresse à l’algorithme \textit{MaxBandWidth(G, a, b)} qui, étant donné un réseau, représenté par un graphe G, et deux terminaux a et b, renvoie la bande passante maximale d’un chemin entre a et b. Donnez le pseudo- code de l’algorithme \textit{MaxBandWidth(G, a, b)}. Piste de solution : pensez à une variante d’un algorithme bien connu présenté dans le livre de référence.}
 
 Le principe est qu'il faut parcourir tout le graphe en trouvant l'arc (les lignes de communication entre les terminaux) dont la bande passante est la plus faible. L'algorithme de \textit{MaxBandWidth(G, a, b)} est inspiré de l'algorithme de Dijkstra.\\
