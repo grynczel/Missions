@@ -80,7 +80,10 @@ $ O(n^2) $ 	n = nombre de noeuds\\
 Justification: Avec une matrice adjacente on doit vérifier, pour chaque sommet  tous les arêtes sortants possibles.
 
 
-\paragraph{Question 3}
+\paragraph{Question 3 (Ivan) Une file peut-elle être utilisée au lieu d'une pile comme structure de données auxiliaire lors du tri topologique d'un graphe? Sinon, pourquoi? Si oui, le résultat du tri topologique est-il différent par rapport au cas où une pile est utilisée? Jamais, parfois, toujours? \\}
+
+On peut utiliser une file, cependant l'ordre des noeuds sera différent étant donné que la pile utilise le principe de LIFO et que la file utilise le principe de FIFO. Donc lorsque l'on stocke les noeuds dans la file, l'élément en tête de file sera le premier noeud visité et ainsi de suite jusqu'à le dernier noeud se trouvant tout derrière. Pour la pile, on commence d'abord par stocker les noeuds visités en dernier étant donné que l'élément au sommet sera le premier à être retourné, s'agissant donc du premier noeud visité. \\
+
 
 \paragraph{Question 4 (Cambier Rodolphe) On considère l’algorithme MYSHORTESTPATH pour trouver le plus court chemin
 entre un sommet start et un sommet destination dans un graphe pondéré
