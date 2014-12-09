@@ -31,6 +31,5 @@ public class Main {
 			System.exit(1);
 		
 		ArrayList<String> ar=ReadWrite.mRead(filename);
-		GraphD graph=new GraphD(ar);
 	}
 }
