@@ -67,28 +67,16 @@ public class KruskalAlgorithm {
 			graph.insertEdge(v, w, weight);
 		}
 
-		//kruska(graph);
-		
-		
-		UF s = new UF(10);
-		s.union(0, 1);
-		
-		
-		System.out.println(s.connected(0, 1));
-		// System.out.println(graph);
+		kruska(graph);
 	}
 
 	public static PositionalList<Edge<Integer>> kruska(Graph G) {
-		// tree is where we will store result as it is computed
 		PositionalList<Edge<Integer>> tree = new LinkedPositionalList<>();
 
-		// union-find forest of components of the graph
-		// map each vertex to the forest position
-		Map<Vertex<Integer>, Position<Vertex<Integer>>> positions = new ProbeHashMap<>();
+		Map<Vertex<Integer>, Integer> positions = new ProbeHashMap<>();
 
-		Partition<Vertex<Integer>> forest = new Partition<Vertex<Integer>>();
 		for (Vertex<Integer> v : graph.vertices())
-			positions.put(v, forest.makeCluster(v));
+			positions.put(v, v.getElement());
 
 		PriorityQueue<Integer, Edge<Integer>> pq = new HeapPriorityQueue<>();
 
@@ -96,26 +84,26 @@ public class KruskalAlgorithm {
 			pq.insert(e.getElement(), e);
 
 		int size = graph.numVertices();
+
+		UF unionFind = new UF(size);
+
 		// while tree not spanning and unprocessed edges remain...
 		while (tree.size() != size - 1 && !pq.isEmpty()) {
 			Entry<Integer, Edge<Integer>> entry = pq.removeMin();
 			Edge<Integer> edge = entry.getValue();
 			Vertex<Integer>[] endpoints = graph.endVertices(edge);
-			
-			Position<Vertex<Integer>> a = forest.find(positions
-					.get(endpoints[0]));
 
-			Position<Vertex<Integer>> b = forest.find(positions
-					.get(endpoints[1]));
+			int a = positions.get(endpoints[0]);
+			int b = positions.get(endpoints[1]);
 
-			if (a != b) {
+			if (!unionFind.connected(a, b)) {
 				System.out.println("Add edge : "
 						+ m.get(new Integer(endpoints[0].getElement()))
 						+ " - > "
 						+ m.get(new Integer(endpoints[1].getElement())) + " ("
 						+ entry.getKey() + ")");
 				tree.addLast(edge);
-				forest.union(a, b);
+				unionFind.union(a, b);
 			} else {
 				System.out.println("Not add edge : "
 						+ m.get(new Integer(endpoints[0].getElement()))
