@@ -64,6 +64,21 @@ public class ReadWrite {
 		}
 		return lu;
 	}
+	/**
+	 * 
+	 * @param list est une arraylist de string; chaque String est une suite Src Dest Path Prix
+	 * @post Ecrit tout dans le fichier correspondant.
+	 * @param pathFileOut
+	 * @throws IOException
+	 */
+	public void writeGraph(ArrayList<String> list, String pathFileOut) throws IOException {
+		PrintWriter print = openOutput(pathFileOut);
+		for(String s:list){
+			print.println(s);
+		}
+		
+		
+	}
 
 	public static PrintWriter openOutput(String pathFileOut)
 			throws FileNotFoundException {
