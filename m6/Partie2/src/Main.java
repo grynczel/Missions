@@ -31,5 +31,8 @@ public class Main {
 			System.exit(1);
 		
 		ArrayList<String> ar=ReadWrite.mRead(filename);
+		
+		KruskalAlgorithm ka = new KruskalAlgorithm(ar);
+		ka.kruskaAlgorithm();
 	}
 }

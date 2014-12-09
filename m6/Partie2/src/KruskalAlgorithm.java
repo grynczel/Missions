@@ -21,38 +21,62 @@ import net.datastructures.Vertex;
 
 public class KruskalAlgorithm {
 
-	private static Graph<Integer, Integer> graph = new AdjacencyMapGraph<Integer, Integer>(
-			false);
+	private Graph<Integer, Integer> graph;
+	private ArrayList<String> ar;
 
-	private static HashMap<Integer, String> m;
+	public KruskalAlgorithm(ArrayList<String> ar) {
+		this.ar = ar;
+		graph = new AdjacencyMapGraph<Integer, Integer>(false);
+	}
 
-	public static void main(String args[]) {
+	// private static HashMap<Integer, String> m;
+	//
+	// public static void main(String args[]) {
+	//
+	// m = new HashMap<Integer, String>();
+	//
+	// m.put(new Integer(1), "A");
+	// m.put(new Integer(2), "B");
+	// m.put(new Integer(3), "C");
+	// m.put(new Integer(4), "D");
+	// m.put(new Integer(5), "E");
+	// m.put(new Integer(6), "F");
+	// m.put(new Integer(7), "G");
+	//
+	// List<String> list = new ArrayList<String>();
+	//
+	// list.add("1	2	7");
+	// list.add("1	4	5");
+	// list.add("2	4	9");
+	// list.add("2	3	8");
+	// list.add("2	5	7");
+	// list.add("3	5	5");
+	// list.add("4	5	15");
+	// list.add("4	6	6");
+	// list.add("6	7	11");
+	// list.add("6	5	8");
+	// list.add("7	5	9");
+	//
+	// for (String item : list) {
+	// String[] fields = item.split("\t", -1);
+	//
+	// for (int i = 0; i < fields.length; ++i) {
+	// if ("".equals(fields[i]))
+	// fields[i] = null;
+	// }
+	//
+	// Vertex v = graph.insertVertex(Integer.parseInt(fields[0]));
+	// Vertex w = graph.insertVertex(Integer.parseInt(fields[1]));
+	// int weight = Integer.parseInt(fields[2]);
+	//
+	// graph.insertEdge(v, w, weight);
+	// }
+	//
+	// kruskaAlgorithm(graph);
+	// }
 
-		m = new HashMap<Integer, String>();
-
-		m.put(new Integer(1), "A");
-		m.put(new Integer(2), "B");
-		m.put(new Integer(3), "C");
-		m.put(new Integer(4), "D");
-		m.put(new Integer(5), "E");
-		m.put(new Integer(6), "F");
-		m.put(new Integer(7), "G");
-
-		List<String> list = new ArrayList<String>();
-
-		list.add("1	2	7");
-		list.add("1	4	5");
-		list.add("2	4	9");
-		list.add("2	3	8");
-		list.add("2	5	7");
-		list.add("3	5	5");
-		list.add("4	5	15");
-		list.add("4	6	6");
-		list.add("6	7	11");
-		list.add("6	5	8");
-		list.add("7	5	9");
-
-		for (String item : list) {
+	public Graph<Integer, Integer> buildGraph() {
+		for (String item : ar) {
 			String[] fields = item.split("\t", -1);
 
 			for (int i = 0; i < fields.length; ++i) {
@@ -63,14 +87,14 @@ public class KruskalAlgorithm {
 			Vertex v = graph.insertVertex(Integer.parseInt(fields[0]));
 			Vertex w = graph.insertVertex(Integer.parseInt(fields[1]));
 			int weight = Integer.parseInt(fields[2]);
-
+			//System.out.println(v.getElement() + " -- " + w.getElement() + "[label=" + weight + ",weight="+ weight + "];");
 			graph.insertEdge(v, w, weight);
 		}
-
-		kruska(graph);
+		return graph;
 	}
 
-	public static PositionalList<Edge<Integer>> kruska(Graph G) {
+	public PositionalList<Edge<Integer>> kruskaAlgorithm() {
+		buildGraph();		
 		PositionalList<Edge<Integer>> tree = new LinkedPositionalList<>();
 
 		Map<Vertex<Integer>, Integer> positions = new ProbeHashMap<>();
@@ -87,41 +111,30 @@ public class KruskalAlgorithm {
 
 		UF unionFind = new UF(size);
 
-		// while tree not spanning and unprocessed edges remain...
 		while (tree.size() != size - 1 && !pq.isEmpty()) {
 			Entry<Integer, Edge<Integer>> entry = pq.removeMin();
 			Edge<Integer> edge = entry.getValue();
 			Vertex<Integer>[] endpoints = graph.endVertices(edge);
 
-			int a = positions.get(endpoints[0]);
-			int b = positions.get(endpoints[1]);
+			int v = positions.get(endpoints[0]);
+			int w = positions.get(endpoints[1]);
 
-			if (!unionFind.connected(a, b)) {
-				System.out.println("Add edge : "
-						+ m.get(new Integer(endpoints[0].getElement()))
-						+ " - > "
-						+ m.get(new Integer(endpoints[1].getElement())) + " ("
-						+ entry.getKey() + ")");
+			if (!unionFind.connected(v, w)) {
+			System.out.println(v + " -- " + w + "[label=" + entry.getKey() + ",weight="+ entry.getKey() + "];");
+				
+				
+//				System.out.println("Add edge : " + v + " - > " + w + " ("
+//						+ entry.getKey() + ")");
 				tree.addLast(edge);
-				unionFind.union(a, b);
+				unionFind.union(v, w);
 			} else {
-				System.out.println("Not add edge : "
-						+ m.get(new Integer(endpoints[0].getElement()))
-						+ " - > "
-						+ m.get(new Integer(endpoints[1].getElement())) + " ("
-						+ entry.getKey() + ")");
+//				System.out.println("Not add edge : " + v + " - > " + w
+//						+ entry.getKey() + ")");
 			}
 		}
 
+		
+		
 		return tree;
-
-		// PositionalList<Edge<Integer>> a =
-		// net.datastructures.GraphAlgorithms.MST(graph);
-		// Iterator<Edge<Integer>> it = a.iterator();
-		//
-		// while (it.hasNext()) {
-		// Edge<java.lang.Integer> edge = (Edge<java.lang.Integer>) it.next();
-		// System.out.println(edge.getElement());
-		// }
 	}
 }
