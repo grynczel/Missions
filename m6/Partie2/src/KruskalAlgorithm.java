@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Timer;
 
 import net.datastructures.AdjacencyMapGraph;
 import net.datastructures.Edge;
@@ -7,10 +6,8 @@ import net.datastructures.Entry;
 import net.datastructures.Graph;
 import net.datastructures.HeapPriorityQueue;
 import net.datastructures.LinkedPositionalList;
-import net.datastructures.Map;
 import net.datastructures.PositionalList;
 import net.datastructures.PriorityQueue;
-import net.datastructures.ProbeHashMap;
 import net.datastructures.Vertex;
 
 public class KruskalAlgorithm {
@@ -21,13 +18,31 @@ public class KruskalAlgorithm {
 
 	private Graph<Integer, Integer> graph;
 	private ArrayList<String> ar;
+	
+	/*
+	 * Constructor
+	 * 
+	 * @pram ar : A list of string. Syntax "<Vertex A> <Vertex B> <Weight>"
+	 */
 
 	public KruskalAlgorithm(ArrayList<String> ar) {
+		if(ar.size() == 0){
+			System.out.println("La liste ne peut pas etre vide");
+			return;
+		}
 		this.ar = ar;
-		graph = new AdjacencyMapGraph<Integer, Integer>(false);
+		//Create an empty graph. (false = undirected graph)
+		this.graph = new AdjacencyMapGraph<Integer, Integer>(false);
 	}
 
+
+	/**
+	 * Creates a graph
+	 * 
+	 * @return Graph<Integer, Integer>
+	 */
 	public Graph<Integer, Integer> buildGraph() {
+		
 		for (String item : ar) {
 			String[] fields = item.split("\t", -1);
 
@@ -36,10 +51,11 @@ public class KruskalAlgorithm {
 					fields[i] = null;
 			}
 
-			Vertex v = graph.insertVertex(Integer.parseInt(fields[0]));
-			Vertex w = graph.insertVertex(Integer.parseInt(fields[1]));
+			Vertex<Integer> v = graph.insertVertex(Integer.parseInt(fields[0]));
+			Vertex<Integer> w = graph.insertVertex(Integer.parseInt(fields[1]));
 			int weight = Integer.parseInt(fields[2]);
-			// System.out.println(v.getElement() + " -- " + w.getElement() + "[label=" + weight + ",weight="+ weight + "];");
+			// System.out.println(v.getElement() + " -- " + w.getElement() +
+			// "[label=" + weight + ",weight="+ weight + "];");
 			graph.insertEdge(v, w, weight);
 		}
 		return graph;
@@ -49,33 +65,35 @@ public class KruskalAlgorithm {
 		long startTime = System.currentTimeMillis();
 		buildGraph();
 		int totalWeight = 0, size = graph.numVertices();
-		
-		PositionalList<Edge<Integer>> tree 			= new LinkedPositionalList<>();
-		PriorityQueue<Integer, Edge<Integer>> pq 	= new HeapPriorityQueue<>();
-		UF unionFind 								= new UF(size);
-		
+
+		PositionalList<Edge<Integer>> tree = new LinkedPositionalList<>();
+		PriorityQueue<Integer, Edge<Integer>> pq = new HeapPriorityQueue<>();
+		UF unionFind = new UF(size); //Source http://algs4.cs.princeton.edu/15uf/UF.java.html
+
 		for (Edge<Integer> e : graph.edges())
 			pq.insert(e.getElement(), e);
 
 		while (tree.size() != size - 1 && !pq.isEmpty()) {
-			
+
 			Entry<Integer, Edge<Integer>> entry = pq.removeMin();
 			Edge<Integer> edge = entry.getValue();
 			Vertex<Integer>[] endpoints = graph.endVertices(edge);
-			
+
 			int v = endpoints[0].getElement();
 			int w = endpoints[1].getElement();
 
 			if (!unionFind.connected(v, w)) {
-				//System.out.println(v + " -- " + w + "[label=" + entry.getKey() + ",weight=" + entry.getKey() + "];");
+				// System.out.println(v + " -- " + w + "[label=" +
+				// entry.getKey() + ",weight=" + entry.getKey() + "];");
 				totalWeight += entry.getKey();
 				tree.addLast(edge);
 				unionFind.union(v, w);
 			}
 		}
-		System.out.println("Total weight : " + totalWeight);
+		System.out.println("Kruska - Total weight : " + totalWeight);
 		long endTime = System.currentTimeMillis();
-	    System.out.println("Total execution time: " + (endTime-startTime) + "ms"); 
+		System.out.println("Kruska - Total execution time: "
+				+ (endTime - startTime) + "ms");
 		return tree;
 	}
 }
