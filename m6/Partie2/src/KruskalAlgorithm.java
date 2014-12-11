@@ -61,19 +61,19 @@ public class KruskalAlgorithm {
 		return graph;
 	}
 
-	public PositionalList<Edge<Integer>> kruskaAlgorithm() {
+	public ArrayList<String> kruskaAlgorithm() {
 		long startTime = System.currentTimeMillis();
 		buildGraph();
 		int totalWeight = 0, size = graph.numVertices();
 
-		PositionalList<Edge<Integer>> tree = new LinkedPositionalList<>();
+		ArrayList<String> result = new ArrayList<String>();
 		PriorityQueue<Integer, Edge<Integer>> pq = new HeapPriorityQueue<>();
 		UF unionFind = new UF(size); //Source http://algs4.cs.princeton.edu/15uf/UF.java.html
 
 		for (Edge<Integer> e : graph.edges())
 			pq.insert(e.getElement(), e);
 
-		while (tree.size() != size - 1 && !pq.isEmpty()) {
+		while (result.size() != size - 1 && !pq.isEmpty()) {
 
 			Entry<Integer, Edge<Integer>> entry = pq.removeMin();
 			Edge<Integer> edge = entry.getValue();
@@ -86,7 +86,7 @@ public class KruskalAlgorithm {
 				// System.out.println(v + " -- " + w + "[label=" +
 				// entry.getKey() + ",weight=" + entry.getKey() + "];");
 				totalWeight += entry.getKey();
-				tree.addLast(edge);
+				result.add(v + "\t" + w + "\t" +entry.getKey());
 				unionFind.union(v, w);
 			}
 		}
@@ -94,6 +94,6 @@ public class KruskalAlgorithm {
 		long endTime = System.currentTimeMillis();
 		System.out.println("Kruska - Total execution time: "
 				+ (endTime - startTime) + "ms");
-		return tree;
+		return result;
 	}
 }

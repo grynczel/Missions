@@ -33,6 +33,11 @@ public class Main {
 		ArrayList<String> ar=ReadWrite.mRead(filename);
 		
 		KruskalAlgorithm ka = new KruskalAlgorithm(ar);
-		ka.kruskaAlgorithm();
+		ArrayList<String> resultat = ka.kruskaAlgorithm();
+		
+		
+		for(String s : resultat){
+			System.out.println(s);
+		}
 	}
 }
