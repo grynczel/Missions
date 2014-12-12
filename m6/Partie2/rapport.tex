@@ -63,19 +63,10 @@ Le but de la mission est de créer un algorithme capable de faire une liste de t
 \section*{Questions}
 
 \subsection*{Question 1}
-Les solutions proposées peuvent ne pas être uniques car il est possible qu'il existe plsuieurs chemins ayant un coût minimal entre deux noeuds. Les solutions sont bien optimales car l'algorithme permet de récupérer les poids minimaux des arêtes reliant les paires de noeuds. 
+Les solutions proposées ne peuvent pas être uniques car il est possible qu'il existe plusieurs chemins ayant un coût minimal entre deux noeuds. Les solutions sont bien optimales car l'algorithme permet de récupérer les poids minimaux des arêtes reliant les paires de noeuds. 
 \subsection*{Question 2}
-Notre algorithme a une complexité supérieure à la complexité théorique en O(n*log n) de l'algorithme de Kruskal où n représente le nombre d'arrêtes, car la méthode buildGraph() de notre programme fait appel à deux boucles imbriquées, qui est appelée par la méthode "KruskaAlgorithm" 
+Notre algorithme a une complexité supérieure à la complexité théorique en O(m*log n) de l'algorithme de Kruskal où n représente le nombre d'arrêtes et m le nombre de noeuds, car la méthode buildGraph() de notre programme fait appel à deux boucles imbriquées, qui est appelée par la méthode "KruskaAlgorithm" 
 \subsection*{Question 3}
-
-Un etechnique serait de modifier l'algorithme de Kurskal, et de faire en sorte que lorsque l'on cherche la plus petite des \textit{edges} parmis toutes celles restantes, on prenne en compte le poids des transits. Pour faire cela, il faut calculer la taille des \textit{Clusters} correspondants à chacunes des deux \textit{vertices} aux extrémités de chaque \textit{edge}, et les mutliplier, ce qui nous donnera le nombres de transits passant par cette \textit{edge}.
-
-En prenant cela en compte, on peut continuer l'algorithme et trouver le graphe optimal,tenant en compte des transits.
-
-
-
-\section*{Diagramme UML}
-=======
 Une technique serait de modifier l'algorithme de Kurskal, et de faire en sorte que lorsque l'on cherche la plus petite des \textit{edges} parmis toutes celles restantes, on prenne en compte le poids des transits. Pour faire cela, il faut calculer la taille des \textit{Clusters} correspondants à chacunes des deux \textit{vertices} aux extrémités de chaque \textit{edge}, et les mutliplier, ce qui nous donnera le nombres de transits passant par cette \textit{edge}.
 
 En prenant cela en compte, on peut continuer l'algorithme et trouver le graphe optimal, tenant en compte des transits.
@@ -83,7 +74,7 @@ En prenant cela en compte, on peut continuer l'algorithme et trouver le graphe o
 
 \section*{Diagramme UML}
 \begin{figure}[b]
-   \includegraphics[scale=0.4]{UML.png}
+   \includegraphics[scale=0.7]{UML.png}
 \end{figure}
 
 \end{document}
